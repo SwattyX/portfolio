@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on </title>
+    <link>//localhost:1313/zh-cn/tags/</link>
+    <description>Recent content in Tags on </description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 23 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/zh-cn/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docs</title>
+      <link>//localhost:1313/zh-cn/tags/docs/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/docs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>New</title>
+      <link>//localhost:1313/zh-cn/tags/new/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/new/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Installation</title>
+      <link>//localhost:1313/zh-cn/tags/installation/</link>
+      <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/installation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Config</title>
+      <link>//localhost:1313/zh-cn/tags/config/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/config/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Icons</title>
+      <link>//localhost:1313/zh-cn/tags/icons/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/icons/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sample</title>
+      <link>//localhost:1313/zh-cn/tags/sample/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/sample/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shortcodes</title>
+      <link>//localhost:1313/zh-cn/tags/shortcodes/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/shortcodes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Users</title>
+      <link>//localhost:1313/zh-cn/tags/users/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/users/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Homepage</title>
+      <link>//localhost:1313/zh-cn/tags/homepage/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/homepage/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Layouts</title>
+      <link>//localhost:1313/zh-cn/tags/layouts/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/layouts/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Front Matter</title>
+      <link>//localhost:1313/zh-cn/tags/front-matter/</link>
+      <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/front-matter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Icon</title>
+      <link>//localhost:1313/zh-cn/tags/icon/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/icon/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lead</title>
+      <link>//localhost:1313/zh-cn/tags/lead/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/lead/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mermaid</title>
+      <link>//localhost:1313/zh-cn/tags/mermaid/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/mermaid/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Analytics</title>
+      <link>//localhost:1313/zh-cn/tags/analytics/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/analytics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Comments</title>
+      <link>//localhost:1313/zh-cn/tags/comments/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/comments/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Favicons</title>
+      <link>//localhost:1313/zh-cn/tags/favicons/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/favicons/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Partials</title>
+      <link>//localhost:1313/zh-cn/tags/partials/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/partials/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Privacy</title>
+      <link>//localhost:1313/zh-cn/tags/privacy/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/privacy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Content</title>
+      <link>//localhost:1313/zh-cn/tags/content/</link>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/content/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Example</title>
+      <link>//localhost:1313/zh-cn/tags/example/</link>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/example/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deployment</title>
+      <link>//localhost:1313/zh-cn/tags/deployment/</link>
+      <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/deployment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github</title>
+      <link>//localhost:1313/zh-cn/tags/github/</link>
+      <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/github/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hosting</title>
+      <link>//localhost:1313/zh-cn/tags/hosting/</link>
+      <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/hosting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Netlify</title>
+      <link>//localhost:1313/zh-cn/tags/netlify/</link>
+      <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/netlify/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Render</title>
+      <link>//localhost:1313/zh-cn/tags/render/</link>
+      <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/render/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Css</title>
+      <link>//localhost:1313/zh-cn/tags/css/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/css/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Html</title>
+      <link>//localhost:1313/zh-cn/tags/html/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/html/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown</title>
+      <link>//localhost:1313/zh-cn/tags/markdown/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gist</title>
+      <link>//localhost:1313/zh-cn/tags/gist/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/gist/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Twitter</title>
+      <link>//localhost:1313/zh-cn/tags/twitter/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/twitter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vimeo</title>
+      <link>//localhost:1313/zh-cn/tags/vimeo/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/vimeo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Youtube</title>
+      <link>//localhost:1313/zh-cn/tags/youtube/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/youtube/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Katex</title>
+      <link>//localhost:1313/zh-cn/tags/katex/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/katex/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Maths</title>
+      <link>//localhost:1313/zh-cn/tags/maths/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/maths/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Chart</title>
+      <link>//localhost:1313/zh-cn/tags/chart/</link>
+      <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/chart/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Diagram</title>
+      <link>//localhost:1313/zh-cn/tags/diagram/</link>
+      <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/diagram/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Graph</title>
+      <link>//localhost:1313/zh-cn/tags/graph/</link>
+      <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/graph/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Emoji</title>
+      <link>//localhost:1313/zh-cn/tags/emoji/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/emoji/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>advanced</title>
+      <link>//localhost:1313/zh-cn/tags/advanced/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/advanced/</guid>
+      <description>这是高级标签。就像Congo中的其他列表页面一样，您可以为单个分类术语添加自定义内容，并将其显示在术语列表的顶部。 :rocket:</description>
+    </item>
+    <item>
+      <title>高级</title>
+      <link>//localhost:1313/zh-cn/tags/%E9%AB%98%E7%BA%A7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/%E9%AB%98%E7%BA%A7/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>文档</title>
+      <link>//localhost:1313/zh-cn/tags/%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh-cn/tags/%E6%96%87%E6%A1%A3/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

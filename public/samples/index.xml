@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Content Samples on RRogers</title>
+    <link>//localhost:1313/samples/</link>
+    <description>Recent content in Content Samples on RRogers</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <copyright>Copyright &amp;copy; 2024 - Randolph Rogers</copyright>
+    <atom:link href="//localhost:1313/samples/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
