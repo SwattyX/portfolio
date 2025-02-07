@@ -1,5 +1,5 @@
 ---
-title: "Building Data Lake on AWS"
+title: "Building a Data Lake on AWS"
 date: 2024-12-20
 description: "This was a project for one of my master degree courses."
 tags: ["Datalake", "AWS"]
