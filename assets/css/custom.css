@@ -1,0 +1,65 @@
+/* header for wide screens */
+@media (min-width: 700px) {
+	#header-narrow {
+		display: none !important;
+	}
+
+	.header-wide {
+		display: block !important;
+	}
+}
+
+/* header for narrow screens */
+@media (max-width: 700px) {
+	#header-narrow {
+		display: block !important;
+	}
+
+	.header-wide {
+		display: none !important;
+	}
+
+	li#header-narrow > label > div > ul {
+		padding-top: 3rem !important;
+	}
+}
+
+/* scrollbars */
+:is(.dark) {
+	scrollbar-color: rgb(var(--color-neutral-500)) transparent;
+}
+
+:not(:is(.dark)) {
+	scrollbar-color: rgb(var(--color-neutral-400)) transparent;
+}
+
+/* wider content width */
+.max-w-7xl {
+	max-width: 100rem !important;
+}
+
+.max-w-prose {
+	max-width: 100ch !important;
+}
+
+
+/* Wide-screen header item spacing */
+@media (min-width: 640px) {
+    /* Target the <ul> with sm:flex and sm:space-x-6 */
+    ul.sm\:flex.sm\:items-center.sm\:space-x-6 > li.group:not(:last-child) {
+      margin-right: .75rem; /* Adjust the value as needed for more spacing */
+    }
+  
+    /* For Right-to-Left (RTL) layouts, if applicable */
+    [dir="rtl"] ul.sm\:flex.sm\:items-center.sm\:space-x-6 > li.group:not(:last-child) {
+      margin-left: 2rem; /* Adjust the value as needed for more spacing */
+      margin-right: .75;
+    }
+  }
+  
+  .icon svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+  }
+ 

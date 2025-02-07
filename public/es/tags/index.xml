@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Etiquetas on RRogers</title>
+    <link>http://localhost:1313/es/tags/</link>
+    <description>Recent content in Etiquetas on RRogers</description>
+    <generator>Hugo</generator>
+    <language>es-ES</language>
+    <copyright>Copyright &amp;copy; 2024 - Randolph Rogers</copyright>
+    <lastBuildDate>Fri, 17 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gaming</title>
+      <link>http://localhost:1313/es/tags/gaming/</link>
+      <pubDate>Fri, 17 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/gaming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/es/tags/python/</link>
+      <pubDate>Fri, 17 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Simulation</title>
+      <link>http://localhost:1313/es/tags/simulation/</link>
+      <pubDate>Fri, 17 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/simulation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AWS</title>
+      <link>http://localhost:1313/es/tags/aws/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Datalake</title>
+      <link>http://localhost:1313/es/tags/datalake/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/datalake/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Classification</title>
+      <link>http://localhost:1313/es/tags/classification/</link>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/classification/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Leaning</title>
+      <link>http://localhost:1313/es/tags/machine-leaning/</link>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/machine-leaning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cybersecurity</title>
+      <link>http://localhost:1313/es/tags/cybersecurity/</link>
+      <pubDate>Thu, 26 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/cybersecurity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Flask</title>
+      <link>http://localhost:1313/es/tags/flask/</link>
+      <pubDate>Thu, 26 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/flask/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>http://localhost:1313/es/tags/machine-learning/</link>
+      <pubDate>Thu, 26 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Covid-19</title>
+      <link>http://localhost:1313/es/tags/covid-19/</link>
+      <pubDate>Fri, 05 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/covid-19/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NLP</title>
+      <link>http://localhost:1313/es/tags/nlp/</link>
+      <pubDate>Fri, 05 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/nlp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sentiment Analysis</title>
+      <link>http://localhost:1313/es/tags/sentiment-analysis/</link>
+      <pubDate>Fri, 05 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/sentiment-analysis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Twitter Data</title>
+      <link>http://localhost:1313/es/tags/twitter-data/</link>
+      <pubDate>Fri, 05 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es/tags/twitter-data/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

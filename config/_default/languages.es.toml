@@ -1,0 +1,26 @@
+languageCode = "es-ES"
+languageName = "Español"
+languageDirection = "ltr"
+weight = 1
+
+title = "RRogers"
+copyright = "Copyright &copy; 2024 - Randolph Rogers"
+
+[params]
+  dateFormat = "2 January 2006"
+  mainSections = ["blog", "portfolio", "sandbox", "about"]
+  headline = "Data Scientist"
+  description = "Randolph Rogers's personal website."
+
+[params.author]
+  name = "Randolph Rogers"
+  image = "img/author.jpg"
+  headline = "In data we trust..."
+  bio = "Entusiasta del aprendizaje automático y la ciencia de datos."
+  links = [
+    { x-twitter = "https://twitter.com/SwattyML" },
+#    { facebook = "https://facebook.com/" },
+    { linkedin = "https://linkedin.com/in/randolphrogers/" },
+    { github = "https://github.com/SwattyX" },
+#    { youtube = "https://youtube.com/" },
+  ]

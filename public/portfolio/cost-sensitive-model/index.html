@@ -1,0 +1,3442 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="en-US"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>Cost-Sensitive Customer Churn Prediction &middot; RRogers</title>
+    <meta name="title" content="Cost-Sensitive Customer Churn Prediction &middot; RRogers" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.6fad12fb61fe83418a0d4a0e1310c10561473c40a03914b1464b037998295828.css"
+    integrity="sha256-b60S&#43;2H&#43;g0GKDUoOExDBBWFHPECgORSxRksDeZgpWCg="
+  />
+  
+    
+    
+    
+  
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.e2f23ac92b690a4e99ab2dffef9aa96a95f7ec39636fb9fa7eeb70d55ba347ae.js"
+      integrity="sha256-4vI6yStpCk6Zqy3/75qpapX37Dljb7n6futw1VujR64="
+      data-copy="Copy"
+      data-copied="Copied"
+    ></script>
+  
+  
+  <meta
+    name="description"
+    content="
+      Maximizing financial returns through a cost function
+    "
+  />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/portfolio/cost-sensitive-model/" />
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/portfolio/cost-sensitive-model/">
+  <meta property="og:site_name" content="RRogers">
+  <meta property="og:title" content="Cost-Sensitive Customer Churn Prediction">
+  <meta property="og:description" content="Maximizing financial returns through a cost function">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="portfolio">
+    <meta property="article:published_time" content="2024-10-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-26T00:00:00+00:00">
+    <meta property="article:tag" content="Machine Leaning">
+    <meta property="article:tag" content="Classification">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cost-Sensitive Customer Churn Prediction">
+  <meta name="twitter:description" content="Maximizing financial returns through a cost function">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Portfolio",
+    "name": "Cost-Sensitive Customer Churn Prediction",
+    "headline": "Cost-Sensitive Customer Churn Prediction",
+    "description": "Maximizing financial returns through a cost function",
+    "abstract": "Predicting customer churn is not just about identifying who is likely to leave; it\u0026rsquo;s about understanding the financial implications behind each customer\u0026rsquo;s departure.",
+    "inLanguage": "en-US",
+    "url" : "http:\/\/localhost:1313\/portfolio\/cost-sensitive-model\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Randolph Rogers"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-10-26T00:00:00\u002b00:00",
+    "datePublished": "2024-10-26T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-10-26T00:00:00\u002b00:00",
+    
+    "keywords": ["machine leaning","classification"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "3145"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Welcome to My Webpage!",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/portfolio/",
+       "name": "Portfolio",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Cost Sensitive Customer Churn Prediction",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  <meta name="author" content="Randolph Rogers" />
+  
+    
+      <link href="https://twitter.com/SwattyML" rel="me" />
+    
+      <link href="https://linkedin.com/in/randolphrogers/" rel="me" />
+    
+      <link href="https://github.com/SwattyX" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/lib/katex/katex.min.68e17230ccd917b97b7a2def38a8108918599d8aa4f580bfb8cce5e13d23e4de43dcaba5f9000553cb2c10d0d1300aabfe5c433a3305ebd752609f0762a63e59.css"
+    integrity="sha512-aOFyMMzZF7l7ei3vOKgQiRhZnYqk9YC/uMzl4T0j5N5D3Kul&#43;QAFU8ssENDRMAqr/lxDOjMF69dSYJ8HYqY&#43;WQ=="
+  />
+  
+  
+  <script
+    defer
+    src="/lib/katex/katex.min.50f14e69d6a8da7128ae3b63974c544ed377c36d096b5e3750f114e84c89d668b9301d9b0ed3248969aa183aa2e3bc4d2c1e73d5dcb7d462890c45a18d424589.js"
+    integrity="sha512-UPFOadao2nEorjtjl0xUTtN3w20Ja143UPEU6EyJ1mi5MB2bDtMkiWmqGDqi47xNLB5z1dy31GKJDEWhjUJFiQ=="
+  ></script>
+  
+  
+  <script
+    defer
+    src="/lib/katex/auto-render.min.6095714e3aadb63b14ddc4af69346ab12974c1b460654345f8d1860a0b68fcc51b22f68b757433193090bb80afc8965b65cb607e5541d0f5f0f4b2e64d69b9ff.js"
+    integrity="sha512-YJVxTjqttjsU3cSvaTRqsSl0wbRgZUNF&#43;NGGCgto/MUbIvaLdXQzGTCQu4CvyJZbZctgflVB0PXw9LLmTWm5/w=="
+    onload="renderMathInElement(document.body);"
+  ></script>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+    <nav class="flex items-center justify-between">
+        
+        <div class="z-40 flex flex-row items-center">
+                <a href="/" class="mr-2">
+                  
+                    <img src="/img/logo_dark.svg" class="max-h-[10rem] max-w-[10rem] object-scale-down object-left hidden dark:flex" alt="RRogers" />
+                  
+                    
+                      <img src="/img/logo_light.svg" class="max-h-[10rem] max-w-[10rem] object-scale-down object-left dark:hidden" alt="RRogers" />
+                    
+                </a>
+          </div>
+        
+        
+        <ul class="hidden sm:flex sm:items-center sm:space-x-6">
+            
+            <li class="group">
+                
+                <a href="/blog/" title="" class="hover:text-primary-600 dark:hover:text-primary-400" >
+                    
+                    
+                    <span>Blog</span>
+                    
+                </a>
+                
+            </li>
+            
+            <li class="group">
+                
+                <a href="/portfolio/" title="" class="hover:text-primary-600 dark:hover:text-primary-400" >
+                    
+                    
+                    <span>Portfolio</span>
+                    
+                </a>
+                
+            </li>
+            
+            <li class="group">
+                
+                <a href="/about/" title="" class="hover:text-primary-600 dark:hover:text-primary-400" >
+                    
+                    
+                    <span>About</span>
+                    
+                </a>
+                
+            </li>
+            
+            <li class="group">
+                
+                <a href="https://github.com/SwattyX/portfolio" title="" class="hover:text-primary-600 dark:hover:text-primary-400" target="_blank" >
+                    
+                    <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+                    
+                    
+                </a>
+                
+            </li>
+            
+            <li class="group">
+                
+                
+                <button id="search-button" title=""
+                    class="hover:text-primary-600 dark:hover:text-primary-400">
+                    
+                    <span class="icon relative inline-block px-1 align-text-bottom"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+                    
+                    
+                    <span></span>
+                    
+                </button>
+                
+                
+            </li>
+            
+        </ul>
+        
+        
+        
+        <label id="menu-button" for="menu-controller" class="block sm:hidden">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+            </div>
+            <div id="menu-wrapper"
+                class="invisible fixed inset-0 z-30 m-auto h-full w-full cursor-default overflow-auto bg-neutral-100/50 opacity-0 backdrop-blur-sm transition-opacity dark:bg-neutral-900/50">
+                <ul
+                    class="mx-auto flex w-full max-w-7xl list-none flex-col overflow-visible px-6 py-6 text-end sm:px-14 sm:py-10 sm:pt-10 md:px-24 lg:px-32">
+                    <li class="mb-1">
+                        <label for="menu-controller"
+                            class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                            <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+                        </label>
+                    </li>
+                    
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        <a href="/blog/" title=""
+                            onclick="document.getElementById('menu-controller').checked = false;" >
+                            
+                            
+                            <span
+                                class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                Blog
+                            </span>
+                            
+                        </a>
+                        
+                    </li>
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        <a href="/portfolio/" title=""
+                            onclick="document.getElementById('menu-controller').checked = false;" >
+                            
+                            
+                            <span
+                                class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                Portfolio
+                            </span>
+                            
+                        </a>
+                        
+                    </li>
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        <a href="/about/" title=""
+                            onclick="document.getElementById('menu-controller').checked = false;" >
+                            
+                            
+                            <span
+                                class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                About
+                            </span>
+                            
+                        </a>
+                        
+                    </li>
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        <a href="https://github.com/SwattyX/portfolio" title=""
+                            onclick="document.getElementById('menu-controller').checked = false;" target="_blank" >
+                            
+                            <span
+                                class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600"><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span>
+                            
+                            
+                        </a>
+                        
+                    </li>
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        
+                        <button id="search-button" title="">
+                            
+                            <span
+                                class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600"><span class="icon relative inline-block px-1 align-text-bottom"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span></span>
+                            
+                            
+                            <span
+                                class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                
+                            </span>
+                            
+                        </button>
+                        
+                        
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </label>
+        
+    </nav>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ]
+    });
+  });
+</script>
+</header>
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="hidden inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/"
+      >Welcome to my webpage!</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class=" inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/portfolio/"
+      >Portfolio</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/portfolio/cost-sensitive-model/"
+      >Cost-Sensitive Customer Churn Prediction</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Cost-Sensitive Customer Churn Prediction
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2024-10-26 00:00:00 &#43;0000 UTC">26 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>3145 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">15 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+        <div class="order-first px-0 lg:order-last lg:max-w-xs lg:ps-8">
+          <div class="toc pe-5 lg:sticky lg:top-10 print:hidden">
+            <details open class="-ms-5 mt-0 overflow-hidden rounded-lg ps-5">
+  <summary
+    class="block cursor-pointer bg-neutral-100 py-1 ps-5 text-lg font-semibold text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden"
+  >
+    Table of Contents
+  </summary>
+  <div class="border-s border-dotted border-neutral-300 py-2 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#business-scenario">Business Scenario</a>
+          <ul>
+            <li><a href="#the-cost-matrix">The Cost Matrix</a></li>
+          </ul>
+        </li>
+        <li><a href="#understanding-the-class-imbalance-problem">Understanding the Class Imbalance Problem</a></li>
+        <li><a href="#dataset-overview">Dataset Overview</a></li>
+        <li><a href="#exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</a>
+          <ul>
+            <li><a href="#data-cleaning">Data Cleaning</a></li>
+            <li><a href="#statistical-summary">Statistical Summary</a></li>
+            <li><a href="#handling-class-imbalance">Handling Class Imbalance</a></li>
+          </ul>
+        </li>
+        <li><a href="#feature-exploration-and-engineering">Feature Exploration and Engineering</a>
+          <ul>
+            <li><a href="#correlation-analysis">Correlation Analysis</a></li>
+            <li><a href="#visualizing-key-features">Visualizing Key Features</a></li>
+            <li><a href="#feature-extraction">Feature Extraction</a></li>
+          </ul>
+        </li>
+        <li><a href="#data-preprocessing">Data Preprocessing</a>
+          <ul>
+            <li><a href="#train-test-split">Train-Test Split</a></li>
+            <li><a href="#column-transformer">Column Transformer</a></li>
+          </ul>
+        </li>
+        <li><a href="#defining-the-cost-function">Defining the Cost Function</a></li>
+        <li><a href="#model-training">Model Training</a>
+          <ul>
+            <li><a href="#cross-validation">Cross-Validation</a></li>
+            <li><a href="#baseline-models">Baseline Models</a></li>
+            <li><a href="#weighted-models">Weighted Models</a></li>
+          </ul>
+        </li>
+        <li><a href="#model-evaluation-on-validation-data">Model Evaluation on Validation Data</a>
+          <ul>
+            <li><a href="#evaluation-metrics">Evaluation Metrics</a></li>
+            <li><a href="#cross-validated-roc-auc-scores">Cross Validated ROC AUC Scores</a></li>
+            <li><a href="#calibration-and-feature-importance">Calibration and Feature Importance</a></li>
+            <li><a href="#brier-scores-lower-is-better">Brier Scores (lower is better)</a></li>
+          </ul>
+        </li>
+        <li><a href="#tuning-the-decision-threshold">Tuning the Decision Threshold</a>
+          <ul>
+            <li><a href="#threshold-tuning-process">Threshold Tuning Process</a></li>
+            <li><a href="#results-after-threshold-tuning">Results After Threshold Tuning</a></li>
+          </ul>
+        </li>
+        <li><a href="#final-evaluation-on-hold-out-data">Final Evaluation on Hold-Out Data</a>
+          <ul>
+            <li><a href="#model-profitability">Model Profitability</a></li>
+            <li><a href="#model-overall">Model Overall</a></li>
+          </ul>
+        </li>
+        <li><a href="#best-model">Best Model</a>
+          <ul>
+            <li><a href="#post-tuned-random-forest">Post-tuned Random Forest</a></li>
+          </ul>
+        </li>
+        <li><a href="#conclusion">Conclusion</a>
+          <ul>
+            <li><a href="#key-takeaways">Key Takeaways</a></li>
+            <li><a href="#next-steps">Next Steps</a></li>
+          </ul>
+        </li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+          </div>
+        </div>
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/cost-sensitive-customer-churn_hu56863540aaf532a4999650709e538741_94717_330x0_resize_q75_h2_box.webp 330w,/portfolio/cost-sensitive-model/cost-sensitive-customer-churn_hu56863540aaf532a4999650709e538741_94717_660x0_resize_q75_h2_box.webp 660w
+            
+              
+                ,/portfolio/cost-sensitive-model/cost-sensitive-customer-churn_hu56863540aaf532a4999650709e538741_94717_1024x768_resize_q75_h2_box.webp 1024w
+              
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/cost-sensitive-customer-churn_hu56863540aaf532a4999650709e538741_94717_1024x768_resize_q75_h2_box.webp 1024w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1024"
+        height="768"
+        class="mx-auto my-0 rounded-md"
+        alt="Customer Churn"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/cost-sensitive-customer-churn_hu56863540aaf532a4999650709e538741_94717_660x0_resize_q75_box.jpg"
+          srcset="/portfolio/cost-sensitive-model/cost-sensitive-customer-churn_hu56863540aaf532a4999650709e538741_94717_330x0_resize_q75_box.jpg 330w,/portfolio/cost-sensitive-model/cost-sensitive-customer-churn_hu56863540aaf532a4999650709e538741_94717_660x0_resize_q75_box.jpg 660w
+          
+            ,/portfolio/cost-sensitive-model/cost-sensitive-customer-churn.jpg 1024w
+          
+          
+            ,/portfolio/cost-sensitive-model/cost-sensitive-customer-churn.jpg 1024w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>Predicting customer churn is not just about identifying who is likely to leave; it&rsquo;s about understanding the financial implications behind each customer&rsquo;s departure. In addition, one of the complexities in churn prediction is dealing with imbalanced datasets, where the number of non-churning customers vastly outnumbers the churning ones.</p>
+<p>Today, I&rsquo;ll build a cost-sensitive customer churn prediction model using machine learning. I&rsquo;ll delve into data exploration, feature engineering, model training, and evaluation with the goal to minimize financial losses associated with customer churn. At the same time, I&rsquo;ll analyze the performance of a classification model during an imbalance dataset scenario.</p>
+<h2 id="introduction" class="relative group">Introduction <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#introduction" aria-label="Anchor">#</a></span></h2><p>Customer churn is a critical metric for businesses, especially in industries like telecommunications, banking, and subscription-based services. Churn prediction models help identify customers who are likely to discontinue using a company&rsquo;s products or services. By proactively addressing churn, companies can implement targeted retention strategies, thereby saving significant revenue.</p>
+<p>Traditional churn prediction models often focus solely on accuracy, neglecting the financial ramifications of different types of prediction errors. For instance, the cost of incorrectly predicting that a loyal customer will churn (false positive) is different from failing to identify a churning customer (false negative). To address this, I adopt a <strong>cost-sensitive approach</strong> that incorporates the business costs associated with each type of error directly into the model.</p>
+<p>In this post, I’ll build a churn prediction model that considers these costs. Plus, I’ll address the issue of <strong>class imbalance</strong>, where most data points are for non-churn customers. Imbalance like this can make the model overlook actual churners, which isn’t helpful for a business looking to keep customers around.</p>
+<hr>
+<h2 id="business-scenario" class="relative group">Business Scenario <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#business-scenario" aria-label="Anchor">#</a></span></h2><p>Before diving into the data and code, it&rsquo;s essential to frame our problem in a real-world business context. Our goal is not just to predict churn but to minimize the <strong>financial impact</strong> of churn on the business.</p>
+<h3 id="the-cost-matrix" class="relative group">The Cost Matrix <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-cost-matrix" aria-label="Anchor">#</a></span></h3><p>Define a cost matrix that quantifies the financial consequences of different prediction outcomes:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Predicted Stay (0)</strong></th>
+<th><strong>Predicted Churn (1)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Actual Stay (0)</strong></td>
+<td>$0</td>
+<td>-$200</td>
+</tr>
+<tr>
+<td><strong>Actual Churn (1)</strong></td>
+<td>-$750</td>
+<td>$550</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>True Negative (TN)</strong>: Correctly predicting a customer will stay. <strong>Cost: $0</strong>.</li>
+<li><strong>False Positive (FP)</strong>: Predicting a customer will churn when they won&rsquo;t. <strong>Cost: -$200</strong> (cost of unnecessary retention efforts).</li>
+<li><strong>False Negative (FN)</strong>: Failing to predict a customer will churn. <strong>Cost: -$750</strong> (loss due to customer leaving).</li>
+<li><strong>True Positive (TP)</strong>: Correctly predicting a customer will churn and taking action. <strong>Gain: $550</strong> (benefit from retaining the customer).</li>
+</ul>
+<p><strong>Note</strong>: Negative costs represent expenses, while positive costs represent gains.</p>
+<p>By integrating this cost matrix into our model, I ensure that our predictions align with business objectives, focusing on maximizing profit rather than just statistical accuracy.</p>
+<h2 id="understanding-the-class-imbalance-problem" class="relative group">Understanding the Class Imbalance Problem <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#understanding-the-class-imbalance-problem" aria-label="Anchor">#</a></span></h2><p>Class imbalance occurs when one class in a classification problem is represented much more than other classes. In churn prediction, typically, most customers do not churn, leading to an imbalanced dataset. This imbalance can bias models towards the majority class, causing poor performance in predicting the minority class.</p>
+<p>There is ongoing debate in the data science community about the best approach to handle class imbalance:</p>
+<ul>
+<li><strong>Resampling Techniques</strong>: Such as oversampling the minority class or undersampling the majority class.</li>
+<li><strong>Class Weighting</strong>: Assigning higher weights to the minority class during model training.</li>
+<li><strong>Algorithmic Adjustments</strong>: Using algorithms that are robust to class imbalance.</li>
+<li><strong>Leave Data As-Is</strong>: Some argue that altering the dataset may distort the true distribution, and models should learn from the original data.</li>
+</ul>
+<p>In this project, I focus on applying class weighting and compare it with models trained on the original imbalanced data.</p>
+<hr>
+<h2 id="dataset-overview" class="relative group">Dataset Overview <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#dataset-overview" aria-label="Anchor">#</a></span></h2><p>The dataset used in this project is sourced from <a href="https://www.kaggle.com/datasets/radheshyamkollipara/bank-customer-churn" target="_blank" rel="noreferrer">Kaggle’s Bank Customer Churn Dataset</a> by Radheshyam Kollipara.</p>
+<p>The dataset includes the following features:</p>
+<ul>
+<li><strong>RowNumber</strong>: Represents the row number.</li>
+<li><strong>CustomerId</strong>: Unique identifier for each customer.</li>
+<li><strong>Surname</strong>: The last name of the customer.</li>
+<li><strong>CreditScore</strong>: Credit score of the customer.</li>
+<li><strong>Geography</strong>: Country of residence.</li>
+<li><strong>Gender</strong>: Customer’s gender.</li>
+<li><strong>Age</strong>: Customer’s age.</li>
+<li><strong>Tenure</strong>: Number of years the customer has been with the bank.</li>
+<li><strong>Balance</strong>: Customer’s account balance.</li>
+<li><strong>NumOfProducts</strong>: Number of bank products the customer is using.</li>
+<li><strong>HasCrCard</strong>: Indicates if the customer has a credit card (1) or not (0).</li>
+<li><strong>IsActiveMember</strong>: Indicates if the customer is an active member (1) or not (0).</li>
+<li><strong>EstimatedSalary</strong>: Estimated annual income of the customer.</li>
+<li><strong>Exited</strong>: Target variable showing whether the customer has churned (1) or stayed (0).</li>
+<li><strong>Complain</strong>: Indicates if the customer has filed a complaint (1) or not (0).</li>
+<li><strong>Satisfaction Score</strong>: Customer satisfaction score (1-5).</li>
+<li><strong>Card Type</strong>: Type of card held by the customer (e.g., Silver, Gold).</li>
+<li><strong>Points Earned</strong>: Loyalty points accumulated by the customer.</li>
+</ul>
+<p>Dataset preview:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dataset</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span></code></pre></div><div style="overflow-x: auto;">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>RowNumber</th>
+<th>CustomerId</th>
+<th>Surname</th>
+<th>CreditScore</th>
+<th>Geography</th>
+<th>Gender</th>
+<th>Age</th>
+<th>Tenure</th>
+<th>Balance</th>
+<th>NumOfProducts</th>
+<th>HasCrCard</th>
+<th>IsActiveMember</th>
+<th>EstimatedSalary</th>
+<th>Exited</th>
+<th>Complain</th>
+<th>Satisfaction Score</th>
+<th>Card Type</th>
+<th>Point Earned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2503</td>
+<td>2504</td>
+<td>15583364</td>
+<td>McGregor</td>
+<td>476</td>
+<td>France</td>
+<td>Female</td>
+<td>32</td>
+<td>6</td>
+<td>111871.93</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>112132.86</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>GOLD</td>
+<td>988</td>
+</tr>
+<tr>
+<td>1362</td>
+<td>1363</td>
+<td>15683841</td>
+<td>Hamilton</td>
+<td>555</td>
+<td>Germany</td>
+<td>Male</td>
+<td>41</td>
+<td>10</td>
+<td>113270.20</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>185387.14</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>SILVER</td>
+<td>398</td>
+</tr>
+<tr>
+<td>842</td>
+<td>843</td>
+<td>15599433</td>
+<td>Fanucci</td>
+<td>660</td>
+<td>Germany</td>
+<td>Male</td>
+<td>35</td>
+<td>8</td>
+<td>58641.43</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>198674.08</td>
+<td>0</td>
+<td>0</td>
+<td>5</td>
+<td>PLATINUM</td>
+<td>815</td>
+</tr>
+<tr>
+<td>7919</td>
+<td>7920</td>
+<td>15634564</td>
+<td>Aksyonov</td>
+<td>593</td>
+<td>Spain</td>
+<td>Male</td>
+<td>31</td>
+<td>8</td>
+<td>112713.34</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>176868.89</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>GOLD</td>
+<td>710</td>
+</tr>
+<tr>
+<td>3512</td>
+<td>3513</td>
+<td>15657779</td>
+<td>Boylan</td>
+<td>806</td>
+<td>Spain</td>
+<td>Male</td>
+<td>18</td>
+<td>3</td>
+<td>0.00</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>86994.54</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>GOLD</td>
+<td>768</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="exploratory-data-analysis-eda" class="relative group">Exploratory Data Analysis (EDA) <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#exploratory-data-analysis-eda" aria-label="Anchor">#</a></span></h2><h3 id="data-cleaning" class="relative group">Data Cleaning <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#data-cleaning" aria-label="Anchor">#</a></span></h3><p>First, let’s check for missing values:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dataset</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</span></span></code></pre></div><p><strong>Result</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">CustomerId            0
+</span></span><span class="line"><span class="cl">CreditScore           0
+</span></span><span class="line"><span class="cl">Geography             0
+</span></span><span class="line"><span class="cl">Gender                0
+</span></span><span class="line"><span class="cl">Age                   0
+</span></span><span class="line"><span class="cl">Tenure                0
+</span></span><span class="line"><span class="cl">Balance               0
+</span></span><span class="line"><span class="cl">NumOfProducts         0
+</span></span><span class="line"><span class="cl">HasCrCard             0
+</span></span><span class="line"><span class="cl">IsActiveMember        0
+</span></span><span class="line"><span class="cl">EstimatedSalary       0
+</span></span><span class="line"><span class="cl">Exited                0
+</span></span><span class="line"><span class="cl">Complain              0
+</span></span><span class="line"><span class="cl">Satisfaction Score    0
+</span></span><span class="line"><span class="cl">Card Type             0
+</span></span><span class="line"><span class="cl">Point Earned          0
+</span></span><span class="line"><span class="cl">dtype: int64
+</span></span></code></pre></div><p>All columns have zero missing values.</p>
+<p>Next, let’s drop irrelevant columns that won&rsquo;t contribute to our project&rsquo;s objective:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;RowNumber&#39;</span><span class="p">,</span> <span class="s1">&#39;CustomerId&#39;</span><span class="p">,</span> <span class="s1">&#39;Surname&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="statistical-summary" class="relative group">Statistical Summary <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#statistical-summary" aria-label="Anchor">#</a></span></h3><p>Generate a statistical summary to understand the distribution of numerical features:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</span></span></code></pre></div><div style="overflow-x: auto;">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>CustomerId</th>
+<th>CreditScore</th>
+<th>Age</th>
+<th>Tenure</th>
+<th>Balance</th>
+<th>NumOfProducts</th>
+<th>HasCrCard</th>
+<th>IsActiveMember</th>
+<th>EstimatedSalary</th>
+<th>Exited</th>
+<th>Complain</th>
+<th>Satisfaction Score</th>
+<th>Point Earned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>mean</td>
+<td>1.56909e+07</td>
+<td>650.529</td>
+<td>38.9218</td>
+<td>5.0128</td>
+<td>76485.9</td>
+<td>1.5302</td>
+<td>0.7055</td>
+<td>0.5151</td>
+<td>100090</td>
+<td>0.2038</td>
+<td>0.2044</td>
+<td>3.0138</td>
+<td>606.515</td>
+</tr>
+<tr>
+<td>std</td>
+<td>71936.2</td>
+<td>96.6533</td>
+<td>10.4878</td>
+<td>2.89217</td>
+<td>62397.4</td>
+<td>0.581654</td>
+<td>0.45584</td>
+<td>0.499797</td>
+<td>57510.5</td>
+<td>0.4028</td>
+<td>0.4033</td>
+<td>1.40592</td>
+<td>225.925</td>
+</tr>
+<tr>
+<td>min</td>
+<td>1.55657e+07</td>
+<td>350</td>
+<td>18</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>11.58</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>119</td>
+</tr>
+<tr>
+<td>25%</td>
+<td>1.56285e+07</td>
+<td>584</td>
+<td>32</td>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>51002.1</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>410</td>
+</tr>
+<tr>
+<td>50%</td>
+<td>1.56907e+07</td>
+<td>652</td>
+<td>37</td>
+<td>5</td>
+<td>97198.5</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>100194</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>605</td>
+</tr>
+<tr>
+<td>75%</td>
+<td>1.57532e+07</td>
+<td>718</td>
+<td>44</td>
+<td>7</td>
+<td>127644</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>149388</td>
+<td>0</td>
+<td>0</td>
+<td>4</td>
+<td>801</td>
+</tr>
+<tr>
+<td>max</td>
+<td>1.58157e+07</td>
+<td>850</td>
+<td>92</td>
+<td>10</td>
+<td>250898</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>199992</td>
+<td>1</td>
+<td>1</td>
+<td>5</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Insights</strong>:</p>
+<ul>
+<li><strong>Age</strong>: Mean age is around 39 years, with a standard deviation of 10.5 years.</li>
+<li><strong>Balance</strong>:
+Average balance is \( \$76,486 \), but the standard deviation is high $62,397, indicating significant variability.</li>
+<li><strong>Exited</strong>: Approximately 20% of customers have churned, showing class imbalance.</li>
+</ul>
+<h3 id="handling-class-imbalance" class="relative group">Handling Class Imbalance <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#handling-class-imbalance" aria-label="Anchor">#</a></span></h3><p>Class imbalance can bias the model towards the majority class (non-churned customers). I&rsquo;ll address this issue during model training using techniques like class weighting and threshold adjustment.</p>
+<hr>
+<h2 id="feature-exploration-and-engineering" class="relative group">Feature Exploration and Engineering <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#feature-exploration-and-engineering" aria-label="Anchor">#</a></span></h2><p>Understanding relationships between features and the target variable is crucial.</p>
+<h3 id="correlation-analysis" class="relative group">Correlation Analysis <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#correlation-analysis" aria-label="Anchor">#</a></span></h3><p>Compute the correlation matrix to identify linear relationships:</p>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="corr.png" alt="correlation matrix" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p><strong>Key Findings</strong>:</p>
+<ul>
+<li><strong>Age</strong> has a weak positive correlation with <strong>Exited</strong> (0.29), suggesting older customers are more likely to churn.</li>
+<li><strong>Complain</strong> has a strong positive correlation with <strong>Exited</strong> (0.99). This may indicate the existance of a complain solely in churned customers.</li>
+</ul>
+<p>Further analysis indicates that the strong correlation between complaints and churn is due to the fact that almost every customer who churns had filed a complaint before leaving. In contrast, customers who did not churn rarely filed complaints. This suggests that complaints are a strong indicator of dissatisfaction, which often leads to churn. This feature might lead to data leakage. I&rsquo;ll consider dropping it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">complain</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Complain&#39;</span><span class="p">,</span><span class="s1">&#39;Exited&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">total</span> <span class="o">=</span> <span class="n">complain</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">complain</span><span class="p">[</span><span class="s1">&#39;Proportion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">complain</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">total</span> <span class="p">)</span>
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th>Complain</th>
+<th>Exited</th>
+<th>Count</th>
+<th>Proportion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>7952</td>
+<td>0.7952</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+<td>0.0004</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>10</td>
+<td>0.001</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>2034</td>
+<td>0.2034</td>
+</tr>
+</tbody>
+</table>
+<h3 id="visualizing-key-features" class="relative group">Visualizing Key Features <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#visualizing-key-features" aria-label="Anchor">#</a></span></h3><h4 id="age-distribution" class="relative group">Age Distribution <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#age-distribution" aria-label="Anchor">#</a></span></h4><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image_hu454907b4a1715399ada598edca08e858_23251_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image_hu454907b4a1715399ada598edca08e858_23251_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/portfolio/cost-sensitive-model/image_hu454907b4a1715399ada598edca08e858_23251_790x390_resize_q75_h2_box_3.webp 790w
+              
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/image_hu454907b4a1715399ada598edca08e858_23251_790x390_resize_q75_h2_box_3.webp 790w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="790"
+        height="390"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image_hu454907b4a1715399ada598edca08e858_23251_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image_hu454907b4a1715399ada598edca08e858_23251_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image_hu454907b4a1715399ada598edca08e858_23251_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image.png 790w
+          
+          
+            ,/portfolio/cost-sensitive-model/image.png 790w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p><strong>Observation</strong>:</p>
+<ul>
+<li>Churned customers tend to be older.</li>
+</ul>
+<h4 id="balance-distribution" class="relative group">Balance Distribution <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#balance-distribution" aria-label="Anchor">#</a></span></h4><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-1_hu567c6021b71ef90a4fd7aa5afe6dfa0b_20998_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-1_hu567c6021b71ef90a4fd7aa5afe6dfa0b_20998_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/portfolio/cost-sensitive-model/image-1_hu567c6021b71ef90a4fd7aa5afe6dfa0b_20998_790x390_resize_q75_h2_box_3.webp 790w
+              
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/image-1_hu567c6021b71ef90a4fd7aa5afe6dfa0b_20998_790x390_resize_q75_h2_box_3.webp 790w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="790"
+        height="390"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-1_hu567c6021b71ef90a4fd7aa5afe6dfa0b_20998_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-1_hu567c6021b71ef90a4fd7aa5afe6dfa0b_20998_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-1_hu567c6021b71ef90a4fd7aa5afe6dfa0b_20998_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-1.png 790w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-1.png 790w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p><strong>Observation</strong>:</p>
+<ul>
+<li>Churned customers generally have higher account balances.</li>
+</ul>
+<h4 id="number-of-products" class="relative group">Number of Products <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#number-of-products" aria-label="Anchor">#</a></span></h4><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-2_hubbcdadf4d49f2338e4c25e91090d7ab4_23807_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-2_hubbcdadf4d49f2338e4c25e91090d7ab4_23807_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/portfolio/cost-sensitive-model/image-2_hubbcdadf4d49f2338e4c25e91090d7ab4_23807_790x390_resize_q75_h2_box_3.webp 790w
+              
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/image-2_hubbcdadf4d49f2338e4c25e91090d7ab4_23807_790x390_resize_q75_h2_box_3.webp 790w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="790"
+        height="390"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-2_hubbcdadf4d49f2338e4c25e91090d7ab4_23807_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-2_hubbcdadf4d49f2338e4c25e91090d7ab4_23807_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-2_hubbcdadf4d49f2338e4c25e91090d7ab4_23807_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-2.png 790w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-2.png 790w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+<figcaption class="text-center">The notch represents the mean.</figcaption>
+</figure>
+</p>
+<p><strong>Observation</strong>:</p>
+<ul>
+<li>Customers with one product are more likely to churn than those with multiple products.</li>
+</ul>
+<h4 id="tenure" class="relative group">Tenure <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#tenure" aria-label="Anchor">#</a></span></h4><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-3_hu9d6451e5648de99b305f91af2e8b8f4f_19647_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-3_hu9d6451e5648de99b305f91af2e8b8f4f_19647_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/portfolio/cost-sensitive-model/image-3_hu9d6451e5648de99b305f91af2e8b8f4f_19647_790x390_resize_q75_h2_box_3.webp 790w
+              
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/image-3_hu9d6451e5648de99b305f91af2e8b8f4f_19647_790x390_resize_q75_h2_box_3.webp 790w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="790"
+        height="390"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-3_hu9d6451e5648de99b305f91af2e8b8f4f_19647_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-3_hu9d6451e5648de99b305f91af2e8b8f4f_19647_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-3_hu9d6451e5648de99b305f91af2e8b8f4f_19647_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-3.png 790w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-3.png 790w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p><strong>Observation</strong>:</p>
+<ul>
+<li>Tenure distribution is similar for both churned and non-churned customers, with both groups having a median tenure of 5 years.</li>
+<li>Churned customers display more variability in tenure, indicating they may leave at different stages in their bank relationship.</li>
+</ul>
+<h4 id="estimated-salary" class="relative group">Estimated Salary <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#estimated-salary" aria-label="Anchor">#</a></span></h4><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-4_hu4e76a91d0d4b5e40c0e6aff9417c6dae_24178_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-4_hu4e76a91d0d4b5e40c0e6aff9417c6dae_24178_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/portfolio/cost-sensitive-model/image-4_hu4e76a91d0d4b5e40c0e6aff9417c6dae_24178_790x390_resize_q75_h2_box_3.webp 790w
+              
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/image-4_hu4e76a91d0d4b5e40c0e6aff9417c6dae_24178_790x390_resize_q75_h2_box_3.webp 790w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="790"
+        height="390"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-4_hu4e76a91d0d4b5e40c0e6aff9417c6dae_24178_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-4_hu4e76a91d0d4b5e40c0e6aff9417c6dae_24178_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-4_hu4e76a91d0d4b5e40c0e6aff9417c6dae_24178_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-4.png 790w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-4.png 790w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p><strong>Observation</strong>:</p>
+<ul>
+<li>Churned and non-churned customers have similar median balances around 100,000.</li>
+<li>Both groups show a similar spread in balances with no outliers.</li>
+</ul>
+<h4 id="satisfaction-score" class="relative group">Satisfaction Score <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#satisfaction-score" aria-label="Anchor">#</a></span></h4><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-5_huf4bd0cbdedfd04c0aebb89083ac3b674_22285_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-5_huf4bd0cbdedfd04c0aebb89083ac3b674_22285_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/portfolio/cost-sensitive-model/image-5_huf4bd0cbdedfd04c0aebb89083ac3b674_22285_790x390_resize_q75_h2_box_3.webp 790w
+              
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/image-5_huf4bd0cbdedfd04c0aebb89083ac3b674_22285_790x390_resize_q75_h2_box_3.webp 790w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="790"
+        height="390"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-5_huf4bd0cbdedfd04c0aebb89083ac3b674_22285_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-5_huf4bd0cbdedfd04c0aebb89083ac3b674_22285_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-5_huf4bd0cbdedfd04c0aebb89083ac3b674_22285_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-5.png 790w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-5.png 790w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p><strong>Observation</strong>:</p>
+<ul>
+<li>Both churned and non-churned customers have the same distribution, with a median of 3 and identical interquartile ranges.</li>
+<li>The lower and upper fences are also identical, with no outliers for either group.</li>
+</ul>
+<h4 id="geography" class="relative group">Geography <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#geography" aria-label="Anchor">#</a></span></h4><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-6_hu50c0c5c8d8c9192694773e7aae6c4b6f_118698_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-6_hu50c0c5c8d8c9192694773e7aae6c4b6f_118698_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/cost-sensitive-model/image-6_hu50c0c5c8d8c9192694773e7aae6c4b6f_118698_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              ,/portfolio/cost-sensitive-model/image-6_hu50c0c5c8d8c9192694773e7aae6c4b6f_118698_1320x0_resize_q75_h2_box_3.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1990"
+        height="790"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-6_hu50c0c5c8d8c9192694773e7aae6c4b6f_118698_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-6_hu50c0c5c8d8c9192694773e7aae6c4b6f_118698_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-6_hu50c0c5c8d8c9192694773e7aae6c4b6f_118698_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-6_hu50c0c5c8d8c9192694773e7aae6c4b6f_118698_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-6_hu50c0c5c8d8c9192694773e7aae6c4b6f_118698_1320x0_resize_box_3.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p><strong>Observation</strong>:</p>
+<ul>
+<li><strong>France</strong>: Has the largest customer base, with a churn rate of 16.2%.</li>
+<li><strong>Germany</strong>: Shows a significantly higher churn rate at 32.4%, suggesting that German customers are more likely to churn.</li>
+<li><strong>Spain</strong>: Has a churn rate similar to France at 16.7%.</li>
+</ul>
+<p>These differences indicate that geography might influence churn, with German customers showing a higher likelihood of leaving compared to those from France and Spain.</p>
+<h4 id="satisfaction-score-1" class="relative group">Satisfaction Score <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#satisfaction-score-1" aria-label="Anchor">#</a></span></h4><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-7_huf8a1244904207efcf3fdb19c8286d759_133159_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-7_huf8a1244904207efcf3fdb19c8286d759_133159_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/cost-sensitive-model/image-7_huf8a1244904207efcf3fdb19c8286d759_133159_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              ,/portfolio/cost-sensitive-model/image-7_huf8a1244904207efcf3fdb19c8286d759_133159_1320x0_resize_q75_h2_box_3.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1990"
+        height="790"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-7_huf8a1244904207efcf3fdb19c8286d759_133159_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-7_huf8a1244904207efcf3fdb19c8286d759_133159_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-7_huf8a1244904207efcf3fdb19c8286d759_133159_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-7_huf8a1244904207efcf3fdb19c8286d759_133159_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-7_huf8a1244904207efcf3fdb19c8286d759_133159_1320x0_resize_box_3.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p><strong>Observation</strong>:</p>
+<ul>
+<li><strong>Diamond Card Holders</strong>: Have the highest churn rate at 21.8%.</li>
+<li><strong>Gold Card Holders</strong>: Show the lowest churn rate at 19.3%.</li>
+<li><strong>Platinum and Silver Card Holders</strong>: Have similar churn rates, around 20.3% and 20.1%, respectively.</li>
+</ul>
+<p>These results suggest that <strong>Diamond card holders</strong> may be more likely to churn, while <strong>Gold card holders</strong> are slightly more likely to stay. However, the differences in churn rates across card types are relatively small.</p>
+<h3 id="feature-extraction" class="relative group">Feature Extraction <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#feature-extraction" aria-label="Anchor">#</a></span></h3><h4 id="dropping-potentially-problematic-features" class="relative group">Dropping Potentially Problematic Features <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#dropping-potentially-problematic-features" aria-label="Anchor">#</a></span></h4><p>I consider dropping the <code>Complain</code> feature due to its near-perfect correlation with <code>Exited</code>, which could cause data leakage:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CustomerId&#39;</span><span class="p">,</span><span class="s1">&#39;Complain&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="data-preprocessing" class="relative group">Data Preprocessing <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#data-preprocessing" aria-label="Anchor">#</a></span></h2><h3 id="train-test-split" class="relative group">Train-Test Split <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#train-test-split" aria-label="Anchor">#</a></span></h3><p>Split the data into training, validation, and test sets. This is done before the feature scalling to avoid data leakage.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Exited&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;Exited&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Initial split to separate out the hold-out set</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_train_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train_val</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Split the remaining data into training and validation sets</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X_train_val</span><span class="p">,</span> <span class="n">y_train_val</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_train_val</span><span class="p">)</span>
+</span></span></code></pre></div><p>Based on these splits, the final distribution is:</p>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Total Count</th>
+<th>Percentage of Total Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Training</td>
+<td>6,000</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>Validate</td>
+<td>2,000</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>Testing</td>
+<td>2,000</td>
+<td>20%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="column-transformer" class="relative group">Column Transformer <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#column-transformer" aria-label="Anchor">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">ColumnTransformer</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span><span class="p">,</span> <span class="n">StandardScaler</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">num_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CreditScore&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Tenure&#39;</span><span class="p">,</span> <span class="s1">&#39;Balance&#39;</span><span class="p">,</span> <span class="s1">&#39;NumOfProducts&#39;</span><span class="p">,</span> <span class="s1">&#39;EstimatedSalary&#39;</span><span class="p">,</span> <span class="s1">&#39;Satisfaction Score&#39;</span><span class="p">,</span><span class="s1">&#39;Point Earned&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">cat_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Geography&#39;</span><span class="p">,</span> <span class="s1">&#39;Card Type&#39;</span><span class="p">,</span> <span class="s1">&#39;Gender&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">bin_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HasCrCard&#39;</span><span class="p">,</span><span class="s1">&#39;IsActiveMember&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">preprocessor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">transformers</span><span class="o">=</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># One-hot encoding for categorical variables</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="s1">&#39;one_hot_encoder&#39;</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">cat_cols</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Standard scaling to numerical features</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="s1">&#39;standard_scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">num_cols</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Passthrough binary features</span>
+</span></span><span class="line"><span class="cl">    <span class="n">remainder</span><span class="o">=</span><span class="s1">&#39;passthrough&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">preprocessor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">X_train</span> <span class="o">=</span> <span class="n">preprocessor</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_val</span> <span class="o">=</span> <span class="n">preprocessor</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_test</span> <span class="o">=</span> <span class="n">preprocessor</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">preprocessor</span><span class="o">.</span><span class="n">named_transformers_</span><span class="p">[</span><span class="s1">&#39;one_hot_encoder&#39;</span><span class="p">]</span> \
+</span></span><span class="line"><span class="cl">                            <span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">(</span><span class="n">input_features</span><span class="o">=</span><span class="n">cat_cols</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">feature_names</span> <span class="o">=</span> <span class="n">feature_names</span> <span class="o">+</span> <span class="n">num_cols</span> <span class="o">+</span> <span class="n">bin_cols</span>
+</span></span></code></pre></div><hr>
+<h2 id="defining-the-cost-function" class="relative group">Defining the Cost Function <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#defining-the-cost-function" aria-label="Anchor">#</a></span></h2><p>We define a custom cost function to evaluate our models based on the business cost matrix:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">make_scorer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">cost_function</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">neg_label</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="n">neg_label</span><span class="p">,</span> <span class="n">pos_label</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">cost_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">200</span><span class="p">],</span>  <span class="c1"># [TN cost, FP cost]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="o">-</span><span class="mi">750</span><span class="p">,</span> <span class="mi">550</span><span class="p">]</span> <span class="c1"># [FN cost, TP gain]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">])</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="n">total_gain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">cm</span> <span class="o">*</span> <span class="n">cost_matrix</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">total_gain</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cost_scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">cost_function</span><span class="p">,</span> <span class="n">greater_is_better</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">neg_label</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span></code></pre></div><p>This function calculates the total profit (or loss) for a set of predictions, considering the costs associated with each type of prediction outcome.</p>
+<hr>
+<h2 id="model-training" class="relative group">Model Training <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#model-training" aria-label="Anchor">#</a></span></h2><p>I&rsquo;ll train three different models:</p>
+<ol>
+<li><strong>Logistic Regression</strong></li>
+<li><strong>Random Forest Classifier</strong></li>
+<li><strong>XGBoost Classifier</strong></li>
+</ol>
+<h3 id="cross-validation" class="relative group">Cross-Validation <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#cross-validation" aria-label="Anchor">#</a></span></h3><p>Use stratified k-fold cross-validation to ensure that each fold has a similar class distribution:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">StratifiedKFold</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="baseline-models" class="relative group">Baseline Models <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#baseline-models" aria-label="Anchor">#</a></span></h3><p>Start by training baseline models without handling class imbalance.</p>
+<h4 id="logistic-regression" class="relative group">Logistic Regression <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#logistic-regression" aria-label="Anchor">#</a></span></h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">lr_base</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">lr_base</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="random-forest" class="relative group">Random Forest <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#random-forest" aria-label="Anchor">#</a></span></h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rf_base</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rf_base</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="xgboost" class="relative group">XGBoost <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#xgboost" aria-label="Anchor">#</a></span></h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBClassifier</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#The fraction of positive instances in the y_train_val dataset</span>
+</span></span><span class="line"><span class="cl"><span class="n">pos_frac</span> <span class="o">=</span> <span class="n">y_train_val</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">xgb_base</span> <span class="o">=</span> <span class="n">XGBClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">base_score</span><span class="o">=</span><span class="n">pos_frac</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">xgb_base</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="weighted-models" class="relative group">Weighted Models <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#weighted-models" aria-label="Anchor">#</a></span></h3><p>Applied class weighting to address class imbalance.</p>
+<h4 id="logistic-regression-with-class-weights" class="relative group">Logistic Regression with Class Weights <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#logistic-regression-with-class-weights" aria-label="Anchor">#</a></span></h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">lr_balanced</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">lr_balanced</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="random-forest-with-class-weights" class="relative group">Random Forest with Class Weights <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#random-forest-with-class-weights" aria-label="Anchor">#</a></span></h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">rf_balanced</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rf_balanced</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="xgboost-with-scale-pos-weight" class="relative group">XGBoost with Scale Pos Weight <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#xgboost-with-scale-pos-weight" aria-label="Anchor">#</a></span></h4><p>Calculate <code>scale_pos_weight</code> as the ratio of negative to positive classes.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">neg_class</span> <span class="o">=</span> <span class="n">counter</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">pos_class</span> <span class="o">=</span> <span class="n">counter</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">scale_pos_weight</span> <span class="o">=</span> <span class="n">neg_class</span> <span class="o">/</span> <span class="n">pos_class</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">xgb_balanced</span> <span class="o">=</span> <span class="n">XGBClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">scale_pos_weight</span><span class="o">=</span><span class="n">scale_pos_weight</span><span class="p">,</span> <span class="n">base_score</span><span class="o">=</span><span class="n">pos_frac</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">xgb_balanced</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="model-evaluation-on-validation-data" class="relative group">Model Evaluation on Validation Data <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#model-evaluation-on-validation-data" aria-label="Anchor">#</a></span></h2><h3 id="evaluation-metrics" class="relative group">Evaluation Metrics <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#evaluation-metrics" aria-label="Anchor">#</a></span></h3><p>Evaluate models using several metrics:</p>
+<ul>
+<li><strong>Accuracy</strong>: Overall correctness.</li>
+<li><strong>Precision</strong>: Correct positive predictions over total positive predictions.</li>
+<li><strong>Recall</strong>: Correct positive predictions over actual positives.</li>
+<li><strong>F1-Score</strong>: Harmonic mean of precision and recall.</li>
+<li><strong>ROC-AUC</strong>: Area under the Receiver Operating Characteristic curve.</li>
+<li><strong>MCC</strong>: Delivers a balanced assessment by considering all elements of the confusion matrix.</li>
+<li><strong>Brier Score</strong>: Assesses the accuracy of probabilistic predictions by measuring the mean squared difference between predicted probabilities and actual outcomes.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Model Name</th>
+<th>Accuracy</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1 Score</th>
+<th>ROC AUC</th>
+<th>MCC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LR Base</td>
+<td>0.8040</td>
+<td>0.5564</td>
+<td>0.1818</td>
+<td>0.2741</td>
+<td>0.7719</td>
+<td>0.2339</td>
+</tr>
+<tr>
+<td>LR Balanced</td>
+<td>0.7045</td>
+<td>0.3808</td>
+<td>0.7224</td>
+<td>0.4987</td>
+<td>0.7743</td>
+<td>0.3492</td>
+</tr>
+<tr>
+<td>RF Base</td>
+<td>0.8610</td>
+<td>0.7452</td>
+<td>0.4816</td>
+<td>0.5851</td>
+<td>0.8418</td>
+<td>0.5236</td>
+</tr>
+<tr>
+<td>RF Balanced</td>
+<td>0.8575</td>
+<td>0.7480</td>
+<td>0.4521</td>
+<td>0.5636</td>
+<td>0.8500</td>
+<td>0.5065</td>
+</tr>
+<tr>
+<td>XGB Base</td>
+<td>0.8535</td>
+<td>0.6696</td>
+<td>0.5528</td>
+<td>0.6057</td>
+<td>0.8362</td>
+<td>0.5203</td>
+</tr>
+<tr>
+<td>XGB Balanced</td>
+<td>0.8270</td>
+<td>0.5695</td>
+<td>0.6143</td>
+<td>0.5910</td>
+<td>0.8364</td>
+<td>0.4821</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Observation</strong>:</p>
+<ul>
+<li>RF stands out with the highest MCC and ROC AUC, indicating robust performance across multiple metrics.</li>
+<li>While RF Balanced has the higher ROC AUC, RF Base achieves the highest MCC.</li>
+<li>In terms of the F1 score, XGB achieves the best results.</li>
+</ul>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-8_hu51e2c7f5ce9d51bb53fa31eb5c8a9881_91814_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-8_hu51e2c7f5ce9d51bb53fa31eb5c8a9881_91814_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/cost-sensitive-model/image-8_hu51e2c7f5ce9d51bb53fa31eb5c8a9881_91814_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/image-8_hu51e2c7f5ce9d51bb53fa31eb5c8a9881_91814_1167x989_resize_q75_h2_box_3.webp 1167w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1167"
+        height="989"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-8_hu51e2c7f5ce9d51bb53fa31eb5c8a9881_91814_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-8_hu51e2c7f5ce9d51bb53fa31eb5c8a9881_91814_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-8_hu51e2c7f5ce9d51bb53fa31eb5c8a9881_91814_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-8_hu51e2c7f5ce9d51bb53fa31eb5c8a9881_91814_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-8.png 1167w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<h3 id="cross-validated-roc-auc-scores" class="relative group">Cross Validated ROC AUC Scores <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#cross-validated-roc-auc-scores" aria-label="Anchor">#</a></span></h3><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>ROC AUC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF Balanced</td>
+<td>0.8273</td>
+</tr>
+<tr>
+<td>RF Base</td>
+<td>0.8256</td>
+</tr>
+<tr>
+<td>XGB Base</td>
+<td>0.8143</td>
+</tr>
+<tr>
+<td>XGB Balanced</td>
+<td>0.8075</td>
+</tr>
+<tr>
+<td>LR Balanced</td>
+<td>0.7659</td>
+</tr>
+<tr>
+<td>LR Base</td>
+<td>0.7641</td>
+</tr>
+</tbody>
+</table>
+<h3 id="calibration-and-feature-importance" class="relative group">Calibration and Feature Importance <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#calibration-and-feature-importance" aria-label="Anchor">#</a></span></h3><h4 id="calibration-plot" class="relative group">Calibration Plot <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#calibration-plot" aria-label="Anchor">#</a></span></h4><p>Calibration plots help assess how well predicted probabilities reflect actual probabilities.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-9_hu8153d176712d4ea0e30653c560e557a0_69505_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-9_hu8153d176712d4ea0e30653c560e557a0_69505_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/portfolio/cost-sensitive-model/image-9_hu8153d176712d4ea0e30653c560e557a0_69505_691x545_resize_q75_h2_box_3.webp 691w
+              
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/image-9_hu8153d176712d4ea0e30653c560e557a0_69505_691x545_resize_q75_h2_box_3.webp 691w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="691"
+        height="545"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-9_hu8153d176712d4ea0e30653c560e557a0_69505_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-9_hu8153d176712d4ea0e30653c560e557a0_69505_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-9_hu8153d176712d4ea0e30653c560e557a0_69505_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-9.png 691w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-9.png 691w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<h3 id="brier-scores-lower-is-better" class="relative group">Brier Scores (lower is better) <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#brier-scores-lower-is-better" aria-label="Anchor">#</a></span></h3><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Brier Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF Balanced</td>
+<td>0.1068</td>
+</tr>
+<tr>
+<td>RF Base</td>
+<td>0.1082</td>
+</tr>
+<tr>
+<td>XGB Base</td>
+<td>0.1111</td>
+</tr>
+<tr>
+<td>XGB Balanced</td>
+<td>0.1263</td>
+</tr>
+<tr>
+<td>LR Base</td>
+<td>0.1350</td>
+</tr>
+<tr>
+<td>LR Balanced</td>
+<td>0.1966</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Observation</strong>:</p>
+<ul>
+<li>Balanced Random Forest has the best Brier score, making it the most accurate model for probability predictions.</li>
+<li>Balancing improves Random Forest slightly, but worsens performance for Logistic Regression and slightly for XGBoost.</li>
+</ul>
+<h4 id="feature-importance" class="relative group">Feature Importance <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#feature-importance" aria-label="Anchor">#</a></span></h4><p>To determine the most important features, I use SHAP (SHapley Additive exPlanations) which helps to undestand how much each feature contributes to a model&rsquo;s predictions.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-10_hu4542447d136d7ceff013b8bcc2002946_125235_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-10_hu4542447d136d7ceff013b8bcc2002946_125235_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/cost-sensitive-model/image-10_hu4542447d136d7ceff013b8bcc2002946_125235_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              ,/portfolio/cost-sensitive-model/image-10_hu4542447d136d7ceff013b8bcc2002946_125235_1320x0_resize_q75_h2_box_3.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1643"
+        height="908"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-10_hu4542447d136d7ceff013b8bcc2002946_125235_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-10_hu4542447d136d7ceff013b8bcc2002946_125235_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-10_hu4542447d136d7ceff013b8bcc2002946_125235_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-10_hu4542447d136d7ceff013b8bcc2002946_125235_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-10_hu4542447d136d7ceff013b8bcc2002946_125235_1320x0_resize_box_3.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-11_huee7b454955a095bea6cd6b2238bf35ca_171860_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-11_huee7b454955a095bea6cd6b2238bf35ca_171860_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/cost-sensitive-model/image-11_huee7b454955a095bea6cd6b2238bf35ca_171860_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              ,/portfolio/cost-sensitive-model/image-11_huee7b454955a095bea6cd6b2238bf35ca_171860_1320x0_resize_q75_h2_box_3.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1643"
+        height="908"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-11_huee7b454955a095bea6cd6b2238bf35ca_171860_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-11_huee7b454955a095bea6cd6b2238bf35ca_171860_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-11_huee7b454955a095bea6cd6b2238bf35ca_171860_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-11_huee7b454955a095bea6cd6b2238bf35ca_171860_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-11_huee7b454955a095bea6cd6b2238bf35ca_171860_1320x0_resize_box_3.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-12_hub03e6ef470d9a8f59f8a4909090a883f_200665_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-12_hub03e6ef470d9a8f59f8a4909090a883f_200665_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/cost-sensitive-model/image-12_hub03e6ef470d9a8f59f8a4909090a883f_200665_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              ,/portfolio/cost-sensitive-model/image-12_hub03e6ef470d9a8f59f8a4909090a883f_200665_1320x0_resize_q75_h2_box_3.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1643"
+        height="908"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-12_hub03e6ef470d9a8f59f8a4909090a883f_200665_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-12_hub03e6ef470d9a8f59f8a4909090a883f_200665_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-12_hub03e6ef470d9a8f59f8a4909090a883f_200665_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-12_hub03e6ef470d9a8f59f8a4909090a883f_200665_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-12_hub03e6ef470d9a8f59f8a4909090a883f_200665_1320x0_resize_box_3.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p><strong>Observation</strong>:</p>
+<ul>
+<li><strong>Age</strong>, <strong>NumOfProducts</strong>, and <strong>IsActiveMember</strong> are consistently the most important features in RF and XGB models, indicating that age, number of products and active membership status significantly influence churn.</li>
+<li>Balancing the dataset has little effect on feature importance for each model.</li>
+</ul>
+<hr>
+<h2 id="tuning-the-decision-threshold" class="relative group">Tuning the Decision Threshold <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#tuning-the-decision-threshold" aria-label="Anchor">#</a></span></h2><p>By default, models classify samples as positive if the predicted probability is ≥ 0.5. However, this threshold might not be optimal for our cost-sensitive scenario.</p>
+<h3 id="threshold-tuning-process" class="relative group">Threshold Tuning Process <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#threshold-tuning-process" aria-label="Anchor">#</a></span></h3><p>Search for a threshold that maximizes our custom cost function with TunedThresholdClassifierCV from scikit-learn.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">TunedThresholdClassifierCV</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">tuned_model</span> <span class="o">=</span> <span class="n">TunedThresholdClassifierCV</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scoring</span><span class="o">=</span><span class="n">cost_scorer</span><span class="p">,</span> <span class="c1">#Custom Business Scoring</span>
+</span></span><span class="line"><span class="cl">    <span class="n">store_cv_results</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">tuned_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="results-after-threshold-tuning" class="relative group">Results After Threshold Tuning <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#results-after-threshold-tuning" aria-label="Anchor">#</a></span></h3><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-24_hu869d595e532c10e456c9f6883ff7b201_42401_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-24_hu869d595e532c10e456c9f6883ff7b201_42401_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/portfolio/cost-sensitive-model/image-24_hu869d595e532c10e456c9f6883ff7b201_42401_989x590_resize_q75_h2_box_3.webp 989w
+              
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/image-24_hu869d595e532c10e456c9f6883ff7b201_42401_989x590_resize_q75_h2_box_3.webp 989w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="989"
+        height="590"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-24_hu869d595e532c10e456c9f6883ff7b201_42401_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-24_hu869d595e532c10e456c9f6883ff7b201_42401_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-24_hu869d595e532c10e456c9f6883ff7b201_42401_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-24.png 989w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-24.png 989w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p><strong>Observation</strong>:</p>
+<ul>
+<li>The <strong>Post-tuned Balanced RF</strong> model yields the highest profit at $22,850, making it the top-performing model.</li>
+<li>Both tuned Logistic Regression models result in negative profits.</li>
+</ul>
+<hr>
+<h2 id="final-evaluation-on-hold-out-data" class="relative group">Final Evaluation on Hold-Out Data <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#final-evaluation-on-hold-out-data" aria-label="Anchor">#</a></span></h2><p>Test the models on a hold-out dataset to evaluate its final performance. Due to poor performance, Logistic Regression was excluded from these evaluations.</p>
+<h3 id="model-profitability" class="relative group">Model Profitability <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#model-profitability" aria-label="Anchor">#</a></span></h3><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-25_huc90abad3f74cbd54851412802928f5f8_46352_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-25_huc90abad3f74cbd54851412802928f5f8_46352_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/portfolio/cost-sensitive-model/image-25_huc90abad3f74cbd54851412802928f5f8_46352_989x590_resize_q75_h2_box_3.webp 989w
+              
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/image-25_huc90abad3f74cbd54851412802928f5f8_46352_989x590_resize_q75_h2_box_3.webp 989w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="989"
+        height="590"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-25_huc90abad3f74cbd54851412802928f5f8_46352_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-25_huc90abad3f74cbd54851412802928f5f8_46352_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-25_huc90abad3f74cbd54851412802928f5f8_46352_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-25.png 989w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-25.png 989w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-26_hu43ef3707b2e02292fac4e9f063af3a37_46677_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-26_hu43ef3707b2e02292fac4e9f063af3a37_46677_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/portfolio/cost-sensitive-model/image-26_hu43ef3707b2e02292fac4e9f063af3a37_46677_989x590_resize_q75_h2_box_3.webp 989w
+              
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/image-26_hu43ef3707b2e02292fac4e9f063af3a37_46677_989x590_resize_q75_h2_box_3.webp 989w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="989"
+        height="590"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-26_hu43ef3707b2e02292fac4e9f063af3a37_46677_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-26_hu43ef3707b2e02292fac4e9f063af3a37_46677_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-26_hu43ef3707b2e02292fac4e9f063af3a37_46677_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-26.png 989w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-26.png 989w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-27_hu6ffd4428a96a725522da35f925cd9d32_49155_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-27_hu6ffd4428a96a725522da35f925cd9d32_49155_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/portfolio/cost-sensitive-model/image-27_hu6ffd4428a96a725522da35f925cd9d32_49155_989x590_resize_q75_h2_box_3.webp 989w
+              
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/image-27_hu6ffd4428a96a725522da35f925cd9d32_49155_989x590_resize_q75_h2_box_3.webp 989w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="989"
+        height="590"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-27_hu6ffd4428a96a725522da35f925cd9d32_49155_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-27_hu6ffd4428a96a725522da35f925cd9d32_49155_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-27_hu6ffd4428a96a725522da35f925cd9d32_49155_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-27.png 989w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-27.png 989w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p><strong>Observation</strong>:</p>
+<ul>
+<li>With the exception of Balanced XGB, the threshold-tuned models outperform all non-tuned models in terms of profit on unseen data.</li>
+<li>The most profitable model is the threshold-tuned Random Forest baseline.</li>
+</ul>
+<h3 id="model-overall" class="relative group">Model Overall <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#model-overall" aria-label="Anchor">#</a></span></h3><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-20_hu3a877ec7f1117e46c302f7a80a6be3b0_70938_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-20_hu3a877ec7f1117e46c302f7a80a6be3b0_70938_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/portfolio/cost-sensitive-model/image-20_hu3a877ec7f1117e46c302f7a80a6be3b0_70938_691x545_resize_q75_h2_box_3.webp 691w
+              
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/image-20_hu3a877ec7f1117e46c302f7a80a6be3b0_70938_691x545_resize_q75_h2_box_3.webp 691w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="691"
+        height="545"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-20_hu3a877ec7f1117e46c302f7a80a6be3b0_70938_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-20_hu3a877ec7f1117e46c302f7a80a6be3b0_70938_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-20_hu3a877ec7f1117e46c302f7a80a6be3b0_70938_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-20.png 691w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-20.png 691w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<table>
+<thead>
+<tr>
+<th>Model Name</th>
+<th>Accuracy</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1 Score</th>
+<th>ROC AUC</th>
+<th>MCC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base RF</td>
+<td>0.8690</td>
+<td>0.7897</td>
+<td>0.4877</td>
+<td>0.6030</td>
+<td>0.8578</td>
+<td>0.5518</td>
+</tr>
+<tr>
+<td>Post-tuned Base RF</td>
+<td>0.7125</td>
+<td>0.4016</td>
+<td>0.8358</td>
+<td>0.5426</td>
+<td>0.8578</td>
+<td>0.4212</td>
+</tr>
+<tr>
+<td>Balanced RF</td>
+<td>0.8700</td>
+<td>0.8217</td>
+<td>0.4632</td>
+<td>0.5925</td>
+<td>0.8632</td>
+<td>0.5526</td>
+</tr>
+<tr>
+<td>Post-tuned Balanced RF</td>
+<td>0.6480</td>
+<td>0.3549</td>
+<td>0.8873</td>
+<td>0.5070</td>
+<td>0.8632</td>
+<td>0.3820</td>
+</tr>
+<tr>
+<td>Base XGB</td>
+<td>0.8470</td>
+<td>0.6635</td>
+<td>0.5074</td>
+<td>0.5750</td>
+<td>0.8403</td>
+<td>0.4902</td>
+</tr>
+<tr>
+<td>Post-tuned Base XGB</td>
+<td>0.6585</td>
+<td>0.3598</td>
+<td>0.8652</td>
+<td>0.5083</td>
+<td>0.8403</td>
+<td>0.3794</td>
+</tr>
+<tr>
+<td>Balanced XGB</td>
+<td>0.8400</td>
+<td>0.5987</td>
+<td>0.6544</td>
+<td>0.6253</td>
+<td>0.8439</td>
+<td>0.5247</td>
+</tr>
+<tr>
+<td>Post-tuned Balanced XGB</td>
+<td>0.6980</td>
+<td>0.3874</td>
+<td>0.8260</td>
+<td>0.5274</td>
+<td>0.8439</td>
+<td>0.3992</td>
+</tr>
+</tbody>
+</table>
+<h2 id="best-model" class="relative group">Best Model <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#best-model" aria-label="Anchor">#</a></span></h2><h3 id="post-tuned-random-forest" class="relative group">Post-tuned Random Forest <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#post-tuned-random-forest" aria-label="Anchor">#</a></span></h3><table>
+<thead>
+<tr>
+<th>Model Name</th>
+<th>Accuracy</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1 Score</th>
+<th>ROC AUC</th>
+<th>MCC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Post-tuned Base RF</td>
+<td>0.7125</td>
+<td>0.4016</td>
+<td>0.8358</td>
+<td>0.5426</td>
+<td>0.8578</td>
+<td>0.4212</td>
+</tr>
+</tbody>
+</table>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/cost-sensitive-model/image-28_hu82fa602e2c549abb958c2274bcb9694c_80114_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/cost-sensitive-model/image-28_hu82fa602e2c549abb958c2274bcb9694c_80114_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/cost-sensitive-model/image-28_hu82fa602e2c549abb958c2274bcb9694c_80114_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              
+                ,/portfolio/cost-sensitive-model/image-28_hu82fa602e2c549abb958c2274bcb9694c_80114_1242x592_resize_q75_h2_box_3.webp 1242w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1242"
+        height="592"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/cost-sensitive-model/image-28_hu82fa602e2c549abb958c2274bcb9694c_80114_660x0_resize_box_3.png"
+          srcset="/portfolio/cost-sensitive-model/image-28_hu82fa602e2c549abb958c2274bcb9694c_80114_330x0_resize_box_3.png 330w,/portfolio/cost-sensitive-model/image-28_hu82fa602e2c549abb958c2274bcb9694c_80114_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/cost-sensitive-model/image-28_hu82fa602e2c549abb958c2274bcb9694c_80114_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/cost-sensitive-model/image-28.png 1242w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<hr>
+<h2 id="conclusion" class="relative group">Conclusion <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#conclusion" aria-label="Anchor">#</a></span></h2><p>Predicting customer churn is not just about identifying who is likely to leave, but also about understanding the financial impact of losing a customer. By adopting a cost-sensitive approach, this project aimed to align predictive modeling with business objectives, ensuring that retention strategies maximize financial gains.</p>
+<p>The analysis demonstrated that handling class imbalance is crucial for effective churn prediction. While traditional models tend to favor the majority class, applying techniques like class weighting improved recall, allowing the model to better capture customers at risk of churning.</p>
+<p>Among the models tested, the <strong>Post-Tuned Balanced Random Forest</strong> emerged as the most profitable option. By fine-tuning decision thresholds, this model optimized the balance between correctly identifying churners and minimizing false positives, ultimately leading to the highest financial gains on unseen data.</p>
+<p>Moreover, feature importance analysis revealed that <strong>Age, Number of Products, and Active Membership</strong> were key drivers of churn. Understanding these factors allows businesses to develop targeted interventions to retain customers effectively.</p>
+<h3 id="key-takeaways" class="relative group">Key Takeaways <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#key-takeaways" aria-label="Anchor">#</a></span></h3><ol>
+<li>
+<p><strong>Cost-Sensitive Approach Enhances Business Alignment</strong><br>
+Incorporating a cost matrix into the model evaluation ensured that predictions were aligned with financial outcomes rather than pure statistical accuracy. This approach helped balance profit maximization while mitigating unnecessary costs.</p>
+</li>
+<li>
+<p><strong>Class Imbalance Affects Model Performance</strong><br>
+The dataset exhibited a significant class imbalance, which was addressed using class weighting and cost-sensitive learning. Balanced models performed better in terms of recall, ensuring that more churn cases were correctly identified.</p>
+</li>
+<li>
+<p><strong>Post-Tuned Random Forest Model Performed Best</strong><br>
+After threshold tuning, the <strong>Post-tuned Balanced Random Forest</strong> emerged as the most profitable model, achieving the highest financial gain on unseen data.</p>
+</li>
+<li>
+<p><strong>Feature Importance Highlights Customer Behavior Patterns</strong><br>
+Features like <strong>Age, Number of Products, and Active Membership</strong> had the greatest impact on churn predictions, emphasizing the need for targeted retention strategies for specific customer groups.</p>
+</li>
+</ol>
+<h3 id="next-steps" class="relative group">Next Steps <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#next-steps" aria-label="Anchor">#</a></span></h3><ul>
+<li>
+<p><strong>Customer Lifetime Value (CLV) Integration</strong><br>
+Future models could incorporate <strong>Customer Lifetime Value (CLV)</strong> into the cost function to prioritize high-value customers and optimize resource allocation.</p>
+</li>
+<li>
+<p><strong>Dynamic Cost Model</strong><br>
+The fixed cost matrix assumes uniform costs and gains across all customers, which may not reflect real-world variations. A dynamic, data-driven approach to cost estimation could improve financial decision-making.</p>
+</li>
+<li>
+<p><strong>Customer Experience Consideration</strong><br>
+While profit maximization was the primary goal, businesses should balance predictive actions with customer experience to avoid retention strategies that may backfire.</p>
+</li>
+<li>
+<p><strong>Operational Readiness for Deployment</strong><br>
+Before deploying the model, it is crucial to assess real-world constraints such as <strong>latency, scalability, and integration</strong> with existing customer management systems.</p>
+</li>
+</ul>
+<hr>
+<h2 id="references" class="relative group">References <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#references" aria-label="Anchor">#</a></span></h2><ul>
+<li><a href="https://scikit-learn.org/stable/" target="_blank" rel="noreferrer">Scikit-learn Documentation</a></li>
+<li><a href="https://youtu.be/6YnhoCfArQo?si=U059Ix4S2BOLWeH7" target="_blank" rel="noreferrer">Learning from imbalanced data - EuroSciPy 2023</a></li>
+<li><a href="https://www.evidentlyai.com/blog/tutorial-2-model-evaluation-hr-attrition" target="_blank" rel="noreferrer">What Is Your Model Hiding? A Tutorial on Evaluating ML Models</a></li>
+</ul>
+<hr>
+<p><strong>Thank you for reading!</strong> If you have any questions or comments, please feel free to contact me. Your feedback is highly appreciated.</p>
+<hr>
+<p><strong>Keywords</strong>: Machine Learning, Cost-Sensitive Learning, Classification, Data Science, Business Analytics</p>
+<hr>
+
+
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+  <div class="flex">
+    
+    
+    
+      
+      
+        
+        
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="!mb-0 !mt-0 me-4 w-24 h-auto rounded-full"
+      
+    >
+      
+      
+      
+      
+      <img
+        width="467"
+        height="467"
+        class="!mb-0 !mt-0 me-4 w-24 h-auto rounded-full"
+        alt="Randolph Rogers"
+        loading="lazy" decoding="async"
+        
+          src="/img/author.jpg"
+        
+      />
+    </picture>
+  
+
+
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Randolph Rogers
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">Machine learning and Data Science enthusiast.</div>
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://twitter.com/SwattyML"
+          target="_blank"
+          aria-label="X-Twitter"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://linkedin.com/in/randolphrogers/"
+          target="_blank"
+          aria-label="Linkedin"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://github.com/SwattyX"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="/portfolio/phishing-domain-classifier/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Phishing Domain Classifier</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-09-26 00:00:00 &#43;0000 UTC">26 September 2024</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="/portfolio/aws-database-data-lake/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Building Data Lake on AWS</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-12-20 00:00:00 &#43;0000 UTC">20 December 2024</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+    <nav class="pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex list-none flex-col sm:flex-row">
+        
+          
+          <li class="group mb-1 text-end sm:mb-0 sm:me-7 sm:last:me-0">
+            
+              <a
+                href=""
+                title=""
+                
+                ><span
+                    class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                    ></span
+                  >
+                </a
+              >
+            
+          </li>
+        
+      </ul>
+    </nav>
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            Copyright © 2024 - Randolph Rogers
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+        <div>
+          
+  
+    
+    
+      <div class="group relative">
+        <button
+          class="group-dark:hover:text-primary-400 flex w-full items-center justify-end transition-colors group-hover:text-primary-600"
+        >
+          <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <path fill="currentColor" d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z"/>
+  <path fill="currentColor" d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z"/>
+</svg>
+</span><span class="text-sm">EN</span
+          ><span class="text-[0.6rem]"
+            ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+</span></span
+          >
+        </button>
+        
+        <div
+          class=" bottom-7  invisible absolute z-50 flex flex-col whitespace-nowrap rounded border border-neutral-300 bg-neutral text-start text-base shadow group-hover:visible ltr:right-0 rtl:left-0 dark:border-neutral-600 dark:bg-neutral-800"
+        >
+          
+          
+          
+            
+            
+              
+                
+                <div class="flex flex-grow">
+                  
+                    <a
+                      href="/portfolio/cost-sensitive-model/"
+                      class="flex w-full items-center justify-between bg-primary-100 px-2 py-1 dark:bg-primary-900"
+                      >English<span
+                        class="ms-2 w-6 text-primary-600 dark:text-primary-400"
+                        ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"/></svg>
+</span></span
+                      ></a
+                    >
+                  
+                </div>
+              
+            
+              
+            
+          
+            
+            
+              
+            
+              
+                
+                <div class="flex flex-grow">
+                  
+                    <a
+                      href="/es/portfolio/cost-sensitive-model/"
+                      class="w-full py-1 pe-10 ps-2 decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                      >Español</a
+                    >
+                  
+                </div>
+              
+            
+          
+        </div>
+      </div>
+    
+  
+
+
+        </div>
+      
+      
+      
+        <div
+          class="me-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        >
+          <button id="appearance-switcher-0" type="button" aria-label="appearance switcher">
+            <div
+              class="flex h-12 w-12 items-center justify-center dark:hidden"
+              title="Switch to dark appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+            </div>
+            <div
+              class="hidden h-12 w-12 items-center justify-center dark:flex"
+              title="Switch to light appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+            </div>
+          </button>
+        </div>
+      
+    </div>
+  </div>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 z-50 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+>
+  <div
+    id="search-modal"
+    class="top-20 mx-auto flex min-h-0 w-full max-w-3xl flex-col rounded-md border border-neutral-200 bg-neutral shadow-lg dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex flex-none items-center justify-between px-2">
+      <form class="flex min-w-0 flex-auto items-center">
+        <div class="flex h-8 w-8 items-center justify-center text-neutral-400">
+          <span class="icon relative inline-block px-1 align-text-bottom"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="mx-1 flex h-12 flex-auto appearance-none bg-transparent focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex h-8 w-8 items-center justify-center text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto overflow-auto px-2">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+</html>

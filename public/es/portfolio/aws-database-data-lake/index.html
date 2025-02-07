@@ -1,0 +1,1882 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="es-ES"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>Construcción de un Lago de Datos en AWS &middot; RRogers</title>
+    <meta name="title" content="Construcción de un Lago de Datos en AWS &middot; RRogers" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.6fad12fb61fe83418a0d4a0e1310c10561473c40a03914b1464b037998295828.css"
+    integrity="sha256-b60S&#43;2H&#43;g0GKDUoOExDBBWFHPECgORSxRksDeZgpWCg="
+  />
+  
+    
+    
+    
+  
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.e2f23ac92b690a4e99ab2dffef9aa96a95f7ec39636fb9fa7eeb70d55ba347ae.js"
+      integrity="sha256-4vI6yStpCk6Zqy3/75qpapX37Dljb7n6futw1VujR64="
+      data-copy="Copiar"
+      data-copied="Copiado"
+    ></script>
+  
+  
+  <meta
+    name="description"
+    content="
+      Este fue un proyecto para uno de mis cursos de maestría.
+    "
+  />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/es/portfolio/aws-database-data-lake/" />
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/es/portfolio/aws-database-data-lake/">
+  <meta property="og:site_name" content="RRogers">
+  <meta property="og:title" content="Construcción de un Lago de Datos en AWS">
+  <meta property="og:description" content="Este fue un proyecto para uno de mis cursos de maestría.">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="portfolio">
+    <meta property="article:published_time" content="2024-12-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-12-20T00:00:00+00:00">
+    <meta property="article:tag" content="Datalake">
+    <meta property="article:tag" content="AWS">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Construcción de un Lago de Datos en AWS">
+  <meta name="twitter:description" content="Este fue un proyecto para uno de mis cursos de maestría.">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Portafolio",
+    "name": "Construcción de un Lago de Datos en AWS",
+    "headline": "Construcción de un Lago de Datos en AWS",
+    "description": "Este fue un proyecto para uno de mis cursos de maestría.",
+    "abstract": "Introducción #Los datos son la base de la toma de decisiones en el mundo digital actual.",
+    "inLanguage": "es-ES",
+    "url" : "http:\/\/localhost:1313\/es\/portfolio\/aws-database-data-lake\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Randolph Rogers"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-12-20T00:00:00\u002b00:00",
+    "datePublished": "2024-12-20T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-12-20T00:00:00\u002b00:00",
+    
+    "keywords": ["Datalake","AWS"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "3002"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/es/",
+       "name": "¡ Bienvenido a Mi Página Web!",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/es/portfolio/",
+       "name": "Portafolio",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Construcción De Un Lago De Datos en Aws",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  <meta name="author" content="Randolph Rogers" />
+  
+    
+      <link href="https://twitter.com/SwattyML" rel="me" />
+    
+      <link href="https://linkedin.com/in/randolphrogers/" rel="me" />
+    
+      <link href="https://github.com/SwattyX" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Ir al contenido</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+    <nav class="flex items-center justify-between">
+        
+        <div class="z-40 flex flex-row items-center">
+                <a href="/es/" class="mr-2">
+                  
+                    <img src="/img/logo_dark.svg" class="max-h-[10rem] max-w-[10rem] object-scale-down object-left hidden dark:flex" alt="RRogers" />
+                  
+                    
+                      <img src="/img/logo_light.svg" class="max-h-[10rem] max-w-[10rem] object-scale-down object-left dark:hidden" alt="RRogers" />
+                    
+                </a>
+          </div>
+        
+        
+        <ul class="hidden sm:flex sm:items-center sm:space-x-6">
+            
+            <li class="group">
+                
+                <a href="/es/blog/" title="" class="hover:text-primary-600 dark:hover:text-primary-400" >
+                    
+                    
+                    <span>Blog</span>
+                    
+                </a>
+                
+            </li>
+            
+            <li class="group">
+                
+                <a href="/es/portfolio/" title="" class="hover:text-primary-600 dark:hover:text-primary-400" >
+                    
+                    
+                    <span>Portafolio</span>
+                    
+                </a>
+                
+            </li>
+            
+            <li class="group">
+                
+                <a href="/es/about/" title="" class="hover:text-primary-600 dark:hover:text-primary-400" >
+                    
+                    
+                    <span>Sobre Mi</span>
+                    
+                </a>
+                
+            </li>
+            
+            <li class="group">
+                
+                <a href="https://github.com/SwattyX/portfolio" title="" class="hover:text-primary-600 dark:hover:text-primary-400" target="_blank" >
+                    
+                    <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+                    
+                    
+                </a>
+                
+            </li>
+            
+            <li class="group">
+                
+                
+                <button id="search-button" title=""
+                    class="hover:text-primary-600 dark:hover:text-primary-400">
+                    
+                    <span class="icon relative inline-block px-1 align-text-bottom"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+                    
+                    
+                    <span></span>
+                    
+                </button>
+                
+                
+            </li>
+            
+        </ul>
+        
+        
+        
+        <label id="menu-button" for="menu-controller" class="block sm:hidden">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+            </div>
+            <div id="menu-wrapper"
+                class="invisible fixed inset-0 z-30 m-auto h-full w-full cursor-default overflow-auto bg-neutral-100/50 opacity-0 backdrop-blur-sm transition-opacity dark:bg-neutral-900/50">
+                <ul
+                    class="mx-auto flex w-full max-w-7xl list-none flex-col overflow-visible px-6 py-6 text-end sm:px-14 sm:py-10 sm:pt-10 md:px-24 lg:px-32">
+                    <li class="mb-1">
+                        <label for="menu-controller"
+                            class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                            <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+                        </label>
+                    </li>
+                    
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        <a href="/es/blog/" title=""
+                            onclick="document.getElementById('menu-controller').checked = false;" >
+                            
+                            
+                            <span
+                                class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                Blog
+                            </span>
+                            
+                        </a>
+                        
+                    </li>
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        <a href="/es/portfolio/" title=""
+                            onclick="document.getElementById('menu-controller').checked = false;" >
+                            
+                            
+                            <span
+                                class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                Portafolio
+                            </span>
+                            
+                        </a>
+                        
+                    </li>
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        <a href="/es/about/" title=""
+                            onclick="document.getElementById('menu-controller').checked = false;" >
+                            
+                            
+                            <span
+                                class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                Sobre Mi
+                            </span>
+                            
+                        </a>
+                        
+                    </li>
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        <a href="https://github.com/SwattyX/portfolio" title=""
+                            onclick="document.getElementById('menu-controller').checked = false;" target="_blank" >
+                            
+                            <span
+                                class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600"><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span>
+                            
+                            
+                        </a>
+                        
+                    </li>
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        
+                        <button id="search-button" title="">
+                            
+                            <span
+                                class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600"><span class="icon relative inline-block px-1 align-text-bottom"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span></span>
+                            
+                            
+                            <span
+                                class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                
+                            </span>
+                            
+                        </button>
+                        
+                        
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </label>
+        
+    </nav>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ]
+    });
+  });
+</script>
+</header>
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="hidden inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/es/"
+      >¡Bienvenido a mi página web!</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class=" inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/es/portfolio/"
+      >Portafolio</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/es/portfolio/aws-database-data-lake/"
+      >Construcción de un Lago de Datos en AWS</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Construcción de un Lago de Datos en AWS
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2024-12-20 00:00:00 &#43;0000 UTC">20 diciembre 2024</time><span class="px-2 text-primary-500">&middot;</span><span>3002 palabras</span><span class="px-2 text-primary-500">&middot;</span><span title="Tiempo de lectura">15 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+        <div class="order-first px-0 lg:order-last lg:max-w-xs lg:ps-8">
+          <div class="toc pe-5 lg:sticky lg:top-10 print:hidden">
+            <details open class="-ms-5 mt-0 overflow-hidden rounded-lg ps-5">
+  <summary
+    class="block cursor-pointer bg-neutral-100 py-1 ps-5 text-lg font-semibold text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden"
+  >
+    Tabla de contenido
+  </summary>
+  <div class="border-s border-dotted border-neutral-300 py-2 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introducción"><strong>Introducción</strong></a></li>
+    <li><a href="#contexto-y-antecedentes"><strong>Contexto y Antecedentes</strong></a></li>
+    <li><a href="#visión-general-del-proyecto"><strong>Visión General del Proyecto</strong></a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#desafíos-y-lecciones-aprendidas"><strong>Desafíos y Lecciones Aprendidas</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#el-viaje-personal"><strong>El Viaje Personal</strong></a>
+      <ul>
+        <li><a href="#cómo-comenzó"><strong>Cómo Comenzó</strong></a></li>
+        <li><a href="#desafíos-clave-y-cómo-los-superamos"><strong>Desafíos Clave y Cómo Los Superamos</strong></a>
+          <ul>
+            <li><a href="#problemas-de-conectividad-de-base-de-datos"><strong>Problemas de Conectividad de Base de Datos</strong></a></li>
+            <li><a href="#automatización-de-la-infraestructura-con-cloudformation"><strong>Automatización de la Infraestructura con CloudFormation</strong></a></li>
+            <li><a href="#procesamiento-etl-y-programación-de-eventos"><strong>Procesamiento ETL y Programación de Eventos</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#lo-que-mejoraría-la-próxima-vez"><strong>Lo que Mejoraría la Próxima Vez</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#profundización-técnica"><strong>Profundización Técnica</strong></a>
+      <ul>
+        <li><a href="#ingestión-de-datos-configuración-de-aws-s3-como-el-data-lake"><strong>Ingestión de Datos: Configuración de AWS S3 como el Data Lake</strong></a>
+          <ul>
+            <li><a href="#creación-del-bucket-de-s3"><strong>Creación del Bucket de S3</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#infraestructura-como-código-aws-cloudformation"><strong>Infraestructura como Código: AWS CloudFormation</strong></a>
+          <ul>
+            <li><a href="#stack-de-base-de-datos-instancias-rds"><strong>Stack de Base de Datos (Instancias RDS)</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#procesamiento-de-datos-con-aws-lambda-pipelines-etl"><strong>Procesamiento de Datos con AWS Lambda (Pipelines ETL)</strong></a>
+          <ul>
+            <li><a href="#flujo-de-trabajo-etl"><strong>Flujo de Trabajo ETL</strong></a></li>
+            <li><a href="#procesamiento-basado-en-eventos"><strong>Procesamiento Basado en Eventos</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#seguridad-y-gestión-de-credenciales-con-aws-secrets-manager"><strong>Seguridad y Gestión de Credenciales con AWS Secrets Manager</strong></a></li>
+        <li><a href="#gobernanza-de-datos-monitoreo-y-registro-con-cloudwatch"><strong>Gobernanza de Datos: Monitoreo y Registro con CloudWatch</strong></a>
+          <ul>
+            <li><a href="#configuración-de-alarmas-en-cloudwatch"><strong>Configuración de Alarmas en CloudWatch</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#consulta-de-datos-y-análisis-aws-athena-y-herramientas-de-visualización"><strong>Consulta de Datos y Análisis: AWS Athena y Herramientas de Visualización</strong></a>
+          <ul>
+            <li><a href="#definición-de-la-tabla-athena"><strong>Definición de la Tabla Athena</strong></a></li>
+            <li><a href="#conexión-con-herramientas-bi"><strong>Conexión con Herramientas BI</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#resumen-de-la-arquitectura-tecnológica"><strong>Resumen de la Arquitectura Tecnológica</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#lecciones-aprendidas-y-direcciones-futuras"><strong>Lecciones Aprendidas y Direcciones Futuras</strong></a>
+      <ul>
+        <li><a href="#lecciones-claves-aprendidas"><strong>Lecciones Claves Aprendidas</strong></a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#mejoras-futuras-y-próximos-pasos"><strong>Mejoras Futuras y Próximos Pasos</strong></a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#conclusión"><strong>Conclusión</strong></a>
+      <ul>
+        <li><a href="#reflexiones-finales-y-lecciones-aprendidas"><strong>Reflexiones Finales y Lecciones Aprendidas</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+          </div>
+        </div>
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/aws-database-data-lake/image-15_hubd1036a75a2ee425b23fa353b9cb47ee_315445_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/aws-database-data-lake/image-15_hubd1036a75a2ee425b23fa353b9cb47ee_315445_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/aws-database-data-lake/image-15_hubd1036a75a2ee425b23fa353b9cb47ee_315445_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              
+                ,/portfolio/aws-database-data-lake/image-15_hubd1036a75a2ee425b23fa353b9cb47ee_315445_1320x742_resize_q75_h2_box_3.webp 1320w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1320"
+        height="742"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/aws-database-data-lake/image-15_hubd1036a75a2ee425b23fa353b9cb47ee_315445_660x0_resize_box_3.png"
+          srcset="/portfolio/aws-database-data-lake/image-15_hubd1036a75a2ee425b23fa353b9cb47ee_315445_330x0_resize_box_3.png 330w,/portfolio/aws-database-data-lake/image-15_hubd1036a75a2ee425b23fa353b9cb47ee_315445_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/aws-database-data-lake/image-15_hubd1036a75a2ee425b23fa353b9cb47ee_315445_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/aws-database-data-lake/image-15.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<h1 id="introducción" class="relative group"><strong>Introducción</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#introducci%c3%b3n" aria-label="Ancla">#</a></span></h1><p>Los datos son la base de la toma de decisiones en el mundo digital actual. Desde la detección de fraudes hasta la optimización de operaciones empresariales, las organizaciones dependen de pipelines de datos eficientes para ingerir, procesar y analizar grandes cantidades de información. Pero gestionar estos pipelines a gran escala requiere más que bases de datos tradicionales, se necesita una arquitectura robusta y escalable.</p>
+<p>Este proyecto nació de un curso que tomé durante mi maestría en Analítica de Datos, específicamente en <strong>Sistemas de Bases de Datos Avanzados</strong>, donde nos propusimos diseñar y desplegar un <strong>Data Lake en AWS</strong>. ¿El objetivo? Construir un sistema capaz de integrar datos de múltiples fuentes de manera fluida mientras garantizábamos <strong>eficiencia, automatización y escalabilidad</strong>. En lugar de solo configurar servicios, me enfoqué en estructurar un pipeline que pudiera manejar desafíos de datos del mundo real, como procesar datos estructurados y semiestructurados, automatizar la ingestión y optimizar los costos.</p>
+<p>En este blog, te contaré mi experiencia y a lo largo del camino, resaltaré lecciones clave aprendidas, decisiones arquitectónicas tomadas y mejoras que haría en futuras iteraciones.</p>
+<hr>
+<h1 id="contexto-y-antecedentes" class="relative group"><strong>Contexto y Antecedentes</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#contexto-y-antecedentes" aria-label="Ancla">#</a></span></h1><p>Para nuestro proyecto final, el instructor nos dio <strong>dos opciones</strong>:</p>
+<p>1️⃣ <strong>Opción A</strong> → Desarrollar un <strong>sistema de consultas avanzadas</strong> que interactúe con varias bases de datos en la nube.<br>
+2️⃣ <strong>Opción B</strong> → <strong>Construir un Data Lake en AWS</strong>, siguiendo una arquitectura de extremo a extremo demostrada en un video de referencia.</p>
+<p>El video, <a href="https://youtu.be/LAovcGquDc4?si=XxqlKeQLFqRuHaIb" target="_blank" rel="noreferrer"><strong>Building Data Lakes on AWS</strong></a>, proporcionaba una guía paso a paso para configurar un Data Lake utilizando servicios como <strong>AWS Glue, Athena y S3</strong>. Sin embargo, el instructor dejó claro que <strong>no era necesario replicar el video exactamente</strong>, dándonos la flexibilidad de modificar la implementación según fuera necesario.</p>
+<p>Decidimos optar por <strong>Opción B</strong>, pero queríamos <strong>evitar AWS Glue</strong> para eliminar costos durante el desarrollo. Esto requirió cambios adicionales, como reemplazar Glue por otros servicios de AWS y configurar un <strong>programador</strong> para automatizar el procesamiento de datos. Estas modificaciones introdujeron nuevos desafíos técnicos y aumentaron la complejidad del proceso de desarrollo.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/aws-database-data-lake/image-2_huc1bf4958a182a69520bbbc1c8ee331bc_164646_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/aws-database-data-lake/image-2_huc1bf4958a182a69520bbbc1c8ee331bc_164646_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/aws-database-data-lake/image-2_huc1bf4958a182a69520bbbc1c8ee331bc_164646_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              
+                ,/portfolio/aws-database-data-lake/image-2_huc1bf4958a182a69520bbbc1c8ee331bc_164646_1146x280_resize_q75_h2_box_3.webp 1146w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1146"
+        height="280"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/aws-database-data-lake/image-2_huc1bf4958a182a69520bbbc1c8ee331bc_164646_660x0_resize_box_3.png"
+          srcset="/portfolio/aws-database-data-lake/image-2_huc1bf4958a182a69520bbbc1c8ee331bc_164646_330x0_resize_box_3.png 330w,/portfolio/aws-database-data-lake/image-2_huc1bf4958a182a69520bbbc1c8ee331bc_164646_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/aws-database-data-lake/image-2_huc1bf4958a182a69520bbbc1c8ee331bc_164646_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/aws-database-data-lake/image-2.png 1146w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<hr>
+<h1 id="visión-general-del-proyecto" class="relative group"><strong>Visión General del Proyecto</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#visi%c3%b3n-general-del-proyecto" aria-label="Ancla">#</a></span></h1><p>En su núcleo, este proyecto consistió en <strong>construir un Data Lake en la nube utilizando AWS</strong>. Pero, ¿qué significa eso en la práctica? Aquí tienes un desglose a alto nivel:</p>
+<ul>
+<li><strong>Almacenamiento de Datos</strong>: Un <strong>bucket de AWS S3</strong> sirve como el repositorio principal para los datos entrantes desde las bases de datos.</li>
+<li><strong>Infraestructura de Base de Datos</strong>: Se implementan múltiples bases de datos (MySQL, SQL Server y PostgreSQL) utilizando <strong>Amazon RDS</strong>.</li>
+<li><strong>Gestión de Costos con CloudFormation</strong>: Se utilizaron plantillas de CloudFormation para <strong>desplegar y eliminar bases de datos a diario</strong> durante el desarrollo. Este enfoque ayudó a minimizar los costos mientras el proyecto seguía evolucionando.</li>
+<li><strong>Procesamiento ETL</strong>: Las funciones de AWS Lambda se encargan de los procesos de <strong>Extract, Transform, Load (ETL)</strong> para limpiar y mover los datos.</li>
+<li><strong>Orquestación</strong>: <strong>Amazon EventBridge</strong> activa y programa las funciones Lambda para procesar los datos de manera eficiente.</li>
+<li><strong>Seguridad</strong>: AWS Secrets Manager garantiza un manejo seguro de las credenciales de las bases de datos.</li>
+</ul>
+<h3 id="desafíos-y-lecciones-aprendidas" class="relative group"><strong>Desafíos y Lecciones Aprendidas</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#desaf%c3%ados-y-lecciones-aprendidas" aria-label="Ancla">#</a></span></h3><p>Como en cualquier proyecto técnico, este vino con su parte de desafíos:</p>
+<ul>
+<li>Configuración de conexiones seguras entre las instancias de RDS y las funciones Lambda.</li>
+<li>Optimización de costos aprovechando los recursos de la <strong>capa gratuita</strong> de AWS.</li>
+<li>Automatización de todo el flujo de trabajo mientras se mantenía la flexibilidad para futuros cambios.</li>
+</ul>
+<p>Al final, tuve una arquitectura funcional de <strong>Data Lake</strong>, capaz de ingerir datos desde múltiples fuentes y prepararlos para análisis. No es perfecta, pero es una base sólida.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/aws-database-data-lake/image_hud16c6f64f0b5239646848e0867e7b6e5_299065_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/aws-database-data-lake/image_hud16c6f64f0b5239646848e0867e7b6e5_299065_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/portfolio/aws-database-data-lake/image_hud16c6f64f0b5239646848e0867e7b6e5_299065_812x511_resize_q75_h2_box_3.webp 812w
+              
+            
+            
+              
+                ,/portfolio/aws-database-data-lake/image_hud16c6f64f0b5239646848e0867e7b6e5_299065_812x511_resize_q75_h2_box_3.webp 812w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="812"
+        height="511"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/aws-database-data-lake/image_hud16c6f64f0b5239646848e0867e7b6e5_299065_660x0_resize_box_3.png"
+          srcset="/portfolio/aws-database-data-lake/image_hud16c6f64f0b5239646848e0867e7b6e5_299065_330x0_resize_box_3.png 330w,/portfolio/aws-database-data-lake/image_hud16c6f64f0b5239646848e0867e7b6e5_299065_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/aws-database-data-lake/image.png 812w
+          
+          
+            ,/portfolio/aws-database-data-lake/image.png 812w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<hr>
+<h1 id="el-viaje-personal" class="relative group"><strong>El Viaje Personal</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#el-viaje-personal" aria-label="Ancla">#</a></span></h1><p>Cada proyecto tiene un lado técnico, pero siempre hay un viaje personal detrás del código. Este proyecto no fue la excepción.</p>
+<h2 id="cómo-comenzó" class="relative group"><strong>Cómo Comenzó</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#c%c3%b3mo-comenz%c3%b3" aria-label="Ancla">#</a></span></h2><p>Configurar un <strong>Data Lake en AWS</strong> fue una gran oportunidad para trabajar con múltiples servicios de AWS de manera estructurada. Ya estaba familiarizado con AWS, pero este proyecto requería integrar múltiples servicios mientras mantenía los costos bajos. Fue la oportunidad perfecta para <strong>aprender, romper cosas y descubrir cómo hacer que funcionen</strong> en un escenario del mundo real.</p>
+<p>La documentación de AWS es útil, pero a menudo se enfoca en <strong>cómo</strong> configurar los servicios en lugar de <strong>por qué</strong> ciertas decisiones son importantes. En lugar de simplemente seguir guías, probamos diferentes configuraciones para encontrar el mejor enfoque para nuestro proyecto. Esta experimentación práctica nos ayudó a perfeccionar nuestra arquitectura, solucionar problemas y tomar decisiones informadas.</p>
+<h2 id="desafíos-clave-y-cómo-los-superamos" class="relative group"><strong>Desafíos Clave y Cómo Los Superamos</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#desaf%c3%ados-clave-y-c%c3%b3mo-los-superamos" aria-label="Ancla">#</a></span></h2><h3 id="problemas-de-conectividad-de-base-de-datos" class="relative group"><strong>Problemas de Conectividad de Base de Datos</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#problemas-de-conectividad-de-base-de-datos" aria-label="Ancla">#</a></span></h3><p>Antes de lanzar AWS RDS, probamos la conectividad con nuestras bases de datos existentes en <strong>Azure y MongoDB</strong>. Estas pruebas tempranas nos ayudaron a verificar las interacciones entre las bases de datos, pero debido a las restricciones de tiempo, decidimos alojar todo en <strong>Amazon RDS</strong> para mantener la consistencia.</p>
+<p>El siguiente desafío surgió al configurar la <strong>red de VPC</strong>. Ejecutar Lambda dentro de una VPC requería configurar grupos de seguridad, subredes y gateways NAT. Para depurar el acceso a la red, lanzamos una <strong>instancia EC2 dentro de la VPC</strong> y la usamos para probar las conexiones a RDS. Esto nos ayudó a identificar y ajustar rápidamente las reglas de seguridad, lo que permitió una comunicación fluida con la base de datos.</p>
+<h5 id="solución" class="relative group"><strong>Solución</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#soluci%c3%b3n" aria-label="Ancla">#</a></span></h5><ul>
+<li>Utilizamos una <strong>instancia EC2 dentro de la VPC</strong> para probar las conexiones antes de desplegar las funciones Lambda.</li>
+<li>Configuramos <strong>grupos de seguridad y enrutamiento de subredes</strong> para permitir que las funciones Lambda accedieran a RDS de manera segura.</li>
+<li>Aseguramos que los <strong>roles IAM y los puntos finales de VPC</strong> estuvieran configurados para una interacción eficiente con la base de datos.</li>
+</ul>
+<hr>
+<h3 id="automatización-de-la-infraestructura-con-cloudformation" class="relative group"><strong>Automatización de la Infraestructura con CloudFormation</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#automatizaci%c3%b3n-de-la-infraestructura-con-cloudformation" aria-label="Ancla">#</a></span></h3><p>Tenía experiencia previa con <strong>CloudFormation</strong>, por lo que desplegar recursos a través de plantillas no fue un desafío. Sin embargo, el principal problema fue asegurarnos de que las <strong>configuraciones de bases de datos funcionaran con las instancias de bajo nivel de AWS</strong>. Algunos parámetros de RDS no eran compatibles con las instancias de bajo nivel, lo que causaba fallos en el despliegue.</p>
+<h5 id="solución-1" class="relative group"><strong>Solución</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#soluci%c3%b3n-1" aria-label="Ancla">#</a></span></h5><ul>
+<li>Ajustamos los <strong>grupos de parámetros de la base de datos</strong> para que coincidan con las limitaciones del nivel de instancia.</li>
+<li>Desplegamos iterativamente pilas de CloudFormation para identificar <strong>problemas de compatibilidad de recursos</strong>.</li>
+</ul>
+<p>Este enfoque nos permitió desplegar bases de datos rápidamente y <strong>eliminarlas después del desarrollo diario</strong> para mantener los costos bajos.</p>
+<hr>
+<h3 id="procesamiento-etl-y-programación-de-eventos" class="relative group"><strong>Procesamiento ETL y Programación de Eventos</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#procesamiento-etl-y-programaci%c3%b3n-de-eventos" aria-label="Ancla">#</a></span></h3><p>El principal desafío con AWS Lambda fue configurar <strong>capas personalizadas</strong> para manejar las consultas a la base de datos. Necesitábamos bibliotecas externas de Python, pero nos encontramos con limitaciones en la máquina local, límites de tamaño de capa y problemas de compatibilidad de bibliotecas.</p>
+<p>Para resolverlo, usamos nuestra <strong>instancia EC2</strong> para construir la capa Lambda, asegurándonos de que todas las dependencias estuvieran correctamente empaquetadas. Luego, la capa se subió a <strong>S3</strong> y se vinculó a las funciones Lambda.</p>
+<h5 id="solución-2" class="relative group"><strong>Solución</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#soluci%c3%b3n-2" aria-label="Ancla">#</a></span></h5><ul>
+<li>Construimos la <strong>capa Lambda</strong> en una instancia EC2 para manejar las dependencias de paquetes.</li>
+<li>Comprimimos y subimos la capa a <strong>S3</strong> para su fácil reutilización.</li>
+<li>Ajustamos la <strong>memoria y el tiempo de espera de las funciones Lambda</strong> para mejorar el rendimiento.</li>
+</ul>
+<p>Una vez que las funciones Lambda estaban funcionando de manera eficiente, las programamos utilizando <strong>Amazon EventBridge</strong> para automatizar el pipeline ETL.</p>
+<hr>
+<h2 id="lo-que-mejoraría-la-próxima-vez" class="relative group"><strong>Lo que Mejoraría la Próxima Vez</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#lo-que-mejorar%c3%ada-la-pr%c3%b3xima-vez" aria-label="Ancla">#</a></span></h2><p>🔹 <strong>Más automatización</strong>: Aunque <strong>CloudFormation</strong> ayudó, incorporar <strong>Terraform</strong> podría proporcionar una mayor flexibilidad en la gestión de infraestructura.<br>
+🔹 <strong>Registro y monitoreo</strong>: Agregar <strong>alertas de AWS CloudWatch</strong> mejoraría la visibilidad de fallos y el rendimiento del sistema.</p>
+<hr>
+<h1 id="profundización-técnica" class="relative group"><strong>Profundización Técnica</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#profundizaci%c3%b3n-t%c3%a9cnica" aria-label="Ancla">#</a></span></h1><p>Ahora que hemos cubierto el recorrido, vamos a sumergirnos en los detalles de cómo se construyó este Data Lake. Esta sección desglosará cada componente principal, desde <strong>la ingestión de datos</strong> hasta <strong>el procesamiento y almacenamiento</strong>, destacando configuraciones clave y mejores prácticas a lo largo del camino.</p>
+<hr>
+<h2 id="ingestión-de-datos-configuración-de-aws-s3-como-el-data-lake" class="relative group"><strong>Ingestión de Datos: Configuración de AWS S3 como el Data Lake</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#ingesti%c3%b3n-de-datos-configuraci%c3%b3n-de-aws-s3-como-el-data-lake" aria-label="Ancla">#</a></span></h2><p>El primer paso para construir un Data Lake es definir dónde se almacenarán los datos. En este caso, <strong>Amazon S3</strong> sirve como la base, actuando como una solución de almacenamiento escalable y rentable.</p>
+<h3 id="creación-del-bucket-de-s3" class="relative group"><strong>Creación del Bucket de S3</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#creaci%c3%b3n-del-bucket-de-s3" aria-label="Ancla">#</a></span></h3><p>Para configurar el <strong>bucket de Data Lake</strong>, utilicé la consola de AWS y seguí las mejores prácticas:</p>
+<ul>
+<li><strong>Deshabilité las ACLs</strong> → Asegura que todos los objetos sean propiedad de mi cuenta.</li>
+<li><strong>Bloqueé el acceso público</strong> → Previene la exposición no deseada de datos.</li>
+<li><strong>Activé la versión</strong> → Mantiene versiones históricas de los objetos en caso de errores.</li>
+<li><strong>Encriptación por defecto (AES-256)</strong> → Protege los datos en reposo.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">aws s3api create-bucket --bucket utp-database-data-lake-project --region us-east-1
+</span></span></code></pre></div><p>Una vez creado el bucket, se convirtió en el repositorio central para la ingestión de datos. <strong>Todos los datos sin procesar de varias bases de datos (MySQL, SQL Server y PostgreSQL) fueron almacenados aquí antes de ser procesados.</strong></p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/aws-database-data-lake/image-4_hu24870a533460bf46ef591571b6d056a3_283990_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/aws-database-data-lake/image-4_hu24870a533460bf46ef591571b6d056a3_283990_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/aws-database-data-lake/image-4_hu24870a533460bf46ef591571b6d056a3_283990_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              
+                ,/portfolio/aws-database-data-lake/image-4_hu24870a533460bf46ef591571b6d056a3_283990_1134x501_resize_q75_h2_box_3.webp 1134w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1134"
+        height="501"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/aws-database-data-lake/image-4_hu24870a533460bf46ef591571b6d056a3_283990_660x0_resize_box_3.png"
+          srcset="/portfolio/aws-database-data-lake/image-4_hu24870a533460bf46ef591571b6d056a3_283990_330x0_resize_box_3.png 330w,/portfolio/aws-database-data-lake/image-4_hu24870a533460bf46ef591571b6d056a3_283990_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/aws-database-data-lake/image-4_hu24870a533460bf46ef591571b6d056a3_283990_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/aws-database-data-lake/image-4.png 1134w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<hr>
+<h2 id="infraestructura-como-código-aws-cloudformation" class="relative group"><strong>Infraestructura como Código: AWS CloudFormation</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#infraestructura-como-c%c3%b3digo-aws-cloudformation" aria-label="Ancla">#</a></span></h2><p>Provisionar manualmente bases de datos y recursos de red es ineficiente, por lo que automatizé el proceso utilizando <strong>AWS CloudFormation</strong>. CloudFormation permite definir la infraestructura en una <strong>plantilla YAML</strong>, haciendo que los despliegues sean <strong>repetibles y escalables</strong>.</p>
+<h3 id="stack-de-base-de-datos-instancias-rds" class="relative group"><strong>Stack de Base de Datos (Instancias RDS)</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#stack-de-base-de-datos-instancias-rds" aria-label="Ancla">#</a></span></h3><p>Modifiqué una plantilla de CloudFormation proporcionada por AWS para desplegar tres instancias <strong>Amazon RDS</strong>:</p>
+<ul>
+<li><strong>MySQL</strong> (para transacciones de comercio electrónico)</li>
+<li><strong>SQL Server</strong> (para datos CRM)</li>
+<li><strong>PostgreSQL</strong> (para datos de gestión empresarial)</li>
+</ul>
+<p>Cada instancia de base de datos tenía la siguiente configuración:</p>
+<ul>
+<li><strong>Tipo de instancia:</strong> <code>db.t3.micro</code></li>
+<li><strong>Almacenamiento:</strong> 20GB</li>
+<li><strong>Seguridad:</strong> Integración con el rol IAM y <strong>AWS Secrets Manager</strong> para el almacenamiento de credenciales</li>
+<li><strong>Redes:</strong> Subred privada con grupos de seguridad VPC</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">Resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">MySQLInstance</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l">AWS::RDS::DBInstance</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Properties</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">DBInstanceIdentifier</span><span class="p">:</span><span class="w"> </span><span class="l">mysql-instance</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">DBName</span><span class="p">:</span><span class="w"> </span><span class="l">db_mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">DBInstanceClass</span><span class="p">:</span><span class="w"> </span><span class="l">db.t3.micro</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">AllocatedStorage</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Engine</span><span class="p">:</span><span class="w"> </span><span class="l">MySQL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">EngineVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;8.0.39&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MasterUsername</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">Fn::Sub</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{resolve:secretsmanager:arn:aws:secretsmanager:us-east-1:123456789㊙️utp/database/rds-ASDAS:SecretString:MySQLDBUsername}}&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>Una vez desplegado, la sección de <strong>Outputs de CloudFormation</strong> proporcionó <strong>puntos finales para conectar</strong> a cada instancia de base de datos.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/aws-database-data-lake/image-6_hu704a59ab53c11ba11d599c0b3208bff5_719145_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/aws-database-data-lake/image-6_hu704a59ab53c11ba11d599c0b3208bff5_719145_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/aws-database-data-lake/image-6_hu704a59ab53c11ba11d599c0b3208bff5_719145_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              ,/portfolio/aws-database-data-lake/image-6_hu704a59ab53c11ba11d599c0b3208bff5_719145_1320x0_resize_q75_h2_box_3.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1718"
+        height="723"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/aws-database-data-lake/image-6_hu704a59ab53c11ba11d599c0b3208bff5_719145_660x0_resize_box_3.png"
+          srcset="/portfolio/aws-database-data-lake/image-6_hu704a59ab53c11ba11d599c0b3208bff5_719145_330x0_resize_box_3.png 330w,/portfolio/aws-database-data-lake/image-6_hu704a59ab53c11ba11d599c0b3208bff5_719145_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/aws-database-data-lake/image-6_hu704a59ab53c11ba11d599c0b3208bff5_719145_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/aws-database-data-lake/image-6_hu704a59ab53c11ba11d599c0b3208bff5_719145_1320x0_resize_box_3.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<hr>
+<h2 id="procesamiento-de-datos-con-aws-lambda-pipelines-etl" class="relative group"><strong>Procesamiento de Datos con AWS Lambda (Pipelines ETL)</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#procesamiento-de-datos-con-aws-lambda-pipelines-etl" aria-label="Ancla">#</a></span></h2><p>Extraer, transformar y cargar (ETL) datos de manera eficiente es crucial para un Data Lake bien funcionando. Se utilizó <strong>AWS Lambda</strong> para <strong>automatizar la extracción de datos, procesar los datos crudos y almacenar versiones refinadas</strong> en S3.</p>
+<h3 id="flujo-de-trabajo-etl" class="relative group"><strong>Flujo de Trabajo ETL</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#flujo-de-trabajo-etl" aria-label="Ancla">#</a></span></h3><p>Cada función Lambda era responsable de un paso diferente en el pipeline ETL:</p>
+<ol>
+<li><strong>Extraer datos de RDS</strong></li>
+<li><strong>Transformar los registros crudos en formatos estructurados (Parquet, CSV)</strong></li>
+<li><strong>Cargar los datos procesados nuevamente en S3</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">logging</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pymysql</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">boto3</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">botocore.exceptions</span> <span class="kn">import</span> <span class="n">ClientError</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Configuración de logging</span>
+</span></span><span class="line"><span class="cl"><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Inicialización de clientes de AWS</span>
+</span></span><span class="line"><span class="cl"><span class="n">secrets_client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;secretsmanager&#39;</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">s3_client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Recuperación de configuración desde variables de entorno</span>
+</span></span><span class="line"><span class="cl"><span class="n">SECRET_ARN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SECRET_ARN&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Recuperar las credenciales de la base de datos</span>
+</span></span><span class="line"><span class="cl">        <span class="n">creds</span> <span class="o">=</span> <span class="n">get_db_credentials</span><span class="p">(</span><span class="n">SECRET_ARN</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">endpoint</span> <span class="o">=</span> <span class="n">creds</span><span class="p">[</span><span class="s1">&#39;MySQLODBEndpoint&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Consultar la base de datos y obtener el resultado como un DataFrame de pandas</span>
+</span></span><span class="line"><span class="cl">        <span class="n">df</span> <span class="o">=</span> <span class="n">query_database</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">creds</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span></code></pre></div><h3 id="procesamiento-basado-en-eventos" class="relative group"><strong>Procesamiento Basado en Eventos</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#procesamiento-basado-en-eventos" aria-label="Ancla">#</a></span></h3><ul>
+<li><strong>AWS EventBridge</strong> fue utilizado para <strong>activar las funciones Lambda</strong> cada 5 minutos, asegurando actualizaciones de datos casi en tiempo real.</li>
+<li>Cada función Lambda <strong>procesaba una tabla diferente</strong>, asegurando modularidad.</li>
+<li>Los datos procesados fueron <strong>almacenados en un bucket S3 &ldquo;Refined&rdquo;</strong>, listos para análisis.</li>
+</ul>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/aws-database-data-lake/image-7_hu00c8702a3be9c33b3f0db2195e4e42f8_209975_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/aws-database-data-lake/image-7_hu00c8702a3be9c33b3f0db2195e4e42f8_209975_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/aws-database-data-lake/image-7_hu00c8702a3be9c33b3f0db2195e4e42f8_209975_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              
+                ,/portfolio/aws-database-data-lake/image-7_hu00c8702a3be9c33b3f0db2195e4e42f8_209975_1215x443_resize_q75_h2_box_3.webp 1215w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1215"
+        height="443"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/aws-database-data-lake/image-7_hu00c8702a3be9c33b3f0db2195e4e42f8_209975_660x0_resize_box_3.png"
+          srcset="/portfolio/aws-database-data-lake/image-7_hu00c8702a3be9c33b3f0db2195e4e42f8_209975_330x0_resize_box_3.png 330w,/portfolio/aws-database-data-lake/image-7_hu00c8702a3be9c33b3f0db2195e4e42f8_209975_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/aws-database-data-lake/image-7_hu00c8702a3be9c33b3f0db2195e4e42f8_209975_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/aws-database-data-lake/image-7.png 1215w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<hr>
+<h2 id="seguridad-y-gestión-de-credenciales-con-aws-secrets-manager" class="relative group"><strong>Seguridad y Gestión de Credenciales con AWS Secrets Manager</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#seguridad-y-gesti%c3%b3n-de-credenciales-con-aws-secrets-manager" aria-label="Ancla">#</a></span></h2><p>Almacenar las credenciales de base de datos en el código es riesgoso. Para mejorar la seguridad, se utilizó <strong>AWS Secrets Manager</strong> para almacenar de manera segura las credenciales de RDS.</p>
+<p><strong>Pasos Tomados:</strong></p>
+<ol>
+<li>Se creó un secreto para cada instancia de base de datos.</li>
+<li>Se restringió el acceso mediante <strong>políticas IAM de AWS</strong> (solo las funciones Lambda podían recuperar las credenciales).</li>
+<li>Se habilitó la <strong>rotación automática de credenciales</strong> para mejorar la seguridad.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;SecretId&#34;</span><span class="p">:</span> <span class="s2">&#34;rds-secret&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Database&#34;</span><span class="p">:</span> <span class="s2">&#34;MySQL&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Username&#34;</span><span class="p">:</span> <span class="s2">&#34;admin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Password&#34;</span><span class="p">:</span> <span class="s2">&#34;securepassword&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/aws-database-data-lake/image-8_hub6d2de92865884dba64783b869f658c9_94863_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/aws-database-data-lake/image-8_hub6d2de92865884dba64783b869f658c9_94863_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/portfolio/aws-database-data-lake/image-8_hub6d2de92865884dba64783b869f658c9_94863_968x297_resize_q75_h2_box_3.webp 968w
+              
+            
+            
+              
+                ,/portfolio/aws-database-data-lake/image-8_hub6d2de92865884dba64783b869f658c9_94863_968x297_resize_q75_h2_box_3.webp 968w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="968"
+        height="297"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/aws-database-data-lake/image-8_hub6d2de92865884dba64783b869f658c9_94863_660x0_resize_box_3.png"
+          srcset="/portfolio/aws-database-data-lake/image-8_hub6d2de92865884dba64783b869f658c9_94863_330x0_resize_box_3.png 330w,/portfolio/aws-database-data-lake/image-8_hub6d2de92865884dba64783b869f658c9_94863_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/aws-database-data-lake/image-8.png 968w
+          
+          
+            ,/portfolio/aws-database-data-lake/image-8.png 968w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<hr>
+<h2 id="gobernanza-de-datos-monitoreo-y-registro-con-cloudwatch" class="relative group"><strong>Gobernanza de Datos: Monitoreo y Registro con CloudWatch</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#gobernanza-de-datos-monitoreo-y-registro-con-cloudwatch" aria-label="Ancla">#</a></span></h2><p>Hacer seguimiento de los <strong>fallos en los trabajos de ETL</strong> y la <strong>salud de la base de datos</strong> era esencial. AWS <strong>CloudWatch Logs</strong> ayudó a monitorear:</p>
+<ul>
+<li><strong>Tasas de éxito/fallo de ejecución de Lambda</strong></li>
+<li><strong>Tiempos de ejecución de consultas y posibles cuellos de botella</strong></li>
+<li><strong>Utilización de CPU y memoria de la base de datos</strong></li>
+</ul>
+<h3 id="configuración-de-alarmas-en-cloudwatch" class="relative group"><strong>Configuración de Alarmas en CloudWatch</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#configuraci%c3%b3n-de-alarmas-en-cloudwatch" aria-label="Ancla">#</a></span></h3><p>Se configuró CloudWatch para enviar <strong>alertas por correo electrónico</strong> si:
+✅ Una función Lambda fallaba <strong>más de 3 veces consecutivas</strong>
+✅ Una instancia RDS superaba el <strong>80% de uso de CPU durante más de 5 minutos</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">Resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">LambdaErrorAlarm</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l">AWS::CloudWatch::Alarm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Properties</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">AlarmName</span><span class="p">:</span><span class="w"> </span><span class="l">LambdaErrorCount</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MetricName</span><span class="p">:</span><span class="w"> </span><span class="l">Errors</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Namespace</span><span class="p">:</span><span class="w"> </span><span class="l">AWS/Lambda</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Statistic</span><span class="p">:</span><span class="w"> </span><span class="l">Sum</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Period</span><span class="p">:</span><span class="w"> </span><span class="m">60</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">EvaluationPeriods</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Threshold</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">AlarmActions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- !<span class="l">Ref SNSAlertTopic</span><span class="w">
+</span></span></span></code></pre></div><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/aws-database-data-lake/image-9_hu5ad098821bc56006f4da594b3567d8bb_173022_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/aws-database-data-lake/image-9_hu5ad098821bc56006f4da594b3567d8bb_173022_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/aws-database-data-lake/image-9_hu5ad098821bc56006f4da594b3567d8bb_173022_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              
+                ,/portfolio/aws-database-data-lake/image-9_hu5ad098821bc56006f4da594b3567d8bb_173022_1161x571_resize_q75_h2_box_3.webp 1161w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1161"
+        height="571"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/aws-database-data-lake/image-9_hu5ad098821bc56006f4da594b3567d8bb_173022_660x0_resize_box_3.png"
+          srcset="/portfolio/aws-database-data-lake/image-9_hu5ad098821bc56006f4da594b3567d8bb_173022_330x0_resize_box_3.png 330w,/portfolio/aws-database-data-lake/image-9_hu5ad098821bc56006f4da594b3567d8bb_173022_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/aws-database-data-lake/image-9_hu5ad098821bc56006f4da594b3567d8bb_173022_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/aws-database-data-lake/image-9.png 1161w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<hr>
+<h2 id="consulta-de-datos-y-análisis-aws-athena-y-herramientas-de-visualización" class="relative group"><strong>Consulta de Datos y Análisis: AWS Athena y Herramientas de Visualización</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#consulta-de-datos-y-an%c3%a1lisis-aws-athena-y-herramientas-de-visualizaci%c3%b3n" aria-label="Ancla">#</a></span></h2><p>Una vez que los datos se almacenaron en el <strong>S3 Bucket Refinado</strong>, era necesario que fueran <strong>fácilmente accesibles para análisis</strong>. En lugar de configurar un almacén de datos tradicional, se utilizó <strong>AWS Athena</strong> para ejecutar consultas SQL <strong>directamente sobre los datos de S3</strong>.</p>
+<h3 id="definición-de-la-tabla-athena" class="relative group"><strong>Definición de la Tabla Athena</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#definici%c3%b3n-de-la-tabla-athena" aria-label="Ancla">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">EXTERNAL</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">tickit_sales</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">salesid</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">listid</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sellerid</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">buyerid</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">eventid</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dateid</span><span class="w"> </span><span class="nb">SMALLINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">qtysold</span><span class="w"> </span><span class="nb">SMALLINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">pricepaid</span><span class="w"> </span><span class="n">DOUBLE</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">commission</span><span class="w"> </span><span class="n">DOUBLE</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">saletime</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">refined_timestamp</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">STORED</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">PARQUET</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LOCATION</span><span class="w"> </span><span class="s1">&#39;s3://utp-database-data-lake-project/tickit/refined/sales/&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/aws-database-data-lake/image-13_hud4032229a3f82e751af46cd25dbe8756_201796_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/aws-database-data-lake/image-13_hud4032229a3f82e751af46cd25dbe8756_201796_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/aws-database-data-lake/image-13_hud4032229a3f82e751af46cd25dbe8756_201796_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              ,/portfolio/aws-database-data-lake/image-13_hud4032229a3f82e751af46cd25dbe8756_201796_1320x0_resize_q75_h2_box_3.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1433"
+        height="660"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/aws-database-data-lake/image-13_hud4032229a3f82e751af46cd25dbe8756_201796_660x0_resize_box_3.png"
+          srcset="/portfolio/aws-database-data-lake/image-13_hud4032229a3f82e751af46cd25dbe8756_201796_330x0_resize_box_3.png 330w,/portfolio/aws-database-data-lake/image-13_hud4032229a3f82e751af46cd25dbe8756_201796_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/aws-database-data-lake/image-13_hud4032229a3f82e751af46cd25dbe8756_201796_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/aws-database-data-lake/image-13_hud4032229a3f82e751af46cd25dbe8756_201796_1320x0_resize_box_3.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>Ahora, los datos podían ser consultados instantáneamente utilizando SQL estándar.</p>
+<h3 id="conexión-con-herramientas-bi" class="relative group"><strong>Conexión con Herramientas BI</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#conexi%c3%b3n-con-herramientas-bi" aria-label="Ancla">#</a></span></h3><p>El paso final fue integrar Athena con <strong>Power BI y Grafana</strong> para visualizaciones en tiempo real.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/aws-database-data-lake/image-12_hue254c73d617a6aeed8a4f11c61265601_180944_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/aws-database-data-lake/image-12_hue254c73d617a6aeed8a4f11c61265601_180944_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/aws-database-data-lake/image-12_hue254c73d617a6aeed8a4f11c61265601_180944_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              ,/portfolio/aws-database-data-lake/image-12_hue254c73d617a6aeed8a4f11c61265601_180944_1320x0_resize_q75_h2_box_3.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1585"
+        height="552"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/aws-database-data-lake/image-12_hue254c73d617a6aeed8a4f11c61265601_180944_660x0_resize_box_3.png"
+          srcset="/portfolio/aws-database-data-lake/image-12_hue254c73d617a6aeed8a4f11c61265601_180944_330x0_resize_box_3.png 330w,/portfolio/aws-database-data-lake/image-12_hue254c73d617a6aeed8a4f11c61265601_180944_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/aws-database-data-lake/image-12_hue254c73d617a6aeed8a4f11c61265601_180944_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/aws-database-data-lake/image-12_hue254c73d617a6aeed8a4f11c61265601_180944_1320x0_resize_box_3.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<hr>
+<h2 id="resumen-de-la-arquitectura-tecnológica" class="relative group"><strong>Resumen de la Arquitectura Tecnológica</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#resumen-de-la-arquitectura-tecnol%c3%b3gica" aria-label="Ancla">#</a></span></h2><p>Al final del proyecto, la arquitectura completa se veía así:</p>
+<p>1️⃣ <strong>AWS S3</strong> → Almacena datos crudos y procesados.<br>
+2️⃣ <strong>AWS RDS (MySQL, SQL Server, PostgreSQL)</strong> → Bases de datos que alimentan el Data Lake.<br>
+3️⃣ <strong>AWS CloudFormation</strong> → Automatiza la configuración de bases de datos e infraestructura.<br>
+4️⃣ <strong>AWS Lambda</strong> → Ejecuta trabajos de ETL para transformación de datos.<br>
+5️⃣ <strong>AWS EventBridge</strong> → Automatiza la programación de ETL.<br>
+6️⃣ <strong>AWS Secrets Manager</strong> → Gestiona credenciales de bases de datos de forma segura.<br>
+7️⃣ <strong>AWS CloudWatch</strong> → Monitorea la salud del sistema y registra fallos.<br>
+8️⃣ <strong>AWS Athena</strong> → Permite consultas SQL sobre datos de S3.<br>
+9️⃣ <strong>Power BI / Grafana</strong> → Para informes y monitoreo.</p>
+<hr>
+<h1 id="lecciones-aprendidas-y-direcciones-futuras" class="relative group"><strong>Lecciones Aprendidas y Direcciones Futuras</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#lecciones-aprendidas-y-direcciones-futuras" aria-label="Ancla">#</a></span></h1><p>Cada proyecto trae una mezcla de éxitos y desafíos. Algunas cosas funcionan exactamente como se planeó, pero ahí es donde ocurre el mejor aprendizaje. Esta sección profundiza en mis mayores aprendizajes al construir el Data Lake basado en AWS y lo que haría diferente la próxima vez.</p>
+<hr>
+<h2 id="lecciones-claves-aprendidas" class="relative group"><strong>Lecciones Claves Aprendidas</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#lecciones-claves-aprendidas" aria-label="Ancla">#</a></span></h2><h4 id="1-gestionar-los-costos-en-aws-requiere-una-planificación-cuidadosa" class="relative group"><strong>1. Gestionar los costos en AWS requiere una planificación cuidadosa</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#1-gestionar-los-costos-en-aws-requiere-una-planificaci%c3%b3n-cuidadosa" aria-label="Ancla">#</a></span></h4><p>Me di cuenta de que una <strong>mala asignación de recursos</strong> puede disparar rápidamente los costos. Mantener instancias de RDS inactivas puede generar gastos innecesarios.</p>
+<p>✅ <strong>Aprendizaje:</strong></p>
+<ul>
+<li>Utiliza <strong>AWS Cost Explorer</strong> para monitorear el gasto en tiempo real.</li>
+<li>Aprovecha las <strong>políticas de ciclo de vida de S3</strong> para mover automáticamente los datos antiguos a Glacier.</li>
+<li>Considera <strong>instancias bajo demanda vs. reservadas</strong> para RDS si ejecutas proyectos a largo plazo.</li>
+</ul>
+<hr>
+<h4 id="2-las-canalizaciones-etl-deberían-ser-más-modulares" class="relative group"><strong>2. Las canalizaciones ETL deberían ser más modulares</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#2-las-canalizaciones-etl-deber%c3%adan-ser-m%c3%a1s-modulares" aria-label="Ancla">#</a></span></h4><p>Inicialmente, cada <strong>función Lambda de AWS</strong> manejaba un proceso de extracción de datos diferente, pero a medida que añadí más bases de datos, gestionar múltiples funciones ETL se volvió complejo. Si una función fallaba, la depuración era una pesadilla.</p>
+<p>✅ <strong>Aprendizaje:</strong></p>
+<ul>
+<li>En lugar de múltiples funciones Lambda pequeñas, considera <strong>orquestar flujos de trabajo ETL</strong> con <strong>AWS Step Functions</strong> para un mejor manejo de errores.</li>
+<li>Utiliza <strong>Amazon Glue</strong> en lugar de Lambda para cargas de trabajo ETL a gran escala.</li>
+</ul>
+<hr>
+<h4 id="3-el-registro-y-monitoreo-son-salvavidas" class="relative group"><strong>3. El registro y monitoreo son salvavidas</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#3-el-registro-y-monitoreo-son-salvavidas" aria-label="Ancla">#</a></span></h4><p>Los registros de AWS CloudWatch me ayudaron a depurar <strong>fallos en trabajos de ETL</strong> y <strong>problemas de conectividad con la base de datos</strong>.</p>
+<p>✅ <strong>Aprendizaje:</strong></p>
+<ul>
+<li>Configura <strong>Alarmas de CloudWatch</strong> para recibir notificaciones de fallos.</li>
+<li>Usa los <strong>registros de consultas de Athena</strong> para optimizar el rendimiento y evitar consultas lentas.</li>
+</ul>
+<hr>
+<h2 id="mejoras-futuras-y-próximos-pasos" class="relative group"><strong>Mejoras Futuras y Próximos Pasos</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#mejoras-futuras-y-pr%c3%b3ximos-pasos" aria-label="Ancla">#</a></span></h2><p>Este proyecto fue una excelente experiencia de aprendizaje, pero hay algunas cosas que mejoraría o expandiría en el futuro:</p>
+<h4 id="1-reemplazar-etl-lambda-por-aws-glue" class="relative group">1. <strong>Reemplazar ETL Lambda por AWS Glue</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#1-reemplazar-etl-lambda-por-aws-glue" aria-label="Ancla">#</a></span></h4><p>AWS Glue es <strong>sin servidor, escalable y más adecuado para tareas ETL complejas</strong>. Pasar de Lambda a Glue reduciría la complejidad y proporcionaría una mejor gestión de esquemas.</p>
+<h4 id="2-implementar-permisos-en-el-data-lake-con-aws-lake-formation" class="relative group">2. <strong>Implementar permisos en el Data Lake con AWS Lake Formation</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#2-implementar-permisos-en-el-data-lake-con-aws-lake-formation" aria-label="Ancla">#</a></span></h4><p>Actualmente, S3 almacena todos los datos, pero no hay un control de acceso detallado. <strong>AWS Lake Formation</strong> permitiría una mejor <strong>gestión de permisos</strong> mediante <strong>políticas de acceso basadas en roles</strong> en los conjuntos de datos almacenados.</p>
+<h4 id="3-automatizar-más-con-terraform" class="relative group">3. <strong>Automatizar más con Terraform</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#3-automatizar-m%c3%a1s-con-terraform" aria-label="Ancla">#</a></span></h4><p>CloudFormation fue excelente, pero <strong>Terraform</strong> ofrece <strong>compatibilidad multicloud</strong> y más flexibilidad. Migrar la automatización de la infraestructura a Terraform haría los despliegues aún más sencillos.</p>
+<h4 id="4-expandir-la-visualización-de-datos-con-amazon-quicksight" class="relative group">4. <strong>Expandir la visualización de datos con Amazon QuickSight</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#4-expandir-la-visualizaci%c3%b3n-de-datos-con-amazon-quicksight" aria-label="Ancla">#</a></span></h4><p>Usé <strong>Power BI y Grafana</strong>, pero <strong>Amazon QuickSight</strong> podría ser una mejor alternativa para integrarse directamente con AWS.</p>
+<hr>
+<h1 id="conclusión" class="relative group"><strong>Conclusión</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#conclusi%c3%b3n" aria-label="Ancla">#</a></span></h1><p>En este proyecto, he compartido nuestro enfoque para construir un Data Lake escalable en AWS y las lecciones que aprendí en el camino. Un agradecimiento especial a mis amigos <a href="https://www.linkedin.com/in/andy-sanjur-dom%C3%ADnguez-6aa786140" target="_blank" rel="noreferrer"><strong>Andy Sanjur</strong></a>, <a href="https://www.linkedin.com/in/harris-yearwood/" target="_blank" rel="noreferrer"><strong>Harris Yearwood</strong></a> y <a href="https://www.linkedin.com/in/isaaldair/" target="_blank" rel="noreferrer"><strong>Isaac Ávila</strong></a> por sus contribuciones y apoyo durante todo este proceso.</p>
+<p>A lo largo del camino, enfrentamos varios <strong>desafíos</strong> depurando problemas de red, optimizando la eficiencia de costos y mejorando las medidas de seguridad. Pero al superarlos, adquirimos <strong>valiosa experiencia práctica</strong> con los servicios de AWS y la infraestructura como código (IaC).</p>
+<hr>
+<h2 id="reflexiones-finales-y-lecciones-aprendidas" class="relative group"><strong>Reflexiones Finales y Lecciones Aprendidas</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#reflexiones-finales-y-lecciones-aprendidas" aria-label="Ancla">#</a></span></h2><p>✅ <strong>La infraestructura en la nube requiere un equilibrio entre automatización y flexibilidad</strong><br>
+El uso de CloudFormation simplificó el despliegue, pero ajustar las configuraciones requirió intervención manual. La próxima vez, exploraría <strong>Terraform</strong> para más flexibilidad.</p>
+<p>✅ <strong>Las canalizaciones ETL deben ser escalables y mantenibles</strong><br>
+Lambda funcionó para ETL a pequeña escala, pero <strong>AWS Glue</strong> sería una mejor solución a largo plazo. <strong>Step Functions</strong> también podría mejorar el manejo de errores.</p>
+<p>✅ <strong>La optimización de costos es un proceso continuo</strong><br>
+Incluso dentro del nivel gratuito, los costos de AWS pueden dispararse si no se monitorean. Herramientas como <strong>Cost Explorer</strong> y <strong>políticas de ciclo de vida de S3</strong> ayudan a controlar los gastos.</p>
+<p>✅ <strong>La seguridad debe ser una prioridad desde el principio</strong><br>
+Almacenar credenciales en <strong>AWS Secrets Manager</strong>, implementar permisos basados en roles de <strong>IAM</strong> y bloquear el acceso público a S3 fueron medidas clave de seguridad.</p>
+<hr>
+<p>Thank you for reading! If you have any questions or comments, please feel free to contact me. Your feedback is highly appreciated.</p>
+<hr>
+<p><strong>Keywords:</strong> AWS, Data Lake, Cloud Computing, Database Systems, ETL, CloudFormation, S3, RDS, Lambda, Data Engineering</p>
+<hr>
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+  <div class="flex">
+    
+    
+    
+      
+      
+        
+        
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="!mb-0 !mt-0 me-4 w-24 h-auto rounded-full"
+      
+    >
+      
+      
+      
+      
+      <img
+        width="467"
+        height="467"
+        class="!mb-0 !mt-0 me-4 w-24 h-auto rounded-full"
+        alt="Randolph Rogers"
+        loading="lazy" decoding="async"
+        
+          src="/img/author.jpg"
+        
+      />
+    </picture>
+  
+
+
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+          Autor
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Randolph Rogers
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">Entusiasta del aprendizaje automático y la ciencia de datos.</div>
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://twitter.com/SwattyML"
+          target="_blank"
+          aria-label="X-Twitter"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://linkedin.com/in/randolphrogers/"
+          target="_blank"
+          aria-label="Linkedin"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://github.com/SwattyX"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="/es/portfolio/cost-sensitive-model/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Predicción de Churn de Clientes Sensible al Costo</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-10-26 00:00:00 &#43;0000 UTC">26 octubre 2024</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Ir arriba"
+            title="Ir arriba"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+    <nav class="pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex list-none flex-col sm:flex-row">
+        
+          
+          <li class="group mb-1 text-end sm:mb-0 sm:me-7 sm:last:me-0">
+            
+              <a
+                href=""
+                title=""
+                
+                ><span
+                    class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                    ></span
+                  >
+                </a
+              >
+            
+          </li>
+        
+      </ul>
+    </nav>
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            Copyright © 2024 - Randolph Rogers
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Desarrollada con <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+        <div>
+          
+  
+    
+    
+      <div class="group relative">
+        <button
+          class="group-dark:hover:text-primary-400 flex w-full items-center justify-end transition-colors group-hover:text-primary-600"
+        >
+          <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <path fill="currentColor" d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z"/>
+  <path fill="currentColor" d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z"/>
+</svg>
+</span><span class="text-sm">ES</span
+          ><span class="text-[0.6rem]"
+            ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+</span></span
+          >
+        </button>
+        
+        <div
+          class=" bottom-7  invisible absolute z-50 flex flex-col whitespace-nowrap rounded border border-neutral-300 bg-neutral text-start text-base shadow group-hover:visible ltr:right-0 rtl:left-0 dark:border-neutral-600 dark:bg-neutral-800"
+        >
+          
+          
+          
+            
+            
+              
+                
+                <div class="flex flex-grow">
+                  
+                    <a
+                      href="/portfolio/aws-database-data-lake/"
+                      class="w-full py-1 pe-10 ps-2 decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                      >English</a
+                    >
+                  
+                </div>
+              
+            
+              
+            
+          
+            
+            
+              
+            
+              
+                
+                <div class="flex flex-grow">
+                  
+                    <a
+                      href="/es/portfolio/aws-database-data-lake/"
+                      class="flex w-full items-center justify-between bg-primary-100 px-2 py-1 dark:bg-primary-900"
+                      >Español<span
+                        class="ms-2 w-6 text-primary-600 dark:text-primary-400"
+                        ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"/></svg>
+</span></span
+                      ></a
+                    >
+                  
+                </div>
+              
+            
+          
+        </div>
+      </div>
+    
+  
+
+
+        </div>
+      
+      
+      
+        <div
+          class="me-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        >
+          <button id="appearance-switcher-0" type="button" aria-label="appearance switcher">
+            <div
+              class="flex h-12 w-12 items-center justify-center dark:hidden"
+              title="Cambiar a modo oscuro"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+            </div>
+            <div
+              class="hidden h-12 w-12 items-center justify-center dark:flex"
+              title="Cambiar a modo claro"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+            </div>
+          </button>
+        </div>
+      
+    </div>
+  </div>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 z-50 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/es/"
+>
+  <div
+    id="search-modal"
+    class="top-20 mx-auto flex min-h-0 w-full max-w-3xl flex-col rounded-md border border-neutral-200 bg-neutral shadow-lg dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex flex-none items-center justify-between px-2">
+      <form class="flex min-w-0 flex-auto items-center">
+        <div class="flex h-8 w-8 items-center justify-center text-neutral-400">
+          <span class="icon relative inline-block px-1 align-text-bottom"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="mx-1 flex h-12 flex-auto appearance-none bg-transparent focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Buscar"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex h-8 w-8 items-center justify-center text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Cerrar (Esc)"
+      >
+        <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto overflow-auto px-2">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+</html>

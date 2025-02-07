@@ -1,0 +1,15 @@
+timeout = 120
+baseURL = "https://randolphrogers.me/"
+
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+paginate = 10
+summaryLength = 0
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

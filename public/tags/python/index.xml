@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on RRogers</title>
+    <link>http://localhost:1313/tags/python/</link>
+    <description>Recent content in Python on RRogers</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <copyright>Copyright &amp;copy; 2024 - Randolph Rogers</copyright>
+    <lastBuildDate>Fri, 17 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Running Path of Exile 2 Simulations: Essence</title>
+      <link>http://localhost:1313/blog/simulation-essence-poe2/</link>
+      <pubDate>Fri, 17 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/simulation-essence-poe2/</guid>
+      <description>The Backstory: Why I Did This #I&amp;rsquo;ve been playing this new game for a month now (Path of Exile 2) and to tackle the hardest content, you need really good gear, and to get that gear, you need a ton of in-game currency.</description>
+    </item>
+  </channel>
+</rss>

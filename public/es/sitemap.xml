@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+    
+      <url>
+            <loc>http://localhost:1313/es/</loc>
+            <lastmod>2025-01-17T00:00:00+00:00</lastmod>
+            <xhtml:link
+              rel="alternate"
+              hreflang="en"
+              href="http://localhost:1313/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="es"
+              href="http://localhost:1313/es/"
+              />
+          </url>
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/es/blog/</loc>
+            <lastmod>2025-01-17T00:00:00+00:00</lastmod>
+            <xhtml:link
+              rel="alternate"
+              hreflang="en"
+              href="http://localhost:1313/blog/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="es"
+              href="http://localhost:1313/es/blog/"
+              />
+          </url>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/es/blog/simulation-essence-poe2/</loc>
+            <lastmod>2025-01-17T00:00:00+00:00</lastmod>
+            <xhtml:link
+              rel="alternate"
+              hreflang="en"
+              href="http://localhost:1313/blog/simulation-essence-poe2/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="es"
+              href="http://localhost:1313/es/blog/simulation-essence-poe2/"
+              />
+          </url>
+    
+  
+    
+  
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/es/portfolio/aws-database-data-lake/</loc>
+            <lastmod>2024-12-20T00:00:00+00:00</lastmod>
+            <xhtml:link
+              rel="alternate"
+              hreflang="en"
+              href="http://localhost:1313/portfolio/aws-database-data-lake/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="es"
+              href="http://localhost:1313/es/portfolio/aws-database-data-lake/"
+              />
+          </url>
+    
+  
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/es/portfolio/</loc>
+            <lastmod>2024-12-20T00:00:00+00:00</lastmod>
+            <xhtml:link
+              rel="alternate"
+              hreflang="en"
+              href="http://localhost:1313/portfolio/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="es"
+              href="http://localhost:1313/es/portfolio/"
+              />
+          </url>
+    
+  
+    
+  
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/es/portfolio/cost-sensitive-model/</loc>
+            <lastmod>2024-10-26T00:00:00+00:00</lastmod>
+            <xhtml:link
+              rel="alternate"
+              hreflang="en"
+              href="http://localhost:1313/portfolio/cost-sensitive-model/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="es"
+              href="http://localhost:1313/es/portfolio/cost-sensitive-model/"
+              />
+          </url>
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/es/about/</loc>
+            <lastmod>2024-10-26T00:00:00+00:00</lastmod>
+            <xhtml:link
+              rel="alternate"
+              hreflang="en"
+              href="http://localhost:1313/about/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="es"
+              href="http://localhost:1313/es/about/"
+              />
+          </url>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/es/portfolio/phishing-domain-classifier/</loc>
+            <lastmod>2024-09-26T00:00:00+00:00</lastmod>
+            <xhtml:link
+              rel="alternate"
+              hreflang="en"
+              href="http://localhost:1313/portfolio/phishing-domain-classifier/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="es"
+              href="http://localhost:1313/es/portfolio/phishing-domain-classifier/"
+              />
+          </url>
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/es/portfolio/twitter-covid-vaccines-sentiment/</loc>
+            <lastmod>2022-08-05T00:00:00+00:00</lastmod>
+            <xhtml:link
+              rel="alternate"
+              hreflang="en"
+              href="http://localhost:1313/portfolio/twitter-covid-vaccines-sentiment/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="es"
+              href="http://localhost:1313/es/portfolio/twitter-covid-vaccines-sentiment/"
+              />
+          </url>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</urlset>

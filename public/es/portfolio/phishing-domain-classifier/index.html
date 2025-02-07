@@ -1,0 +1,1620 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="es-ES"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>Modelo Clasificador de Dominios Phishing &middot; RRogers</title>
+    <meta name="title" content="Modelo Clasificador de Dominios Phishing &middot; RRogers" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.6fad12fb61fe83418a0d4a0e1310c10561473c40a03914b1464b037998295828.css"
+    integrity="sha256-b60S&#43;2H&#43;g0GKDUoOExDBBWFHPECgORSxRksDeZgpWCg="
+  />
+  
+    
+    
+    
+  
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.e2f23ac92b690a4e99ab2dffef9aa96a95f7ec39636fb9fa7eeb70d55ba347ae.js"
+      integrity="sha256-4vI6yStpCk6Zqy3/75qpapX37Dljb7n6futw1VujR64="
+      data-copy="Copiar"
+      data-copied="Copiado"
+    ></script>
+  
+  
+  <meta
+    name="description"
+    content="
+      Un proyecto de aprendizaje automático para detectar URLs de phishing
+    "
+  />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/es/portfolio/phishing-domain-classifier/" />
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/es/portfolio/phishing-domain-classifier/">
+  <meta property="og:site_name" content="RRogers">
+  <meta property="og:title" content="Modelo Clasificador de Dominios Phishing">
+  <meta property="og:description" content="Un proyecto de aprendizaje automático para detectar URLs de phishing">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="portfolio">
+    <meta property="article:published_time" content="2024-09-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-26T00:00:00+00:00">
+    <meta property="article:tag" content="Machine Learning">
+    <meta property="article:tag" content="Cybersecurity">
+    <meta property="article:tag" content="Flask">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Modelo Clasificador de Dominios Phishing">
+  <meta name="twitter:description" content="Un proyecto de aprendizaje automático para detectar URLs de phishing">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Portafolio",
+    "name": "Modelo Clasificador de Dominios Phishing",
+    "headline": "Modelo Clasificador de Dominios Phishing",
+    "description": "Un proyecto de aprendizaje automático para detectar URLs de phishing",
+    "abstract": "Introducción #Los ataques de phishing son una de las amenazas más comunes en ciberseguridad hoy en día, engañando a los usuarios para que proporcionen información sensible a través de sitios web maliciosos.",
+    "inLanguage": "es-ES",
+    "url" : "http:\/\/localhost:1313\/es\/portfolio\/phishing-domain-classifier\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Randolph Rogers"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-09-26T00:00:00\u002b00:00",
+    "datePublished": "2024-09-26T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-09-26T00:00:00\u002b00:00",
+    
+    "keywords": ["Machine Learning","Cybersecurity","Flask"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "3360"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/es/",
+       "name": "¡ Bienvenido a Mi Página Web!",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/es/portfolio/",
+       "name": "Portafolio",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Modelo Clasificador De Dominios Phishing",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  <meta name="author" content="Randolph Rogers" />
+  
+    
+      <link href="https://twitter.com/SwattyML" rel="me" />
+    
+      <link href="https://linkedin.com/in/randolphrogers/" rel="me" />
+    
+      <link href="https://github.com/SwattyX" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Ir al contenido</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+    <nav class="flex items-center justify-between">
+        
+        <div class="z-40 flex flex-row items-center">
+                <a href="/es/" class="mr-2">
+                  
+                    <img src="/img/logo_dark.svg" class="max-h-[10rem] max-w-[10rem] object-scale-down object-left hidden dark:flex" alt="RRogers" />
+                  
+                    
+                      <img src="/img/logo_light.svg" class="max-h-[10rem] max-w-[10rem] object-scale-down object-left dark:hidden" alt="RRogers" />
+                    
+                </a>
+          </div>
+        
+        
+        <ul class="hidden sm:flex sm:items-center sm:space-x-6">
+            
+            <li class="group">
+                
+                <a href="/es/blog/" title="" class="hover:text-primary-600 dark:hover:text-primary-400" >
+                    
+                    
+                    <span>Blog</span>
+                    
+                </a>
+                
+            </li>
+            
+            <li class="group">
+                
+                <a href="/es/portfolio/" title="" class="hover:text-primary-600 dark:hover:text-primary-400" >
+                    
+                    
+                    <span>Portafolio</span>
+                    
+                </a>
+                
+            </li>
+            
+            <li class="group">
+                
+                <a href="/es/about/" title="" class="hover:text-primary-600 dark:hover:text-primary-400" >
+                    
+                    
+                    <span>Sobre Mi</span>
+                    
+                </a>
+                
+            </li>
+            
+            <li class="group">
+                
+                <a href="https://github.com/SwattyX/portfolio" title="" class="hover:text-primary-600 dark:hover:text-primary-400" target="_blank" >
+                    
+                    <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+                    
+                    
+                </a>
+                
+            </li>
+            
+            <li class="group">
+                
+                
+                <button id="search-button" title=""
+                    class="hover:text-primary-600 dark:hover:text-primary-400">
+                    
+                    <span class="icon relative inline-block px-1 align-text-bottom"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+                    
+                    
+                    <span></span>
+                    
+                </button>
+                
+                
+            </li>
+            
+        </ul>
+        
+        
+        
+        <label id="menu-button" for="menu-controller" class="block sm:hidden">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+            </div>
+            <div id="menu-wrapper"
+                class="invisible fixed inset-0 z-30 m-auto h-full w-full cursor-default overflow-auto bg-neutral-100/50 opacity-0 backdrop-blur-sm transition-opacity dark:bg-neutral-900/50">
+                <ul
+                    class="mx-auto flex w-full max-w-7xl list-none flex-col overflow-visible px-6 py-6 text-end sm:px-14 sm:py-10 sm:pt-10 md:px-24 lg:px-32">
+                    <li class="mb-1">
+                        <label for="menu-controller"
+                            class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                            <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+                        </label>
+                    </li>
+                    
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        <a href="/es/blog/" title=""
+                            onclick="document.getElementById('menu-controller').checked = false;" >
+                            
+                            
+                            <span
+                                class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                Blog
+                            </span>
+                            
+                        </a>
+                        
+                    </li>
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        <a href="/es/portfolio/" title=""
+                            onclick="document.getElementById('menu-controller').checked = false;" >
+                            
+                            
+                            <span
+                                class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                Portafolio
+                            </span>
+                            
+                        </a>
+                        
+                    </li>
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        <a href="/es/about/" title=""
+                            onclick="document.getElementById('menu-controller').checked = false;" >
+                            
+                            
+                            <span
+                                class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                Sobre Mi
+                            </span>
+                            
+                        </a>
+                        
+                    </li>
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        <a href="https://github.com/SwattyX/portfolio" title=""
+                            onclick="document.getElementById('menu-controller').checked = false;" target="_blank" >
+                            
+                            <span
+                                class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600"><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span>
+                            
+                            
+                        </a>
+                        
+                    </li>
+                    
+                    
+                    <li class="group mb-1">
+                        
+                        
+                        <button id="search-button" title="">
+                            
+                            <span
+                                class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600"><span class="icon relative inline-block px-1 align-text-bottom"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span></span>
+                            
+                            
+                            <span
+                                class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                
+                            </span>
+                            
+                        </button>
+                        
+                        
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </label>
+        
+    </nav>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ]
+    });
+  });
+</script>
+</header>
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="hidden inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/es/"
+      >¡Bienvenido a mi página web!</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class=" inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/es/portfolio/"
+      >Portafolio</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/es/portfolio/phishing-domain-classifier/"
+      >Modelo Clasificador de Dominios Phishing</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Modelo Clasificador de Dominios Phishing
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2024-09-26 00:00:00 &#43;0000 UTC">26 septiembre 2024</time><span class="px-2 text-primary-500">&middot;</span><span>3360 palabras</span><span class="px-2 text-primary-500">&middot;</span><span title="Tiempo de lectura">16 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+        <div class="order-first px-0 lg:order-last lg:max-w-xs lg:ps-8">
+          <div class="toc pe-5 lg:sticky lg:top-10 print:hidden">
+            <details open class="-ms-5 mt-0 overflow-hidden rounded-lg ps-5">
+  <summary
+    class="block cursor-pointer bg-neutral-100 py-1 ps-5 text-lg font-semibold text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden"
+  >
+    Tabla de contenido
+  </summary>
+  <div class="border-s border-dotted border-neutral-300 py-2 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introducción"><strong>Introducción</strong></a></li>
+    <li><a href="#cómo-funciona-la-aplicación"><strong>Cómo Funciona la Aplicación</strong></a></li>
+    <li><a href="#extracción-de-características-qué-hace-sospechosa-a-una-url"><strong>Extracción de Características: ¿Qué Hace Sospechosa a una URL?</strong></a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#características-básicas-de-la-url"><strong>Características Básicas de la URL</strong></a></li>
+            <li><a href="#indicadores-de-dominio-y-seguridad"><strong>Indicadores de Dominio y Seguridad</strong></a></li>
+            <li><a href="#estructura-del-sitio-web-y-contenido"><strong>Estructura del Sitio Web y Contenido</strong></a></li>
+            <li><a href="#interacción-del-usuario-y-comportamiento"><strong>Interacción del Usuario y Comportamiento</strong></a></li>
+            <li><a href="#reputación-y-popularidad"><strong>Reputación y Popularidad</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#entrenando-el-modelo-de-aprendizaje-automático"><strong>Entrenando el Modelo de Aprendizaje Automático</strong></a>
+      <ul>
+        <li><a href="#1-análisis-exploratorio-de-datos-eda"><strong>1. Análisis Exploratorio de Datos (EDA)</strong></a>
+          <ul>
+            <li><a href="#resumen-del-conjunto-de-datos"><strong>Resumen del Conjunto de Datos</strong></a></li>
+            <li><a href="#correlaciones-de-características"><strong>Correlaciones de Características</strong></a></li>
+            <li><a href="#manejo-de-datos-desbalanceados"><strong>Manejo de Datos Desbalanceados</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#2-selección-y-entrenamiento-del-modelo"><strong>2. Selección y Entrenamiento del Modelo</strong></a>
+          <ul>
+            <li><a href="#validación-cruzada"><strong>Validación Cruzada</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#3-evaluación-del-modelo"><strong>3. Evaluación del Modelo</strong></a>
+          <ul>
+            <li><a href="#análisis-de-la-matriz-de-confusión"><strong>Análisis de la Matriz de Confusión</strong></a></li>
+            <li><a href="#compromiso-entre-precisión-y-recall"><strong>Compromiso entre Precisión y Recall</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#creación-de-la-aplicación-web-con-flask"><strong>Creación de la Aplicación Web con Flask</strong></a>
+      <ul>
+        <li><a href="#interfaz-de-la-aplicación"><strong>Interfaz de la Aplicación</strong></a>
+          <ul>
+            <li><a href="#1-ingreso-de-una-url"><strong>1. Ingreso de una URL</strong></a></li>
+            <li><a href="#2-escaneo-de-la-url"><strong>2. Escaneo de la URL</strong></a></li>
+            <li><a href="#3-vista-de-depuración"><strong>3. Vista de Depuración</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#resultados-y-análisis"><strong>Resultados y Análisis</strong></a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#identificación-del-problema-sobreajuste-o-limitaciones-del-conjunto-de-datos"><strong>Identificación del Problema: ¿Sobreajuste o Limitaciones del Conjunto de Datos?</strong></a></li>
+            <li><a href="#depuración-con-inspección-de-características"><strong>Depuración con Inspección de Características</strong></a></li>
+            <li><a href="#la-carrera-armamentista-en-ciberseguridad-por-qué-los-datos-recientes-importan"><strong>La Carrera Armamentista en Ciberseguridad: Por Qué los Datos Recientes Importan</strong></a></li>
+            <li><a href="#buscando-datos-actualizados-un-nuevo-conjunto-de-datos-nuevos-desafíos"><strong>Buscando Datos Actualizados: Un Nuevo Conjunto de Datos, Nuevos Desafíos</strong></a></li>
+            <li><a href="#limitaciones-de-la-recopilación-de-datos-modernos"><strong>Limitaciones de la Recopilación de Datos Modernos</strong></a></li>
+            <li><a href="#reflexiones-lo-que-este-proyecto-me-enseñó"><strong>Reflexiones: Lo que Este Proyecto Me Enseñó</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#desafíos-y-lecciones-aprendidas"><strong>Desafíos y Lecciones Aprendidas</strong></a></li>
+    <li><a href="#mejoras-futuras"><strong>Mejoras Futuras</strong></a></li>
+    <li><a href="#conclusión"><strong>Conclusión</strong></a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+          </div>
+        </div>
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/phishing-domain-classifier/thumb-hacker-phishing-1_huf640cdb5815d86d2307d51ab4496aa38_69981_330x0_resize_q75_h2_box.webp 330w,/portfolio/phishing-domain-classifier/thumb-hacker-phishing-1_huf640cdb5815d86d2307d51ab4496aa38_69981_660x0_resize_q75_h2_box.webp 660w
+            
+              
+                ,/portfolio/phishing-domain-classifier/thumb-hacker-phishing-1_huf640cdb5815d86d2307d51ab4496aa38_69981_996x768_resize_q75_h2_box.webp 996w
+              
+            
+            
+              
+                ,/portfolio/phishing-domain-classifier/thumb-hacker-phishing-1_huf640cdb5815d86d2307d51ab4496aa38_69981_996x768_resize_q75_h2_box.webp 996w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="996"
+        height="768"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/phishing-domain-classifier/thumb-hacker-phishing-1_huf640cdb5815d86d2307d51ab4496aa38_69981_660x0_resize_q75_box.jpg"
+          srcset="/portfolio/phishing-domain-classifier/thumb-hacker-phishing-1_huf640cdb5815d86d2307d51ab4496aa38_69981_330x0_resize_q75_box.jpg 330w,/portfolio/phishing-domain-classifier/thumb-hacker-phishing-1_huf640cdb5815d86d2307d51ab4496aa38_69981_660x0_resize_q75_box.jpg 660w
+          
+            ,/portfolio/phishing-domain-classifier/thumb-hacker-phishing-1.jpg 996w
+          
+          
+            ,/portfolio/phishing-domain-classifier/thumb-hacker-phishing-1.jpg 996w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<h1 id="introducción" class="relative group"><strong>Introducción</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#introducci%c3%b3n" aria-label="Ancla">#</a></span></h1><p>Los ataques de phishing son una de las amenazas más comunes en ciberseguridad hoy en día, engañando a los usuarios para que proporcionen información sensible a través de sitios web maliciosos. Con las técnicas de phishing evolucionando, los sistemas de detección automatizados son cruciales para mantenerse a la vanguardia. Es por eso que construí un <strong>clasificador de URLs de phishing</strong>, una aplicación web impulsada por aprendizaje automático que predice si una URL dada es legítima o fraudulenta.</p>
+<p>En este blog, recorreré cómo desarrollé este proyecto, desde la <strong>extracción de características</strong> hasta el <strong>entrenamiento del modelo</strong> y la <strong>construcción de la aplicación web</strong> utilizando Flask.</p>
+<hr>
+<h1 id="cómo-funciona-la-aplicación" class="relative group"><strong>Cómo Funciona la Aplicación</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#c%c3%b3mo-funciona-la-aplicaci%c3%b3n" aria-label="Ancla">#</a></span></h1><p>La aplicación permite a los usuarios ingresar una URL. Luego, el sistema realiza los siguientes pasos:</p>
+<ol>
+<li><strong>Extracción de Características</strong>: La aplicación analiza diversas características de la URL, como la longitud, la presencia de caracteres especiales, la antigüedad del dominio y el uso de HTTPS.</li>
+<li><strong>Predicción del Modelo</strong>: Un <strong>clasificador Random Forest</strong> predice si la URL es <strong>phishing (-1) o legítima (1)</strong> en base a estas características.</li>
+<li><strong>Mostrar Resultados</strong>: La aplicación devuelve el resultado de la clasificación junto con la puntuación de probabilidad.</li>
+</ol>
+<p>Este proceso automatizado permite una detección rápida de phishing sin necesidad de intervención manual.</p>
+<hr>
+<h1 id="extracción-de-características-qué-hace-sospechosa-a-una-url" class="relative group"><strong>Extracción de Características: ¿Qué Hace Sospechosa a una URL?</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#extracci%c3%b3n-de-caracter%c3%adsticas-qu%c3%a9-hace-sospechosa-a-una-url" aria-label="Ancla">#</a></span></h1><p>Una parte clave de la detección de phishing es la <strong>ingeniería de características</strong>, que significa definir características medibles de las URLs que ayudan a determinar si pueden ser fraudulentas. Los atacantes a menudo utilizan técnicas engañosas para engañar a los usuarios, y al analizar diferentes aspectos de una URL, podemos detectar patrones sospechosos. Aquí están las características que considera nuestra aplicación:</p>
+<h3 id="características-básicas-de-la-url" class="relative group"><strong>Características Básicas de la URL</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#caracter%c3%adsticas-b%c3%a1sicas-de-la-url" aria-label="Ancla">#</a></span></h3><ul>
+<li><strong>Longitud de la URL</strong>: Las URLs más largas tienden a ocultar contenido malicioso.
+<ul>
+<li><strong>Legítima</strong> (&lt; 54 caracteres)</li>
+<li><strong>Sospechosa</strong> (54-75 caracteres)</li>
+<li><strong>Phishing</strong> (&gt; 75 caracteres)</li>
+</ul>
+</li>
+<li><strong>Presencia del Símbolo &ldquo;@&rdquo;</strong>: Si una URL contiene un <strong>@</strong>, a menudo es un intento de phishing para engañar a los usuarios.</li>
+<li><strong>Redirecciones (&quot;//&quot; en Uso)</strong>: Si una URL contiene múltiples &ldquo;//&rdquo; fuera de su posición normal, puede estar tratando de disfrazar su destino real.</li>
+<li><strong>Uso de Guiones en el Dominio</strong>: Un dominio con guiones (por ejemplo, &ldquo;secure-bank-login.com&rdquo;) a menudo es una señal de phishing.</li>
+<li><strong>Cantidad de Subdominios</strong>:
+<ul>
+<li><strong>Legítima</strong> (0-1 subdominios)</li>
+<li><strong>Sospechosa</strong> (2 subdominios)</li>
+<li><strong>Phishing</strong> (3+ subdominios)</li>
+</ul>
+</li>
+<li><strong>URLs Acortadas</strong>: Los atacantes a menudo utilizan servicios como bit.ly o tinyurl.com para enmascarar los enlaces de phishing.</li>
+</ul>
+<h3 id="indicadores-de-dominio-y-seguridad" class="relative group"><strong>Indicadores de Dominio y Seguridad</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#indicadores-de-dominio-y-seguridad" aria-label="Ancla">#</a></span></h3><ul>
+<li><strong>Uso de HTTPS y Validez del Certificado SSL</strong>: La falta de HTTPS o un certificado SSL inválido aumenta el riesgo de phishing.</li>
+<li><strong>Antigüedad del Dominio</strong>: Los dominios nuevos (menos de 6 meses) suelen ser creados para phishing antes de ser marcados.</li>
+<li><strong>Expiración del Dominio</strong>: Si un dominio expira en <strong>≤ 1 año</strong>, es una señal de advertencia, ya que las empresas legítimas generalmente registran dominios por períodos más largos.</li>
+<li><strong>Disponibilidad del Registro WHOIS</strong>: Si faltan los datos de WHOIS, podría indicar un sitio fraudulento.</li>
+</ul>
+<h3 id="estructura-del-sitio-web-y-contenido" class="relative group"><strong>Estructura del Sitio Web y Contenido</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#estructura-del-sitio-web-y-contenido" aria-label="Ancla">#</a></span></h3><ul>
+<li><strong>Fuente del Favicon</strong>: Si el favicon del sitio web (ícono en la pestaña del navegador) se carga desde un dominio externo, podría ser un phishing.</li>
+<li><strong>Puertos No Estándar</strong>: Los sitios de phishing pueden usar puertos no comunes en lugar de los estándar como 80 (HTTP) o 443 (HTTPS).</li>
+<li><strong>&ldquo;HTTPS&rdquo; en el Nombre del Dominio</strong>: Si el dominio mismo contiene &ldquo;https&rdquo; (por ejemplo, &ldquo;https-secure-login.com&rdquo;), probablemente sea engañoso.</li>
+<li><strong>Solicitudes Externas y Enlaces</strong>:
+<ul>
+<li>Un <strong>porcentaje alto</strong> de solicitudes externas (imágenes, scripts) puede indicar un intento de phishing.</li>
+<li>Demasiados <strong>enlaces ancla</strong> externos (enlaces clicables) también sugieren que la página está redirigiendo a los usuarios a otro lugar.</li>
+<li>Si los enlaces externos están dentro de etiquetas <code>&lt;meta&gt;</code>, <code>&lt;script&gt;</code> o <code>&lt;link&gt;</code>, es otra señal sospechosa.</li>
+</ul>
+</li>
+</ul>
+<h3 id="interacción-del-usuario-y-comportamiento" class="relative group"><strong>Interacción del Usuario y Comportamiento</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#interacci%c3%b3n-del-usuario-y-comportamiento" aria-label="Ancla">#</a></span></h3><ul>
+<li><strong>Manejador de Formularios del Servidor (SFH)</strong>: Si los datos del formulario se envían a un dominio diferente o a un manejador vacío, el sitio puede estar robando credenciales.</li>
+<li><strong>Envío de Información a Correo Electrónico</strong>: Si la página envía datos a través de <code>mailto:</code> o utiliza la función <code>mail()</code> de PHP, podría ser phishing.</li>
+<li><strong>Formato Abnormal de la URL</strong>: El dominio de un sitio legítimo debe coincidir con el nombre del host real. Si no lo hace, algo está mal.</li>
+<li><strong>Redirección del Sitio Web</strong>:
+<ul>
+<li><strong>Legítima</strong>: 0-1 redirecciones</li>
+<li><strong>Sospechosa</strong>: 2-3 redirecciones</li>
+<li><strong>Phishing</strong>: 4+ redirecciones</li>
+</ul>
+</li>
+<li><strong>Manipulación de la Barra de Estado</strong>: Si el sitio modifica la barra de estado (por ejemplo, usando trucos con JavaScript <code>onMouseOver</code>), probablemente sea phishing.</li>
+<li><strong>Deshabilitación del Clic Derecho</strong>: Los sitios de phishing suelen deshabilitar el clic derecho para evitar que los usuarios inspeccionen los elementos o copien el texto.</li>
+<li><strong>Ventanas Emergentes con Campos de Entrada</strong>: Si una ventana emergente contiene campos de formulario, podría estar intentando capturar credenciales de inicio de sesión.</li>
+<li><strong>Uso de Iframes</strong>: Los <strong>sitios de phishing</strong> a menudo usan etiquetas <code>&lt;iframe&gt;</code> para incrustar contenido malicioso de otra fuente.</li>
+</ul>
+<h3 id="reputación-y-popularidad" class="relative group"><strong>Reputación y Popularidad</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#reputaci%c3%b3n-y-popularidad" aria-label="Ancla">#</a></span></h3><ul>
+<li><strong>Tráfico del Sitio Web</strong>: Los sitios clasificados <strong>por debajo de 100,000</strong> (según Tranco) suelen ser legítimos, mientras que los sitios de bajo tráfico son más sospechosos.</li>
+<li><strong>Puntuación PageRank</strong>: Si el sitio tiene un <strong>bajo PageRank (&lt; 0.2)</strong>, es un posible riesgo de phishing.</li>
+<li><strong>Indexación en Google</strong>: Si un sitio no está indexado por Google, podría ser inseguro.</li>
+<li><strong>Backlinks (Enlaces Externos que Apuntan al Sitio)</strong>:
+<ul>
+<li><strong>Legítimo</strong>: Más de 2 backlinks</li>
+<li><strong>Sospechoso</strong>: 1-2 backlinks</li>
+<li><strong>Phishing</strong>: 0 backlinks</li>
+</ul>
+</li>
+<li><strong>Análisis Basado en Informes Estadísticos</strong>: Si el dominio aparece en bases de datos de phishing (como PhishTank), casi con certeza es malicioso.</li>
+</ul>
+<p>Al extraer todas estas características, la aplicación construye un conjunto de datos que ayuda a identificar intentos de phishing con mayor precisión. Estas señales trabajan juntas para detectar patrones comúnmente encontrados en sitios fraudulentos, mejorando nuestra capacidad para marcar URLs sospechosas antes de que causen daño.</p>
+<hr>
+<h1 id="entrenando-el-modelo-de-aprendizaje-automático" class="relative group"><strong>Entrenando el Modelo de Aprendizaje Automático</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#entrenando-el-modelo-de-aprendizaje-autom%c3%a1tico" aria-label="Ancla">#</a></span></h1><p>Detectar sitios web de phishing requiere un modelo de clasificación sólido capaz de identificar patrones engañosos en las URLs. Elegí un <strong>clasificador Random Forest</strong>, un algoritmo de aprendizaje en conjunto poderoso que maneja eficazmente estructuras de datos complejas, a la vez que ofrece interpretabilidad. A continuación, se detalla el proceso que seguí:</p>
+<hr>
+<h2 id="1-análisis-exploratorio-de-datos-eda" class="relative group"><strong>1. Análisis Exploratorio de Datos (EDA)</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#1-an%c3%a1lisis-exploratorio-de-datos-eda" aria-label="Ancla">#</a></span></h2><p>Antes de sumergirme en el entrenamiento del modelo, realicé un <strong>Análisis Exploratorio de Datos (EDA)</strong> para comprender mejor el conjunto de datos y sus características.</p>
+<h3 id="resumen-del-conjunto-de-datos" class="relative group"><strong>Resumen del Conjunto de Datos</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#resumen-del-conjunto-de-datos" aria-label="Ancla">#</a></span></h3><p>El conjunto de datos se descargó de <a href="https://archive.ics.uci.edu/dataset/327/phishing&#43;websites" target="_blank" rel="noreferrer"><code>UCI Machine Learning Repository</code></a>, donado por R. Mohammad y L. McCluskey en 2015. No se especifica cómo recopilaron los datos, pero las características están bien documentadas. El conjunto de datos contiene <strong>11,055 URLs</strong>, de las cuales <strong>6,157 están etiquetadas como phishing (1) y 4,898 como legítimas (-1)</strong>. Este pequeño desequilibrio de clases significa que los sitios de phishing son ligeramente más prevalentes, pero aún lo suficientemente cerca como para no requerir técnicas drásticas de remuestreo.</p>
+<p>Para obtener una imagen más clara, analicé las <strong>características y correlaciones</strong> del conjunto de datos para identificar los indicadores más fuertes del comportamiento de phishing.</p>
+<div style="overflow-x: auto;">
+<table border="1" class="dataframe"><thead><tr style="text-align: right;"><th></th><th>having_IP_Address</th><th>URL_Length</th><th>Shortining_Service</th><th>having_At_Symbol</th><th>double_slash_redirecting</th><th>Prefix_Suffix</th><th>having_Sub_Domain</th><th>SSLfinal_State</th><th>Domain_registeration_length</th><th>Favicon</th><th>port</th><th>HTTPS_token</th><th>Request_URL</th><th>URL_of_Anchor</th><th>Links_in_tags</th><th>SFH</th><th>Submitting_to_email</th><th>Abnormal_URL</th><th>Redirect</th><th>on_mouseover</th><th>RightClick</th><th>popUpWidnow</th><th>Iframe</th><th>age_of_domain</th><th>DNSRecord</th><th>web_traffic</th><th>Page_Rank</th><th>Google_Index</th><th>Links_pointing_to_page</th><th>Statistical_report</th><th>Result</th></tr></thead><tbody><tr><th>0</th><td>-1</td><td>1</td><td>1</td><td>1</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>1</td><td>1</td><td>-1</td><td>1</td><td>-1</td><td>1</td><td>-1</td><td>-1</td><td>-1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>1</td><td>1</td><td>-1</td><td>-1</td></tr><tr><th>1</th><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>-1</td><td>0</td><td>1</td><td>-1</td><td>1</td><td>1</td><td>-1</td><td>1</td><td>0</td><td>-1</td><td>-1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>-1</td><td>-1</td><td>0</td><td>-1</td><td>1</td><td>1</td><td>1</td><td>-1</td></tr><tr><th>2</th><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>1</td><td>1</td><td>-1</td><td>1</td><td>0</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>-1</td><td>1</td><td>-1</td><td>1</td><td>0</td><td>-1</td><td>-1</td></tr><tr><th>3</th><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>-1</td><td>-1</td><td>-1</td><td>1</td><td>1</td><td>1</td><td>-1</td><td>-1</td><td>0</td><td>0</td><td>-1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>-1</td><td>-1</td><td>1</td><td>-1</td><td>1</td><td>-1</td><td>1</td><td>-1</td></tr><tr><th>4</th><td>1</td><td>0</td><td>-1</td><td>1</td><td>1</td><td>-1</td><td>1</td><td>1</td><td>-1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>-1</td><td>1</td><td>1</td><td>0</td><td>-1</td><td>1</td><td>-1</td><td>1</td><td>-1</td><td>-1</td><td>0</td><td>-1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr></tbody></table></div>
+<h3 id="correlaciones-de-características" class="relative group"><strong>Correlaciones de Características</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#correlaciones-de-caracter%c3%adsticas" aria-label="Ancla">#</a></span></h3><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/phishing-domain-classifier/image_huc8e7a3c7761906ba4c4ab9ee2d9763c8_756467_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/phishing-domain-classifier/image_huc8e7a3c7761906ba4c4ab9ee2d9763c8_756467_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/phishing-domain-classifier/image_huc8e7a3c7761906ba4c4ab9ee2d9763c8_756467_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              ,/portfolio/phishing-domain-classifier/image_huc8e7a3c7761906ba4c4ab9ee2d9763c8_756467_1320x0_resize_q75_h2_box_3.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1666"
+        height="1773"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/phishing-domain-classifier/image_huc8e7a3c7761906ba4c4ab9ee2d9763c8_756467_660x0_resize_box_3.png"
+          srcset="/portfolio/phishing-domain-classifier/image_huc8e7a3c7761906ba4c4ab9ee2d9763c8_756467_330x0_resize_box_3.png 330w,/portfolio/phishing-domain-classifier/image_huc8e7a3c7761906ba4c4ab9ee2d9763c8_756467_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/phishing-domain-classifier/image_huc8e7a3c7761906ba4c4ab9ee2d9763c8_756467_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/phishing-domain-classifier/image_huc8e7a3c7761906ba4c4ab9ee2d9763c8_756467_1320x0_resize_box_3.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>El <strong>análisis de mapa de calor</strong> muestra la correlación entre cada característica y la variable objetivo (phishing o legítima). Las observaciones clave incluyen:</p>
+<ul>
+<li><strong>Validez del Certificado SSL:</strong> Una fuerte correlación positiva (0.71) indica que los sitios web con un certificado SSL válido son mucho más propensos a ser legítimos. Los sitios de phishing a menudo carecen de certificados adecuados.</li>
+<li><strong>Etiquetas de Ancla Enlazando a Dominios Externos:</strong> Una alta correlación positiva (0.69) sugiere que los sitios de phishing tienden a tener un alto porcentaje de enlaces de ancla salientes que redirigen a los usuarios a diferentes dominios.</li>
+<li><strong>Presencia de Subdominios:</strong> Una correlación positiva moderada (0.30) indica que la presencia de múltiples subdominios puede ser una señal de actividad de phishing.</li>
+<li><strong>Prefijo/Sufijo en el Dominio:</strong> Una correlación positiva moderada (0.35) sugiere que la presencia de guiones u otros prefijos/sufijos en el nombre de dominio puede ser indicativa de phishing.</li>
+<li><strong>Solicitudes de URLs de Fuentes Externas:</strong> Una correlación positiva (0.25) sugiere que una mayor proporción de recursos cargados externamente (imágenes, scripts) puede ser una señal de alerta.</li>
+<li><strong>Duración del Registro del Dominio:</strong> Una correlación negativa (-0.23) sugiere que los sitios de phishing tienen más probabilidades de tener períodos de registro de dominio más cortos.</li>
+</ul>
+<p>Este mapa de calor visualiza eficazmente las relaciones entre las características y la probabilidad de que un sitio web sea de phishing, destacando los factores más influyentes.</p>
+<hr>
+<h3 id="manejo-de-datos-desbalanceados" class="relative group"><strong>Manejo de Datos Desbalanceados</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#manejo-de-datos-desbalanceados" aria-label="Ancla">#</a></span></h3><p>Aunque el conjunto de datos no está severamente desbalanceado, los URLs de phishing superan ligeramente a los legítimos. Para asegurarme de que el modelo aprendiera de ambas clases de manera efectiva, apliqué <strong>ponderación de clases</strong> en lugar de sobremuestreo o submuestreo. Esto evita que el modelo se sesgue hacia la clase mayoritaria.</p>
+<hr>
+<h2 id="2-selección-y-entrenamiento-del-modelo" class="relative group"><strong>2. Selección y Entrenamiento del Modelo</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#2-selecci%c3%b3n-y-entrenamiento-del-modelo" aria-label="Ancla">#</a></span></h2><p>Para encontrar el mejor modelo para la detección de phishing, probé varios algoritmos utilizando <strong>LazyPredict</strong>, una herramienta de referencia automatizada. Los modelos con mejor rendimiento incluyeron:</p>
+<table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Exactitud</th>
+<th>Exactitud Balanceada</th>
+<th>ROC AUC</th>
+<th>Puntuación F1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clasificador Extra Trees</strong></td>
+<td>97.6%</td>
+<td>97.6%</td>
+<td>97.6%</td>
+<td>97.6%</td>
+</tr>
+<tr>
+<td><strong>Random Forest</strong></td>
+<td>97.4%</td>
+<td>97.3%</td>
+<td>97.3%</td>
+<td>97.4%</td>
+</tr>
+<tr>
+<td><strong>XGBoost</strong></td>
+<td>97.3%</td>
+<td>97.2%</td>
+<td>97.2%</td>
+<td>97.3%</td>
+</tr>
+</tbody>
+</table>
+<p>🔹 <strong>¿Por qué Random Forest?</strong><br>
+Aunque Extra Trees tuvo un rendimiento ligeramente mejor, <strong>Random Forest</strong> proporcionó una exactitud comparable y es más fácil de interpretar. Además, maneja bien el sobreajuste al promediar múltiples árboles de decisión, asegurando un rendimiento robusto en nuevos datos.</p>
+<h3 id="validación-cruzada" class="relative group"><strong>Validación Cruzada</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#validaci%c3%b3n-cruzada" aria-label="Ancla">#</a></span></h3><p>Para validar la estabilidad del modelo, realicé una <strong>validación cruzada de 5 pliegues</strong>, lo que confirmó una <strong>exactitud promedio del 97.1%</strong>. Esta consistencia en diferentes divisiones del conjunto de datos indicó que el modelo generaliza bien.</p>
+<hr>
+<h2 id="3-evaluación-del-modelo" class="relative group"><strong>3. Evaluación del Modelo</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#3-evaluaci%c3%b3n-del-modelo" aria-label="Ancla">#</a></span></h2><p>Una vez entrenado, evalué el <strong>clasificador Random Forest</strong> en el conjunto de prueba, que contenía <strong>2,211 URLs</strong>. Los resultados fueron impresionantes:</p>
+<p>✔️ <strong>Exactitud</strong>: <strong>98%</strong> – El modelo clasificó correctamente el 98% de las URLs de phishing y legítimas.<br>
+✔️ <strong>Precisión</strong>: <strong>98%</strong> – De todas las URLs clasificadas como phishing, el 98% eran realmente sitios de phishing.<br>
+✔️ <strong>Recall</strong>: <strong>98%</strong> – El modelo detectó correctamente el 98% de las URLs de phishing.<br>
+✔️ <strong>Puntuación F1</strong>: <strong>98%</strong> – Un buen equilibrio entre precisión y recall.<br>
+✔️ <strong>Puntuación ROC-AUC</strong>: <strong>98%</strong> – Indica un buen rendimiento para distinguir entre sitios de phishing y legítimos.</p>
+<h3 id="análisis-de-la-matriz-de-confusión" class="relative group"><strong>Análisis de la Matriz de Confusión</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#an%c3%a1lisis-de-la-matriz-de-confusi%c3%b3n" aria-label="Ancla">#</a></span></h3><p>Una matriz de confusión ayuda a visualizar el rendimiento del modelo:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Predicción Legítima (-1)</th>
+<th>Predicción Phishing (1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Legítima (-1)</strong></td>
+<td><strong>951</strong> (Verdaderos Negativos)</td>
+<td><strong>29</strong> (Falsos Positivos)</td>
+</tr>
+<tr>
+<td><strong>Phishing (1)</strong></td>
+<td><strong>21</strong> (Falsos Negativos)</td>
+<td><strong>1210</strong> (Verdaderos Positivos)</td>
+</tr>
+</tbody>
+</table>
+<p>🔹 <strong>Falsos Positivos (29 casos)</strong>: Estos son URLs legítimas incorrectamente marcadas como phishing. Un menor número de falsos positivos reduce la frustración innecesaria de los usuarios.<br>
+🔹 <strong>Falsos Negativos (21 casos)</strong>: Estos son URLs de phishing incorrectamente clasificadas como legítimas. Minimizar los falsos negativos es crucial, ya que perder un intento de phishing puede generar brechas de seguridad.</p>
+<h3 id="compromiso-entre-precisión-y-recall" class="relative group"><strong>Compromiso entre Precisión y Recall</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#compromiso-entre-precisi%c3%b3n-y-recall" aria-label="Ancla">#</a></span></h3><ul>
+<li>Una <strong>alta precisión</strong> significa que el modelo hace menos acusaciones erróneas (sitios legítimos mal clasificados como phishing).</li>
+<li>Un <strong>alto recall</strong> significa que el modelo detecta más sitios de phishing, pero puede marcar algunos legítimos por error.</li>
+<li>Con ambos al <strong>98%</strong>, el modelo logra un excelente equilibrio.</li>
+</ul>
+<hr>
+<h1 id="creación-de-la-aplicación-web-con-flask" class="relative group"><strong>Creación de la Aplicación Web con Flask</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#creaci%c3%b3n-de-la-aplicaci%c3%b3n-web-con-flask" aria-label="Ancla">#</a></span></h1><p>Una vez entrenado el modelo, creé una <strong>aplicación web Flask</strong> para permitir que los usuarios interactúen con él. La aplicación consta de:</p>
+<ul>
+<li><strong>Frontend (HTML, CSS)</strong>: Una interfaz simple donde los usuarios ingresan una URL.</li>
+<li><strong>Backend (API Flask)</strong>:
+<ul>
+<li>El endpoint <code>/predict</code> recibe la URL ingresada.</li>
+<li>La clase <strong>FeatureExtractor</strong> extrae las características relevantes.</li>
+<li>El <strong>modelo Random Forest</strong> predice si la URL es phishing.</li>
+<li>Los resultados se devuelven como una respuesta JSON.</li>
+</ul>
+</li>
+</ul>
+<p>Ruta de Flask para predicción:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/predict&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;POST&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">predict</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span> <span class="ow">or</span> <span class="s2">&#34;url&#34;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&#34;success&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;No URL provided.&#34;</span><span class="p">}),</span> <span class="mi">400</span>
+</span></span><span class="line"><span class="cl">        <span class="n">url</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;url&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># Preprocesar los datos de entrada</span>
+</span></span><span class="line"><span class="cl">        <span class="n">extractor</span> <span class="o">=</span> <span class="n">FeatureExtractor</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">X_processed</span> <span class="o">=</span> <span class="n">extractor</span><span class="o">.</span><span class="n">extract_all_features</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">features</span> <span class="o">=</span> <span class="n">parse_features</span><span class="p">(</span><span class="n">X_processed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Hacer la predicción</span>
+</span></span><span class="line"><span class="cl">        <span class="n">prediction</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_processed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">probability</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_processed</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">probability</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">probability</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;success&#34;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;prediction&#34;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;probability&#34;</span><span class="p">:</span> <span class="n">probability</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;features&#34;</span><span class="p">:</span> <span class="n">features</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">status_code</span> <span class="o">=</span> <span class="n">extract_status_code</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">status_code</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&#34;success&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="n">status_code</span><span class="p">}),</span> <span class="mi">500</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&#34;success&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;Invalid URL&#34;</span><span class="p">}),</span> <span class="mi">500</span>
+</span></span></code></pre></div><p>Esta API permite la clasificación en tiempo real de URLs, haciendo que la detección de phishing esté al alcance de los usuarios.</p>
+<p><strong>Directorios y Archivos Clave:</strong></p>
+<ul>
+<li><strong><code>app/</code></strong>: Contiene los archivos de la aplicación Flask.
+<ul>
+<li><strong><code>static/</code></strong>: Activos estáticos como CSS y JavaScript.</li>
+<li><strong><code>templates/</code></strong>: Plantillas HTML.</li>
+<li><strong><code>__init__.py</code></strong>: Inicializa la aplicación Flask y la caché.</li>
+<li><strong><code>routes.py</code></strong>: Define las rutas de Flask y la lógica de predicción.</li>
+</ul>
+</li>
+<li><strong><code>data/</code></strong>: Almacenamiento de datos.
+<ul>
+<li><strong><code>raw/</code></strong>: Datos originales, no procesados.</li>
+<li><strong><code>processed/</code></strong>: Datos limpiados y procesados.</li>
+<li><strong><code>external/</code></strong>: Conjuntos de datos o recursos externos.</li>
+</ul>
+</li>
+<li><strong><code>notebooks/</code></strong>: Cuadernos de Jupyter para exploración y modelado.</li>
+<li><strong><code>src/</code></strong>: Código fuente para pipelines de ML.
+<ul>
+<li><strong><code>feature_pipeline.py</code></strong>: Ingeniería y selección de características.</li>
+<li><strong><code>model_pipeline.py</code></strong>: Entrenamiento y evaluación del modelo.</li>
+<li><strong><code>inference_pipeline.py</code></strong>: Inferencia de datos para predicción directa en consola.</li>
+<li><strong><code>config.py</code></strong>: Parámetros de configuración.</li>
+<li><strong><code>utils.py</code></strong>: Funciones auxiliares.</li>
+</ul>
+</li>
+<li><strong><code>models/</code></strong>: Modelos y pipelines serializados.
+<ul>
+<li><strong><code>phishing_model.pkl</code></strong>: Modelo de machine learning entrenado.</li>
+</ul>
+</li>
+<li><strong><code>reports/</code></strong>: Documentación e informes.</li>
+<li><strong><code>requirements.txt</code></strong>: Dependencias de Python.</li>
+<li><strong><code>setup.py</code></strong>: Script de configuración del paquete.</li>
+<li><strong><code>run_pipeline.py</code></strong>: Script para ejecutar pipelines de ML.</li>
+<li><strong><code>run_app.py</code></strong>: Script para iniciar la aplicación Flask.</li>
+<li><strong><code>Dockerfile</code></strong>: Configuración de Docker para contenedorización.</li>
+<li><strong><code>.gitignore</code></strong>: Archivos y directorios que se deben ignorar en Git.</li>
+<li><strong><code>README.md</code></strong>: Documentación del proyecto.</li>
+</ul>
+<hr>
+<h2 id="interfaz-de-la-aplicación" class="relative group"><strong>Interfaz de la Aplicación</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#interfaz-de-la-aplicaci%c3%b3n" aria-label="Ancla">#</a></span></h2><p>Así es como se ve la aplicación en acción:</p>
+<h3 id="1-ingreso-de-una-url" class="relative group"><strong>1. Ingreso de una URL</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#1-ingreso-de-una-url" aria-label="Ancla">#</a></span></h3><p>La interfaz principal proporciona un campo de entrada simple donde los usuarios pueden ingresar una URL para verificar amenazas de phishing.<br>
+
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233315_hu3efc9bcdaccde5ac904342d88cdb7eef_38443_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233315_hu3efc9bcdaccde5ac904342d88cdb7eef_38443_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233315_hu3efc9bcdaccde5ac904342d88cdb7eef_38443_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              ,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233315_hu3efc9bcdaccde5ac904342d88cdb7eef_38443_1320x0_resize_q75_h2_box_3.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1512"
+        height="801"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233315_hu3efc9bcdaccde5ac904342d88cdb7eef_38443_660x0_resize_box_3.png"
+          srcset="/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233315_hu3efc9bcdaccde5ac904342d88cdb7eef_38443_330x0_resize_box_3.png 330w,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233315_hu3efc9bcdaccde5ac904342d88cdb7eef_38443_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233315_hu3efc9bcdaccde5ac904342d88cdb7eef_38443_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233315_hu3efc9bcdaccde5ac904342d88cdb7eef_38443_1320x0_resize_box_3.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<h3 id="2-escaneo-de-la-url" class="relative group"><strong>2. Escaneo de la URL</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#2-escaneo-de-la-url" aria-label="Ancla">#</a></span></h3><p>Una vez que la URL es enviada, la aplicación procesa la solicitud y devuelve una predicción. A continuación, la URL &ldquo;randolphrogers.me&rdquo; ha sido clasificada como segura con una <strong>probabilidad del 95.00%</strong>.<br>
+
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233330_hu48dcb5dbda6164177fb95c04292d5fd4_46156_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233330_hu48dcb5dbda6164177fb95c04292d5fd4_46156_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233330_hu48dcb5dbda6164177fb95c04292d5fd4_46156_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              ,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233330_hu48dcb5dbda6164177fb95c04292d5fd4_46156_1320x0_resize_q75_h2_box_3.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1497"
+        height="775"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233330_hu48dcb5dbda6164177fb95c04292d5fd4_46156_660x0_resize_box_3.png"
+          srcset="/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233330_hu48dcb5dbda6164177fb95c04292d5fd4_46156_330x0_resize_box_3.png 330w,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233330_hu48dcb5dbda6164177fb95c04292d5fd4_46156_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233330_hu48dcb5dbda6164177fb95c04292d5fd4_46156_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233330_hu48dcb5dbda6164177fb95c04292d5fd4_46156_1320x0_resize_box_3.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<h3 id="3-vista-de-depuración" class="relative group"><strong>3. Vista de Depuración</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#3-vista-de-depuraci%c3%b3n" aria-label="Ancla">#</a></span></h3><p>Para obtener más detalles, una versión de depuración muestra un desglose de todas las características extraídas y sus puntuaciones individuales, brindando transparencia al proceso de clasificación.<br>
+
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233411_huf5d033026859e5cc9275d0cc5cf56557_85285_330x0_resize_q75_h2_box_3.webp 330w,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233411_huf5d033026859e5cc9275d0cc5cf56557_85285_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233411_huf5d033026859e5cc9275d0cc5cf56557_85285_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              ,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233411_huf5d033026859e5cc9275d0cc5cf56557_85285_1320x0_resize_q75_h2_box_3.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1517"
+        height="1230"
+        class="mx-auto my-0 rounded-md"
+        alt="alt text"
+        loading="lazy" decoding="async"
+        
+          src="/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233411_huf5d033026859e5cc9275d0cc5cf56557_85285_660x0_resize_box_3.png"
+          srcset="/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233411_huf5d033026859e5cc9275d0cc5cf56557_85285_330x0_resize_box_3.png 330w,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233411_huf5d033026859e5cc9275d0cc5cf56557_85285_660x0_resize_box_3.png 660w
+          
+            ,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233411_huf5d033026859e5cc9275d0cc5cf56557_85285_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/portfolio/phishing-domain-classifier/Captura%20de%20pantalla%202025-02-06%20233411_huf5d033026859e5cc9275d0cc5cf56557_85285_1320x0_resize_box_3.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<hr>
+<h1 id="resultados-y-análisis" class="relative group"><strong>Resultados y Análisis</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#resultados-y-an%c3%a1lisis" aria-label="Ancla">#</a></span></h1><p>Después de construir con éxito la aplicación y la canalización de extracción de características, probé el modelo en datos completamente nuevos, incluidos sitios confirmados como phishing. Sin embargo, los resultados fueron decepcionantes. El modelo, que había tenido un desempeño <strong>casi perfecto durante la evaluación</strong>, luchó por clasificar correctamente los sitios de phishing en escenarios del mundo real.</p>
+<h3 id="identificación-del-problema-sobreajuste-o-limitaciones-del-conjunto-de-datos" class="relative group"><strong>Identificación del Problema: ¿Sobreajuste o Limitaciones del Conjunto de Datos?</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#identificaci%c3%b3n-del-problema-sobreajuste-o-limitaciones-del-conjunto-de-datos" aria-label="Ancla">#</a></span></h3><p>Al principio, sospeché de un <strong>sobreajuste</strong>. Revisé mis procedimientos de entrenamiento y prueba, pero todas las métricas de rendimiento sugerían un modelo bien entrenado. Para investigar más a fondo, creé un <strong>nuevo conjunto de datos de retención</strong>, simulando condiciones del mundo real, y evalué el modelo nuevamente. ¿Los resultados? <strong>Excelente desempeño, al igual que en el entrenamiento.</strong></p>
+<p>Esto planteó una pregunta crítica: <strong>¿Por qué el modelo falló en sitios de phishing reales, pero funcionó bien con los datos de prueba?</strong></p>
+<h3 id="depuración-con-inspección-de-características" class="relative group"><strong>Depuración con Inspección de Características</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#depuraci%c3%b3n-con-inspecci%c3%b3n-de-caracter%c3%adsticas" aria-label="Ancla">#</a></span></h3><p>Usando el <strong>modo de depuración</strong> de la aplicación, examiné manualmente los resultados de cada sitio de phishing incorrectamente clasificado, comparando sus valores de características con lo que el modelo había aprendido. Esto llevó a un descubrimiento clave:</p>
+<blockquote>
+<p><strong>Cada nuevo sitio de phishing seguía casi todas las características de detección de phishing más importantes de mi conjunto de datos.</strong></p>
+</blockquote>
+<p>El verdadero problema se hizo evidente. <strong>El conjunto de datos que utilicé para entrenar estaba obsoleto.</strong></p>
+<h3 id="la-carrera-armamentista-en-ciberseguridad-por-qué-los-datos-recientes-importan" class="relative group"><strong>La Carrera Armamentista en Ciberseguridad: Por Qué los Datos Recientes Importan</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#la-carrera-armamentista-en-ciberseguridad-por-qu%c3%a9-los-datos-recientes-importan" aria-label="Ancla">#</a></span></h3><p>En ciberseguridad, existe una <strong>carrera entre los atacantes (equipo rojo) y los defensores (equipo azul)</strong>. Nuevas técnicas de phishing surgen a medida que las medidas de seguridad evolucionan, y los patrones de detección antiguos se vuelven <strong>ineficaces</strong>. Mi conjunto de datos estaba desactualizado, lo que significaba que el modelo había <strong>aprendido a detectar las tendencias de phishing pasadas</strong> en lugar de las amenazas más recientes.</p>
+<h3 id="buscando-datos-actualizados-un-nuevo-conjunto-de-datos-nuevos-desafíos" class="relative group"><strong>Buscando Datos Actualizados: Un Nuevo Conjunto de Datos, Nuevos Desafíos</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#buscando-datos-actualizados-un-nuevo-conjunto-de-datos-nuevos-desaf%c3%ados" aria-label="Ancla">#</a></span></h3><p>Después de darme cuenta de esto, busqué un conjunto de datos más <strong>reciente</strong>. El mejor que encontré fue <strong>recolectado dos años después</strong> que mi conjunto original. Sin embargo, tenía <strong>solo 17 características en lugar de mis 30</strong>. Volví a entrenar y probar el modelo usando este conjunto de datos, y aunque los resultados fueron <strong>ligeramente más débiles</strong>, todavía fueron comparables.</p>
+<p>Esto confirmó que, si bien <strong>la frescura de los datos es crítica</strong>, <strong>la riqueza de las características también juega un papel importante</strong> en mantener un buen rendimiento del modelo.</p>
+<h3 id="limitaciones-de-la-recopilación-de-datos-modernos" class="relative group"><strong>Limitaciones de la Recopilación de Datos Modernos</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#limitaciones-de-la-recopilaci%c3%b3n-de-datos-modernos" aria-label="Ancla">#</a></span></h3><p>Uno de los mayores desafíos en el aprendizaje automático relacionado con la ciberseguridad es <strong>el acceso a datos actualizados</strong>. Muchas fuentes que anteriormente proporcionaban información útil ya no están disponibles.</p>
+<p>Por ejemplo:</p>
+<ul>
+<li><strong>Alexa Internet</strong>, que proporcionaba clasificaciones de tráfico web para millones de sitios web, fue <strong>cerrada en 2022</strong></li>
+<li><strong>Varias bases de datos clave de inteligencia de amenazas</strong> ahora restringen el acceso a través de APIs costosas o servicios de nivel empresarial</li>
+<li>Muchas características de mi conjunto original ahora son <strong>más difíciles de extraer debido a medidas de seguridad más estrictas</strong> en los sitios web</li>
+</ul>
+<p>Como proyecto secundario, <strong>estos costos son excesivamente altos</strong>, lo que dificulta actualizar y mejorar continuamente el modelo.</p>
+<h3 id="reflexiones-lo-que-este-proyecto-me-enseñó" class="relative group"><strong>Reflexiones: Lo que Este Proyecto Me Enseñó</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#reflexiones-lo-que-este-proyecto-me-ense%c3%b1%c3%b3" aria-label="Ancla">#</a></span></h3><p>Aunque los resultados no fueron <strong>lo que esperaba</strong>, este proyecto resultó ser una <strong>valiosa experiencia de aprendizaje</strong>. Me obligó a</p>
+<ul>
+<li><strong>Reevaluar mi proceso de entrenamiento</strong> y probar mi modelo en condiciones más realistas</li>
+<li><strong>Desarrollar métodos alternativos de evaluación</strong> para simular datos del mundo real</li>
+<li><strong>Pensar críticamente sobre la validez de los datos</strong>, en lugar de solo sobre la precisión del modelo</li>
+</ul>
+<p>Esta experiencia reforzó una lección clave. <strong>En ciberseguridad, los modelos son tan buenos como los datos con los que se entrenan.</strong></p>
+<p>Además, me di cuenta de que la <strong>puntuación de probabilidad</strong> que mostraba mi modelo podría <strong>no estar calibrada correctamente</strong>. Los usuarios podrían interpretarla de manera diferente a lo que el modelo realmente representa. Un <strong>paso de calibración de probabilidad</strong> podría mejorar la interpretabilidad.</p>
+<h1 id="desafíos-y-lecciones-aprendidas" class="relative group"><strong>Desafíos y Lecciones Aprendidas</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#desaf%c3%ados-y-lecciones-aprendidas" aria-label="Ancla">#</a></span></h1><p>Cada proyecto presenta obstáculos, y este no fue diferente. Aquí hay algunos de los principales desafíos que enfrenté:</p>
+<ul>
+<li><strong>Datos de entrenamiento desactualizados</strong>. El conjunto de datos que utilicé ya no era efectivo para identificar ataques de phishing modernos</li>
+<li><strong>Datos limitados de WHOIS</strong>. Los registros de WHOIS a menudo estaban incompletos, lo que limitaba el análisis de la antigüedad de los dominios</li>
+<li><strong>Equilibrar el rendimiento del modelo</strong>. Reducir los falsos positivos era crucial. Etiquetar incorrectamente sitios legítimos podría generar frustración en los usuarios</li>
+<li><strong>Acceso a datos actualizados</strong>. Muchas fuentes útiles de datos ahora están restringidas detrás de servicios pagos, limitando las capacidades de extracción de características</li>
+</ul>
+<p>A pesar de estos desafíos, obtuve <strong>perspectivas invaluable</strong> sobre tanto <strong>el aprendizaje automático en ciberseguridad</strong> como sobre la <strong>importancia de los conjuntos de datos en evolución continua</strong>.</p>
+<h1 id="mejoras-futuras" class="relative group"><strong>Mejoras Futuras</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#mejoras-futuras" aria-label="Ancla">#</a></span></h1><p>Siempre hay espacio para mejorar. Aquí hay algunas áreas que me gustaría explorar a continuación:</p>
+<p>✅ <strong>Usar Aprendizaje Profundo</strong>. Experimentar con redes neuronales para mejorar la precisión de la clasificación</p>
+<p>✅ <strong>Mejorar la Ingeniería de Características</strong>. Explorar nuevas técnicas de extracción de características, especialmente desde <strong>el análisis del contenido de las páginas web</strong></p>
+<p>✅ <strong>Integrar Inteligencia de Amenazas</strong>. Verificar las URLs contra bases de datos de phishing en tiempo real para una mejor validación</p>
+<p>✅ <strong>Desplegar como una Extensión de Navegador</strong>. Permitir que los usuarios verifiquen URLs directamente desde sus navegadores, haciendo la herramienta más accesible</p>
+<p>✅ <strong>Calibrar las Puntuaciones de Probabilidad del Modelo</strong>. Asegurar que las probabilidades mostradas reflejen los niveles de confianza reales en lugar de engañar a los usuarios</p>
+<h1 id="conclusión" class="relative group"><strong>Conclusión</strong> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#conclusi%c3%b3n" aria-label="Ancla">#</a></span></h1><p>Este proyecto fue una emocionante mezcla de <strong>ciberseguridad y aprendizaje automático</strong>, permitiéndome crear una herramienta práctica que puede ayudar a los usuarios a mantenerse seguros en línea. Al extraer características clave de las URLs y usar un modelo entrenado para la clasificación, la aplicación proporciona un sistema automatizado de detección de phishing.</p>
+<p>Sin embargo, la lección más importante no se trató de la precisión del modelo. Se trató de <strong>la relevancia de los datos</strong>. No importa cuán avanzado sea un modelo de aprendizaje automático, si se entrena con información desactualizada, sus predicciones se volverán poco confiables con el tiempo.</p>
+<p>En el futuro, planeo explorar <strong>métodos más dinámicos</strong> para actualizar y adaptar continuamente los modelos de detección de phishing.</p>
+<hr>
+<p>Gracias por leer. Si estás interesado en proyectos similares o tienes sugerencias para mejoras, no dudes en ponerte en contacto.</p>
+<hr>
+<p><strong>Keywords:</strong> Phishing Detection, Machine Learning, Flask, Cybersecurity, URL Classification</p>
+<hr>
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+  <div class="flex">
+    
+    
+    
+      
+      
+        
+        
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="!mb-0 !mt-0 me-4 w-24 h-auto rounded-full"
+      
+    >
+      
+      
+      
+      
+      <img
+        width="467"
+        height="467"
+        class="!mb-0 !mt-0 me-4 w-24 h-auto rounded-full"
+        alt="Randolph Rogers"
+        loading="lazy" decoding="async"
+        
+          src="/img/author.jpg"
+        
+      />
+    </picture>
+  
+
+
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+          Autor
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Randolph Rogers
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">Entusiasta del aprendizaje automático y la ciencia de datos.</div>
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://twitter.com/SwattyML"
+          target="_blank"
+          aria-label="X-Twitter"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://linkedin.com/in/randolphrogers/"
+          target="_blank"
+          aria-label="Linkedin"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://github.com/SwattyX"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="/es/portfolio/twitter-covid-vaccines-sentiment/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Análisis de Sentimiento sobre la Vacuna del Covid-19 en Twitter</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2022-08-05 00:00:00 &#43;0000 UTC">5 agosto 2022</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="/es/portfolio/cost-sensitive-model/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Predicción de Churn de Clientes Sensible al Costo</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-10-26 00:00:00 &#43;0000 UTC">26 octubre 2024</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Ir arriba"
+            title="Ir arriba"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+    <nav class="pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex list-none flex-col sm:flex-row">
+        
+          
+          <li class="group mb-1 text-end sm:mb-0 sm:me-7 sm:last:me-0">
+            
+              <a
+                href=""
+                title=""
+                
+                ><span
+                    class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                    ></span
+                  >
+                </a
+              >
+            
+          </li>
+        
+      </ul>
+    </nav>
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            Copyright © 2024 - Randolph Rogers
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Desarrollada con <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+        <div>
+          
+  
+    
+    
+      <div class="group relative">
+        <button
+          class="group-dark:hover:text-primary-400 flex w-full items-center justify-end transition-colors group-hover:text-primary-600"
+        >
+          <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <path fill="currentColor" d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z"/>
+  <path fill="currentColor" d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z"/>
+</svg>
+</span><span class="text-sm">ES</span
+          ><span class="text-[0.6rem]"
+            ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+</span></span
+          >
+        </button>
+        
+        <div
+          class=" bottom-7  invisible absolute z-50 flex flex-col whitespace-nowrap rounded border border-neutral-300 bg-neutral text-start text-base shadow group-hover:visible ltr:right-0 rtl:left-0 dark:border-neutral-600 dark:bg-neutral-800"
+        >
+          
+          
+          
+            
+            
+              
+            
+              
+                
+                <div class="flex flex-grow">
+                  
+                    <a
+                      href="/es/portfolio/phishing-domain-classifier/"
+                      class="flex w-full items-center justify-between bg-primary-100 px-2 py-1 dark:bg-primary-900"
+                      >Español<span
+                        class="ms-2 w-6 text-primary-600 dark:text-primary-400"
+                        ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"/></svg>
+</span></span
+                      ></a
+                    >
+                  
+                </div>
+              
+            
+          
+            
+            
+              
+                
+                <div class="flex flex-grow">
+                  
+                    <a
+                      href="/portfolio/phishing-domain-classifier/"
+                      class="w-full py-1 pe-10 ps-2 decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                      >English</a
+                    >
+                  
+                </div>
+              
+            
+              
+            
+          
+        </div>
+      </div>
+    
+  
+
+
+        </div>
+      
+      
+      
+        <div
+          class="me-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        >
+          <button id="appearance-switcher-0" type="button" aria-label="appearance switcher">
+            <div
+              class="flex h-12 w-12 items-center justify-center dark:hidden"
+              title="Cambiar a modo oscuro"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+            </div>
+            <div
+              class="hidden h-12 w-12 items-center justify-center dark:flex"
+              title="Cambiar a modo claro"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+            </div>
+          </button>
+        </div>
+      
+    </div>
+  </div>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 z-50 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/es/"
+>
+  <div
+    id="search-modal"
+    class="top-20 mx-auto flex min-h-0 w-full max-w-3xl flex-col rounded-md border border-neutral-200 bg-neutral shadow-lg dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex flex-none items-center justify-between px-2">
+      <form class="flex min-w-0 flex-auto items-center">
+        <div class="flex h-8 w-8 items-center justify-center text-neutral-400">
+          <span class="icon relative inline-block px-1 align-text-bottom"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="mx-1 flex h-12 flex-auto appearance-none bg-transparent focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Buscar"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex h-8 w-8 items-center justify-center text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Cerrar (Esc)"
+      >
+        <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto overflow-auto px-2">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+</html>

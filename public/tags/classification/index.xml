@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Classification on RRogers</title>
+    <link>http://localhost:1313/tags/classification/</link>
+    <description>Recent content in Classification on RRogers</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <copyright>Copyright &amp;copy; 2024 - Randolph Rogers</copyright>
+    <lastBuildDate>Sat, 26 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/classification/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cost-Sensitive Customer Churn Prediction</title>
+      <link>http://localhost:1313/portfolio/cost-sensitive-model/</link>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/portfolio/cost-sensitive-model/</guid>
+      <description>Predicting customer churn is not just about identifying who is likely to leave; it&amp;rsquo;s about understanding the financial implications behind each customer&amp;rsquo;s departure.</description>
+    </item>
+  </channel>
+</rss>

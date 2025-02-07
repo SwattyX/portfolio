@@ -1,0 +1,191 @@
+<header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+    <nav class="flex items-center justify-between">
+        <!-- Site logo/title -->
+        <div class="z-40 flex flex-row items-center">
+            {{- if .Site.Params.header.logo }}
+              {{- $logo := resources.Get .Site.Params.header.logo }}
+              {{- $logo_dark := resources.Get .Site.Params.header.logoDark }}
+              {{- if $logo }}
+                <a href="{{ "" | relLangURL }}" class="mr-2">
+                  {{ if eq $logo.MediaType.SubType "svg" }}
+                    <img src="{{ $logo.RelPermalink }}" class="max-h-[10rem] max-w-[10rem] object-scale-down object-left {{ if $logo_dark }}hidden dark:flex{{ end }}" alt="{{ .Site.Title }}" />
+                  {{ else }}
+                    <img src="{{ $logo.RelPermalink }}" width="{{ div $logo.Width 2 }}" height="{{ div $logo.Height 2 }}" class="max-h-[10rem] max-w-[10rem] object-scale-down object-left {{ if $logo_dark }}hidden dark:flex{{ end }}" alt="{{ .Site.Title }}" />
+                  {{ end }}
+                  {{- if $logo_dark }}
+                    {{ if eq $logo_dark.MediaType.SubType "svg" }}
+                      <img src="{{ $logo_dark.RelPermalink }}" class="max-h-[10rem] max-w-[10rem] object-scale-down object-left dark:hidden" alt="{{ .Site.Title }}" />
+                    {{ else }}
+                      <img src="{{ $logo_dark.RelPermalink }}" width="{{ div $logo_dark.Width 2 }}" height="{{ div $logo_dark.Height 2 }}" class="max-h-[10rem] max-w-[10rem] object-scale-down object-left dark:hidden" alt="{{ .Site.Title }}" />
+                    {{ end }}
+                  {{- end }}
+                </a>
+              {{- end }}
+            {{- end }}
+            {{- if .Site.Params.header.showTitle | default true }}
+              <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" rel="me" href="{{ "" | relLangURL }}">{{ .Site.Title | markdownify | emojify }}</a>
+            {{- end }}
+          </div>
+        <!-- Normal Menu for Larger Screens -->
+        {{ if .Site.Menus.main }}
+        <ul class="hidden sm:flex sm:items-center sm:space-x-6">
+            {{ range .Site.Menus.main }}
+            <li class="group">
+                {{ if eq .Params.action "search" }}
+                {{ if $.Site.Params.enableSearch | default false }}
+                <button id="search-button" title="{{ .Title | default (i18n " search.open_button_title") }}"
+                    class="hover:text-primary-600 dark:hover:text-primary-400">
+                    {{ with .Params.icon | default "search" }}
+                    {{ partial "icon.html" . }}
+                    {{ end }}
+                    {{ if .Params.showName | default true }}
+                    <span>{{ .Name | markdownify | emojify }}</span>
+                    {{ end }}
+                </button>
+                {{ end }}
+                {{ else if eq .Params.action "appearance" }}
+                <button id="appearance-switcher" type="button" aria-label="appearance switcher"
+                    class="hover:text-primary-600 dark:hover:text-primary-400">
+                    <span class="dark:hidden">
+                        {{ with .Params.icon | default "moon" }}
+                        {{ partial "icon.html" . }}
+                        {{ end }}
+                        {{ if .Params.showName | default true }}
+                        <span>{{ .Name | markdownify | emojify }}</span>
+                        {{ end }}
+                    </span>
+                    <span class="hidden dark:inline">
+                        {{ with .Params.icon | default "sun" }}
+                        {{ partial "icon.html" . }}
+                        {{ end }}
+                        {{ if .Params.showName | default true }}
+                        <span>{{ .Name | markdownify | emojify }}</span>
+                        {{ end }}
+                    </span>
+                </button>
+                {{ else if eq .Params.action "locale" }}
+                {{ partial "translations.html" . }}
+                {{ else }}
+                <a href="{{ .URL }}" title="{{ .Title }}" class="hover:text-primary-600 dark:hover:text-primary-400" {{
+                    with .Params.target }}target="{{ . }}" {{ end }}>
+                    {{ with .Params.icon }}
+                    {{ partial "icon.html" . }}
+                    {{ end }}
+                    {{ if .Params.showName | default true }}
+                    <span>{{ .Name | markdownify | emojify }}</span>
+                    {{ end }}
+                </a>
+                {{ end }}
+            </li>
+            {{ end }}
+        </ul>
+        {{ end }}
+        <!-- Hamburger Menu for Smaller Screens -->
+        {{ if or .Site.Menus.main ($.Site.Params.enableSearch | default false) }}
+        <label id="menu-button" for="menu-controller" class="block sm:hidden">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                {{ partial "icon.html" "bars" }}
+            </div>
+            <div id="menu-wrapper"
+                class="invisible fixed inset-0 z-30 m-auto h-full w-full cursor-default overflow-auto bg-neutral-100/50 opacity-0 backdrop-blur-sm transition-opacity dark:bg-neutral-900/50">
+                <ul
+                    class="mx-auto flex w-full max-w-7xl list-none flex-col overflow-visible px-6 py-6 text-end sm:px-14 sm:py-10 sm:pt-10 md:px-24 lg:px-32">
+                    <li class="mb-1">
+                        <label for="menu-controller"
+                            class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                            {{ partial "icon.html" "xmark" }}
+                        </label>
+                    </li>
+                    {{ if .Site.Menus.main }}
+                    {{ range .Site.Menus.main }}
+                    {{ if and (eq .Params.action "locale") (or (not page.IsTranslated) (not hugo.IsMultilingual)) }}
+                    {{ continue }}
+                    {{ end }}
+                    <li class="group mb-1">
+                        {{ if eq .Params.action "search" }}
+                        {{ if $.Site.Params.enableSearch | default false }}
+                        <button id="search-button" title="{{ .Title | default (i18n " search.open_button_title") }}">
+                            {{ with .Params.icon | default "search" }}
+                            <span
+                                class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600">
+                                {{- partial "icon.html" . -}}
+                            </span>
+                            {{ end }}
+                            {{ if .Params.showName | default true }}
+                            <span
+                                class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                {{ .Name | markdownify | emojify }}
+                            </span>
+                            {{ end }}
+                        </button>
+                        {{ end }}
+                        {{ else if eq .Params.action "appearance" }}
+                        <button id="appearance-switcher" type="button" aria-label="appearance switcher">
+                            <span
+                                class="group-dark:hover:text-primary-400 inline transition-colors group-hover:text-primary-600 dark:hidden">
+                                {{ with .Params.icon | default "moon" }}
+                                {{- partial "icon.html" . -}}
+                                {{ end }}
+                                {{ if .Params.showName | default true }}
+                                <span
+                                    class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                    {{ .Name | markdownify | emojify }}
+                                </span>
+                                {{ end }}
+                            </span>
+                            <span
+                                class="group-dark:hover:text-primary-400 hidden transition-colors group-hover:text-primary-600 dark:inline">
+                                {{ with .Params.icon | default "sun" }}
+                                {{- partial "icon.html" . -}}
+                                {{ end }}
+                                {{ if .Params.showName | default true }}
+                                <span
+                                    class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                    {{ .Name | markdownify | emojify }}
+                                </span>
+                                {{ end }}
+                            </span>
+                        </button>
+                        {{ else if eq .Params.action "locale" }}
+                        {{ partial "translations.html" . }}
+                        {{ else }}
+                        <a href="{{ .URL }}" title="{{ .Title }}"
+                            onclick="document.getElementById('menu-controller').checked = false;" {{ with .Params.target
+                            }}target="{{ . }}" {{ end }}>
+                            {{ with .Params.icon }}
+                            <span
+                                class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600">
+                                {{- partial "icon.html" . -}}
+                            </span>
+                            {{ end }}
+                            {{ if .Params.showName | default true }}
+                            <span
+                                class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
+                                {{ .Name | markdownify | emojify }}
+                            </span>
+                            {{ end }}
+                        </a>
+                        {{ end }}
+                    </li>
+                    {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+        </label>
+        {{ end }}
+    </nav>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ]
+    });
+  });
+</script>
+</header>
